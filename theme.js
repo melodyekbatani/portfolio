@@ -20,6 +20,30 @@ const getCurrentTheme = () => {
 	return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light'
 }
 
+const updateFavicon = (theme) => {
+	// Remove existing favicon
+	const existing = document.getElementById('theme-favicon')
+	if (existing) {
+		existing.remove()
+	}
+	
+	// Create new favicon link
+	const link = document.createElement('link')
+	link.id = 'theme-favicon'
+	link.rel = 'icon'
+	link.type = 'image/x-icon'
+	
+	if (theme === 'dark') {
+		link.href = 'favicons/Favicon-dark.svg'
+		link.type = 'image/svg+xml'
+	} else {
+		link.href = 'favicons/Favicon.ico'
+		link.type = 'image/x-icon'
+	}
+	
+	document.head.appendChild(link)
+}
+
 const applyTheme = (theme) => {
 	document.documentElement.setAttribute('data-theme', theme)
 	if (theme === 'light' || theme === 'dark') {
@@ -28,6 +52,7 @@ const applyTheme = (theme) => {
 		document.documentElement.style.colorScheme = 'light'
 	}
 	themeSwitch.innerHTML = themeIcons[theme]
+	updateFavicon(theme)
 	localStorage.setItem('theme', theme)
 }
 
