@@ -32,7 +32,7 @@ img {
 table { border-collapse: collapse }
 
 /* Safari issue when using text input. */
-input, textarea { -webkit-user-select: auto }
+input, textarea { -webkit-user-select: auto; user-select: auto }
 
 /* Revert for textarea elements on Safari. */
 textarea { white-space: revert }
