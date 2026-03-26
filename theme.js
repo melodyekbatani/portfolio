@@ -33,10 +33,7 @@ const applyTheme = (theme) => {
 }
 
 const updateFavicons = (theme) => {
-	const svgFavicon = document.querySelector('link[type="image/svg+xml"]')
-	if (svgFavicon) {
-		svgFavicon.href = `Favicon /Favicon.svg?theme=${theme}`
-	}
+	// Favicon switching removed - using single favicon for simplicity
 }
 
 const currentTheme = getCurrentTheme()
