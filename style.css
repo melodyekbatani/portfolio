@@ -152,10 +152,10 @@ header {
 		justify-content: space-between;
 
 		.subtitle {
+			margin-inline-start: 0.25rem;
 			font-family: var(--font-mono);
 			font-size: clamp(0.75rem, 1.5vw, 0.875rem);
 			letter-spacing: 0.15em;
-			margin: 0;
 			margin-block-end: 1rem;
 			padding: 0;
 			color: var(--color-subtle);
@@ -165,7 +165,6 @@ header {
 		h1 {
 			font-family: var(--font);
 			font-size: clamp(5rem, 8vw, 7rem);
-			margin-inline-start: ;
 			line-height: 0.9;
 			margin: 0;
 			padding: 0;
@@ -183,7 +182,7 @@ header {
 			padding: 0;
 
 			p {
-				font-family: var(--font-mono);
+				font-family: var(--font);
 				font-size: clamp(0.75rem, 1.5vw, 1rem);
 				margin: 0;
 				padding: 0;
@@ -232,13 +231,27 @@ main {
 	article {
 		display: grid;
 		grid-template-columns: 1fr;
-			gap: clamp(0.5rem, 2vw, 1rem);
+		gap: clamp(0.5rem, 2vw, 1rem);
 
-			li,
-			section {
-				display: flex;
-				flex-direction: column;
-				padding: clamp(1rem, 4vw, 2rem);
+		li,
+		section {
+			display: flex;
+			flex-direction: column;
+			background-color: var(--color-surface);
+			border-radius: var(--radius);
+			border: var(--border-width) solid var(--color-border);
+			overflow: hidden;
+
+			figure {
+				margin: 0;
+				padding: 0;
+			}
+
+			h2,
+			p,
+			a {
+				padding-inline: clamp(1rem, 4vw, 2rem);
+			}
 
 			h2 {
 				font-size: clamp(1rem, 4vw, 1.5rem);
@@ -247,6 +260,7 @@ main {
 				font-family: var(--font-mono);
 				text-transform: uppercase;
 				letter-spacing: 0.05em;
+				padding-block-start: clamp(1rem, 4vw, 2rem);
 			}
 
 			h3 {
