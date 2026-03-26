@@ -28,12 +28,7 @@ const applyTheme = (theme) => {
 		document.documentElement.style.colorScheme = 'light'
 	}
 	themeSwitch.innerHTML = themeIcons[theme]
-	updateFavicons(theme)
 	localStorage.setItem('theme', theme)
-}
-
-const updateFavicons = (theme) => {
-	// Favicon switching removed - using single favicon for simplicity
 }
 
 const currentTheme = getCurrentTheme()
