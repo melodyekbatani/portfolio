@@ -307,37 +307,47 @@ main {
 footer {
 	margin-block-start: var(--space-md);
 	padding: var(--space-md);
+	display: flex;
+	flex-direction: column;
 
 	h3 {
-			font-size: clamp(2rem, 6vw, 4rem);
-			line-height: 0.95;
-			margin-block-end: var(--space-sm);
-		}
+		font-size: clamp(2rem, 6vw, 4rem);
+		line-height: 0.95;
+		margin-block-end: var(--space-sm);
+	}
 
-		p {
-			font-size: clamp(0.875rem, 2vw, 1.125rem);
+	> p {
+		font-size: clamp(0.875rem, 2vw, 1.125rem);
+		margin-block-end: var(--space-md);
+	}
+
+	.footer-menu-container {
 		display: flex;
 		justify-content: space-between;
+		align-items: center;
 
-		a {
-			text-decoration: none;
-			color: var(--color-subtle);
-		}
-
-		ul {
+		.footer-menu {
 			display: flex;
 			gap: var(--space-md);
 			list-style: none;
 
-			li {
-				font-size: var(--font-size-sm);
+			li a {
+				font-family: var(--font-mono);
+				font-size: 0.75rem;
 				color: var(--color-subtle);
+				text-decoration: none;
+				text-transform: uppercase;
+				letter-spacing: 0.1em;
 			}
+		}
 
-			p {
-				font-size: var(--font-size-sm);
-				color: var(--color-subtle);
-			}
+		a {
+			font-family: var(--font-mono);
+			font-size: 0.75rem;
+			color: var(--color-subtle);
+			text-decoration: none;
+			text-transform: uppercase;
+			letter-spacing: 0.1em;
 		}
 	}
 }
@@ -371,7 +381,7 @@ footer {
 			font-size: clamp(2rem, 6vw, 4rem);
 		}
 
-		p {
+		> p {
 			font-size: clamp(0.875rem, 2vw, 1.125rem);
 			padding-block-end: var(--space-md);
 		}

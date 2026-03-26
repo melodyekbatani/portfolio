@@ -28,7 +28,15 @@ const applyTheme = (theme) => {
 		document.documentElement.style.colorScheme = 'light'
 	}
 	themeSwitch.innerHTML = themeIcons[theme]
+	updateFavicons(theme)
 	localStorage.setItem('theme', theme)
+}
+
+const updateFavicons = (theme) => {
+	const svgFavicon = document.querySelector('link[type="image/svg+xml"]')
+	if (svgFavicon) {
+		svgFavicon.href = `Favicon /Favicon.svg?theme=${theme}`
+	}
 }
 
 const currentTheme = getCurrentTheme()
