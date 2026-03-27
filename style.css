@@ -14,6 +14,9 @@
 	/* Typography */
 	--font: 'Geist', sans-serif;
 	--font-mono: 'Geist Mono', monospace;
+	--type-hero-title: clamp(3.5rem, 12vw, 8rem);
+	--type-hero-subtitle: clamp(1rem, 2.4vw, 2rem);
+	--type-hero-line-height: 1.1;
 
 	/* Layout */
 	--space-xs: 0.25rem;
@@ -779,7 +782,7 @@ header.aeri-header {
 		align-items: center;
 		justify-content: center;
 		padding-inline: var(--space-md);
-		padding-block: clamp(5rem, 10vh, 8rem) var(--space-md);
+		padding-block: 0;
 		background-image:
 			linear-gradient(to bottom, rgba(2, 5, 16, 0.72), rgba(2, 5, 16, 0.5)),
 			url("Case Studies /Aeri/Aeri hero.avif");
@@ -792,19 +795,22 @@ header.aeri-header {
 		max-inline-size: 42rem;
 		text-align: center;
 		color: #f7f9ff;
-		animation: aeriHeroIn 0.9s ease-out both;
+		animation: aeriHeroIn 1.15s cubic-bezier(0.22, 1, 0.36, 1) both;
 
 		h1 {
-			font-size: clamp(3.5rem, 12vw, 8rem);
+			font-size: var(--type-hero-title);
 			line-height: 0.9;
 			margin-block-end: var(--space-sm);
 		}
 
 		p {
-			font-size: clamp(1.2rem, 3vw, 2.75rem);
-			line-height: 1.1;
+			font-size: var(--type-hero-subtitle);
+			line-height: var(--type-hero-line-height);
 			color: #d2d9ee;
 			letter-spacing: 0;
+			max-inline-size: 24ch;
+			margin-inline: auto;
+			text-wrap: balance;
 		}
 	}
 }
@@ -812,12 +818,24 @@ header.aeri-header {
 @keyframes aeriHeroIn {
 	0% {
 		opacity: 0;
-		transform: translateY(0.75rem);
+		transform: translateY(1.5rem) scale(0.97);
 	}
 
 	100% {
 		opacity: 1;
-		transform: translateY(0);
+		transform: translateY(0) scale(1);
+	}
+}
+
+@media (width < 47.95rem) {
+	header.aeri-header .aeri-hero-content {
+		h1 {
+			font-size: clamp(4.25rem, 18vw, 6rem);
+		}
+
+		p {
+			font-size: clamp(1.35rem, 6vw, 1.9rem);
+		}
 	}
 }
 

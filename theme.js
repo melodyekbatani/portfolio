@@ -48,13 +48,23 @@ applyTheme(currentTheme)
 
 // Hamburger menu toggle
 if (menuToggle && menu) {
+	const updateMenuToggleIcon = () => {
+		const menuIsOpen = menu.classList.contains('active')
+		menuToggle.textContent = menuIsOpen ? '×' : '☰'
+		menuToggle.setAttribute('aria-expanded', menuIsOpen ? 'true' : 'false')
+	}
+
+	updateMenuToggleIcon()
+
 	menuToggle.addEventListener('click', () => {
 		menu.classList.toggle('active')
+		updateMenuToggleIcon()
 	})
 
 	menu.querySelectorAll('a').forEach(link => {
 		link.addEventListener('click', () => {
 			menu.classList.remove('active')
+			updateMenuToggleIcon()
 		})
 	})
 }
