@@ -123,8 +123,12 @@ header {
 		border: var(--border-width) solid var(--color-border);
 			position: sticky;
 			top: var(--space-md);
+			left: 0;
+			right: 0;
+			transform: scale(1);
+			opacity: 1;
 			z-index: 1000;
-			transition: none;
+			transition: inline-size 0.45s ease, padding 0.45s ease, border-radius 0.45s ease, transform 0.35s ease, opacity 0.35s ease;
 			margin-block-start: var(--space-md);
 			margin-block-end: var(--space-md);
 			margin-inline: auto;
@@ -204,11 +208,14 @@ header {
 	nav.scrolled {
 		position: fixed;
 		top: var(--space-md);
-		left: 50%;
-		transform: translateX(-50%);
+		left: 0;
+		right: 0;
+		transform: scale(0.97);
+		opacity: 0.96;
 		padding-block: var(--space-sm);
 		padding-inline: var(--space-md);
-		margin: 0;
+		margin-inline: auto;
+		margin-block: 0;
 		border-radius: var(--radius);
 		border: var(--border-width) solid var(--color-border);
 		inline-size: min(calc(100% - (var(--space-md) * 2)), calc(var(--max-width) - 8rem));
@@ -264,13 +271,14 @@ header {
 	}
 
 	hgroup {
-		padding-block-start: clamp(4rem, 8vh, 6rem);
-		padding-block-end: var(--space-sm);
+		padding-block-start: clamp(3rem, 6vh, 5rem);
+		padding-block-end: var(--space-md);
 		padding-inline: var(--space-md);
 		display: flex;
 		flex-direction: column;
-		min-block-size: 90vh;
-		justify-content: space-between;
+		min-block-size: auto;
+		justify-content: flex-start;
+		gap: var(--space-sm);
 
 		.subtitle {
 			margin-inline-start: 0.25rem;
@@ -296,8 +304,8 @@ header {
 		}
 
 		p {
-			padding-block-start: var(--space-sm);
-			padding-block-end: var(--space-sm);
+			padding-block-start: 0;
+			padding-block-end: 0;
 			font-family: var(--font);
 			font-size: clamp(0.875rem, 2vw, 1.125rem);
 		}
@@ -756,6 +764,8 @@ main.aeri-page {
 }
 
 body.aeri-case {
+	padding-block-start: 0;
+
 	main {
 		padding-block-start: 0;
 	}
@@ -763,24 +773,24 @@ body.aeri-case {
 
 header.aeri-header {
 	margin-block-start: 0;
+	position: relative;
 
 	nav {
 		position: absolute;
-		top: var(--space-md);
-		left: 50%;
-		transform: translateX(-50%);
-		z-index: 2;
-		inline-size: min(calc(100% - (var(--space-sm) * 2)), 72rem);
-		margin: 0;
+		inset-block-start: var(--space-sm);
+		left: 0;
+		right: 0;
+		margin-inline: auto;
+		margin-block: 0;
+		z-index: 1000;
 	}
 
 	.aeri-hero {
 		inline-size: 100vw;
 		min-block-size: 90vh;
 		margin-inline: calc(50% - 50vw);
-		display: flex;
-		align-items: center;
-		justify-content: center;
+		display: grid;
+		place-items: center;
 		padding-inline: var(--space-md);
 		padding-block: 0;
 		background-image:
@@ -793,6 +803,8 @@ header.aeri-header {
 
 	.aeri-hero-content {
 		max-inline-size: 42rem;
+		display: grid;
+		place-items: center;
 		text-align: center;
 		color: #f7f9ff;
 		animation: aeriHeroIn 1.15s cubic-bezier(0.22, 1, 0.36, 1) both;
