@@ -4,7 +4,7 @@
 	color-scheme: light dark;
 
 	/* Colors */
-	--color-background: light-dark(#F6F8FA, #1a1a1a);
+	--color-background: light-dark(#F6F8FA, #0d1117);
 	--color-border: light-dark(#dbdde0, #21262d);
 	--color-text: light-dark(#000000, #ffffff);
 	--color-surface: light-dark(#ffffff, #000000);
@@ -14,47 +14,6 @@
 	/* Typography */
 	--font: 'Geist', sans-serif;
 	--font-mono: 'Geist Mono', monospace;
-	
-	/* Font Weights */
-	--font-weight-regular: 400;
-	--font-weight-medium: 500;
-	--font-weight-semibold: 600;
-	--font-weight-bold: 700;
-	
-	/* Headings */
-	--type-h1: 3.75rem;
-	--type-h1-lh: 1.1;
-	--type-h2: 3rem;
-	--type-h2-lh: 1.2;
-	--type-h3: 2rem;
-	--type-h3-lh: 1.3;
-	--type-h4: 1.625rem;
-	--type-h4-lh: 1.4;
-	--type-h5: 1rem;
-	--type-h5-lh: 1.4;
-	--type-h6: 5.4375rem;
-	--type-h6-lh: 1.1;
-	
-	/* Body */
-	--type-body: 1rem;
-	--type-body-l: 1.125rem;
-	--type-body-s: 0.875rem;
-	--type-body-lh: 1.6;
-	
-	/* Special */
-	--type-brand: 1.4375rem;
-	--type-nav: 1rem;
-	--type-tag: 0.875rem;
-	--type-button: 1rem;
-	
-	/* Letter Spacing */
-	--letter-spacing-tight: -0.01em;
-	--letter-spacing-normal: 0.02em;
-	--letter-spacing-wide: 0.05em;
-	--letter-spacing-wider: 0.1em;
-	--letter-spacing-extra: 0.15em;
-	
-	/* Hero (for homepage) */
 	--type-hero-title: clamp(3.5rem, 12vw, 8rem);
 	--type-hero-subtitle: clamp(1rem, 2.4vw, 1.5rem);
 	--type-hero-line-height: 1.1;
@@ -67,10 +26,6 @@
 	--max-width: 56rem;
 	--radius: 1rem;
 	--border-width: 0.05rem;
-	
-	/* Other */
-	--opacity-hover: 0.7;
-	--transition-default: 0.2s ease;
 }
 
 /* Party Mode Theme */
@@ -134,23 +89,22 @@ body {
 	background-color: var(--color-background);
 	color: var(--color-text);
 	font-family: var(--font);
-	font-size: var(--type-body);
-	line-height: var(--type-body-lh);
+	line-height: 1.35;
 	letter-spacing: 0.02em;
 
 	a {
 		text-decoration: underline;
 		color: var(--color-links);
-		transition: opacity var(--transition-default);
+		transition: opacity 0.2s ease;
 
 		&:hover {
-			opacity: var(--opacity-hover);
+			opacity: 0.7;
 		}
 	}
 
 	p {
-		line-height: var(--type-body-lh);
-		letter-spacing: var(--letter-spacing-normal);
+		line-height: 1.35;
+		letter-spacing: 0.02em;
 	}
 }
 
@@ -198,10 +152,10 @@ header {
 			padding: 0;
 			font-size: 1.5rem;
 			z-index: 1001;
-			transition: opacity var(--transition-default);
+			transition: opacity 0.2s ease;
 
 			&:hover {
-				opacity: var(--opacity-hover);
+				opacity: 0.7;
 			}
 		}
 
@@ -219,7 +173,7 @@ header {
 					transition: opacity 0.2s ease;
 					font-family: var(--font-mono);
 					text-transform: uppercase;
-					font-size: var(--type-nav);
+					font-size: 0.75rem;
 					letter-spacing: 0.1em;
 				}
 			}
@@ -237,7 +191,7 @@ header {
 			display: inline-flex;
 			align-items: center;
 			justify-content: center;
-			transition: opacity var(--transition-default);
+			transition: opacity 0.2s ease;
 			font-family: inherit;
 
 			svg {
@@ -245,7 +199,7 @@ header {
 			}
 
 			&:hover {
-				opacity: var(--opacity-hover);
+				opacity: 0.7;
 			}
 		}
 	}
@@ -327,11 +281,11 @@ header {
 		gap: var(--space-sm);
 
 		.subtitle {
-			margin-inline-start: var(--space-xs);
+			margin-inline-start: 0.25rem;
 			font-family: var(--font-mono);
-			font-size: var(--type-tag);
-			letter-spacing: var(--letter-spacing-extra);
-			margin-block-end: var(--space-md);
+			font-size: clamp(0.75rem, 1.5vw, 0.875rem);
+			letter-spacing: 0.15em;
+			margin-block-end: 1rem;
 			padding: 0;
 			color: var(--color-subtle);
 			text-transform: uppercase;
@@ -339,8 +293,8 @@ header {
 
 		h1 {
 			font-family: var(--font);
-			font-size: var(--type-h1);
-			line-height: var(--type-h1-lh);
+			font-size: clamp(5rem, 8vw, 7rem);
+			line-height: 0.9;
 			margin: 0;
 			padding: 0;
 
@@ -353,8 +307,7 @@ header {
 			padding-block-start: 0;
 			padding-block-end: 0;
 			font-family: var(--font);
-			font-size: var(--type-h4);
-			line-height: var(--type-h4-lh);
+			font-size: clamp(0.875rem, 2vw, 1.125rem);
 		}
 	}
 }
@@ -364,11 +317,8 @@ main {
 		h2 {
 			padding-block: var(--space-md);
 			text-align: center;
-			font-family: var(--font-mono);
-			font-size: var(--type-tag);
-			font-weight: var(--font-weight-medium);
-			letter-spacing: var(--letter-spacing-wide);
-			text-transform: uppercase;
+			font-family: var(--font);
+			font-size: 1rem;
 		}
 	}
 
@@ -421,12 +371,12 @@ main {
 			}
 
 			h2 {
-				font-size: var(--type-tag);
+				font-size: clamp(1rem, 4vw, 1.5rem);
 				font-weight: 500;
+				margin: 0;
 				font-family: var(--font-mono);
 				text-transform: uppercase;
 				letter-spacing: 0.05em;
-				margin: 0;
 				padding-block-start: clamp(1rem, 4vw, 2rem);
 			}
 
@@ -435,12 +385,12 @@ main {
 			}
 
 			h3 {
-			font-size: var(--type-h2);
-				font-weight: var(--font-weight-semibold);
-				font-family: var(--font);
-				line-height: var(--type-h2-lh);
+				font-size: clamp(1rem, 4vw, 1.5rem);
+				font-weight: 500;
+				margin-block-start: var(--space-md);
 				margin-block-end: var(--space-sm);
-				letter-spacing: var(--letter-spacing-normal);
+
+				&:first-child {
 					margin-block-start: 0;
 				}
 			}
@@ -448,9 +398,7 @@ main {
 			p {
 				margin: 0;
 				padding-block: var(--space-sm);
-				font-size: var(--type-body);
-				font-weight: var(--font-weight-regular);
-				line-height: var(--type-body-lh);
+				font-size: 1rem;
 			}
 
 			figure {
@@ -483,16 +431,13 @@ footer {
 	flex-direction: column;
 
 	h3 {
-		font-size: clamp(1.5rem, 4vw, 2rem);
-		font-weight: 700;
-		font-family: var(--font);
+		font-size: clamp(2rem, 6vw, 4rem);
+		line-height: 0.95;
 		margin-block-end: var(--space-sm);
 	}
 
 	> p {
-		font-size: var(--type-body);
-		font-weight: var(--font-weight-regular);
-		line-height: var(--type-body-lh);
+		font-size: clamp(0.875rem, 2vw, 1.125rem);
 		margin-block-end: var(--space-md);
 	}
 
@@ -505,10 +450,9 @@ footer {
 		.footer-menu,
 		a {
 			font-family: var(--font-mono);
-			font-size: var(--type-tag);
-			font-weight: var(--font-weight-regular);
+			font-size: 0.75rem;
 			text-transform: uppercase;
-			letter-spacing: var(--letter-spacing-wider);
+			letter-spacing: 0.1em;
 		}
 
 		.footer-menu {
@@ -700,17 +644,12 @@ main.aeri-page {
 
 	h3 {
 		font-family: var(--font);
-		font-size: var(--type-h3);
-		font-weight: 600;
-		line-height: var(--type-h3-lh);
-		letter-spacing: 0.02em;
+		font-size: clamp(1.125rem, 2.2vw, 1.75rem);
 		margin-block-end: var(--space-sm);
 	}
 
 	p {
-		font-size: var(--type-body);
-		font-weight: 400;
-		line-height: var(--type-body-lh);
+		font-size: clamp(0.9rem, 1.5vw, 1.1rem);
 		color: var(--color-text);
 	}
 
@@ -733,27 +672,20 @@ main.aeri-page {
 
 		.aeri-kicker {
 			font-family: var(--font-mono);
-			font-size: var(--type-tag);
-			font-weight: 400;
-			letter-spacing: 0.05em;
+			font-size: 0.75rem;
+			letter-spacing: 0.14em;
 			text-transform: uppercase;
 			opacity: 0.8;
 		}
 
 		h2 {
-			font-family: var(--font);
-			font-size: var(--type-h2);
-			font-weight: 700;
-			line-height: var(--type-h2-lh);
-			letter-spacing: -0.01em;
+			font-size: clamp(2rem, 6vw, 4.5rem);
+			line-height: 0.95;
 			margin-block: var(--space-sm);
 		}
 
 		p {
 			color: #d6ddeb;
-			font-size: var(--type-body);
-			font-weight: 400;
-			line-height: var(--type-body-lh);
 		}
 
 		.aeri-tags {
@@ -769,8 +701,7 @@ main.aeri-page {
 				border-radius: 999rem;
 				background-color: rgba(255, 255, 255, 0.12);
 				font-family: var(--font-mono);
-				font-size: var(--type-tag);
-				font-weight: 400;
+				font-size: 0.78rem;
 				letter-spacing: 0.03em;
 			}
 		}
@@ -900,36 +831,37 @@ main.aeri-overview-main {
 
 		/* Section headings for overview and design challenge */
 		h2 {
-			font-size: var(--type-tag);
+			font-size: clamp(0.75rem, 1vw, 0.9rem);
 			font-weight: 500;
-			font-family: var(--font-mono);
+			line-height: 1.3;
 			color: var(--color-subtle);
 			margin: 0;
 			margin-block-end: clamp(0.15rem, 0.3vw, 0.25rem);
 			text-align: left;
 			inline-size: 100%;
 			text-transform: uppercase;
-			letter-spacing: 0.05em;
+			font-family: var(--font-mono);
+			letter-spacing: 0.1em;
 		}
 
 		/* Metadata category labels */
 		h3 {
-			font-size: var(--type-tag);
+			font-size: clamp(0.75rem, 1vw, 0.9rem);
 			font-weight: 500;
-			font-family: var(--font-mono);
+			line-height: 1.3;
 			color: var(--color-subtle);
 			margin: 0;
 			margin-block-end: 0;
-			letter-spacing: 0.05em;
+			letter-spacing: 0.1em;
 			text-align: left;
 			inline-size: 100%;
 			text-transform: uppercase;
+			font-family: var(--font-mono);
 		}
 
 		p {
-			font-size: var(--type-body-s);
-			font-weight: 400;
-			line-height: var(--type-body-lh);
+			font-size: clamp(0.8rem, 1.1vw, 0.95rem);
+			line-height: 1.5;
 			margin: 0;
 			margin-block-start: 0.25rem;
 			padding: 0;
@@ -987,11 +919,6 @@ main.aeri-overview-main {
 				margin: 0;
 				padding: 0;
 				border-radius: 0;
-				font-size: var(--type-h2);
-				font-weight: 600;
-				font-family: var(--font);
-				line-height: var(--type-h2-lh);
-				letter-spacing: -0.01em;
 			}
 
 			p {
@@ -1001,10 +928,6 @@ main.aeri-overview-main {
 				text-align: left;
 				margin: 0;
 				padding: 0;
-				font-size: var(--type-body);
-				font-weight: 400;
-				line-height: var(--type-body-lh);
-				letter-spacing: 0.02em;
 			}
 		}
 
@@ -1013,7 +936,7 @@ main.aeri-overview-main {
 			list-style: none;
 			display: grid;
 			grid-template-columns: repeat(4, 1fr);
-			gap: 1.5rem;
+			gap: 0.5rem;
 			background-color: transparent;
 			border: none;
 			max-width: 80%;
@@ -1029,7 +952,7 @@ main.aeri-overview-main {
 				border: none;
 				position: relative;
 				flex-direction: row;
-				overflow: visible;
+				overflow: hidden;
 			}
 
 			li:first-child {
@@ -1043,24 +966,38 @@ main.aeri-overview-main {
 				transform: scale(1.15);
 			}
 
-			/* Make Lovable slightly smaller */
-			li:nth-child(3) img {
-				transform: scale(1.0);
-			}
-
-			/* Invert colors for OpenAI, Midjourney, and Perplexity in light mode */
+			/* Adjust sizes for specific tools */
 			li:nth-child(4) img,
 			li:nth-child(5) img {
-				filter: light-dark(invert(1), none);
+				transform: scale(0.85);
 			}
 
-			/* Invert Perplexity in light mode and zoom more */
+			li:nth-child(7) img {
+				transform: scale(1.4);
+			}
+
+			/* Invert colors for OpenAI, Midjourney, and Perplexity in light/party modes */
+			li:nth-child(4) img,
+			li:nth-child(5) img,
 			li:nth-child(7) img {
 				filter: light-dark(invert(1), none);
-				transform: scale(1.5);
 			}
-		}
 	}
+}
+}
+
+/* Light mode - explicitly invert tool icons */
+[data-theme="light"] main.aeri-overview-main .aeri-overview .aeri-tool-grid li:nth-child(4) img,
+[data-theme="light"] main.aeri-overview-main .aeri-overview .aeri-tool-grid li:nth-child(5) img,
+[data-theme="light"] main.aeri-overview-main .aeri-overview .aeri-tool-grid li:nth-child(7) img {
+	filter: invert(1);
+}
+
+/* Party mode - invert tool icons */
+[data-theme="party"] main.aeri-overview-main .aeri-overview .aeri-tool-grid li:nth-child(4) img,
+[data-theme="party"] main.aeri-overview-main .aeri-overview .aeri-tool-grid li:nth-child(5) img,
+[data-theme="party"] main.aeri-overview-main .aeri-overview .aeri-tool-grid li:nth-child(7) img {
+	filter: invert(1);
 }
 
 /* Two-column layout on larger viewports */
@@ -1097,17 +1034,11 @@ main.aeri-overview-main {
 @media (width < 47.95rem) {
 	header.aeri-header .aeri-hero-content {
 		h1 {
-			font-size: var(--type-h1);
-			font-weight: 700;
-			line-height: var(--type-h1-lh);
-			letter-spacing: -0.01em;
+			font-size: clamp(4.25rem, 18vw, 6rem);
 		}
 
 		p {
-			font-size: var(--type-body-l);
-			font-weight: 400;
-			line-height: var(--type-h4-lh);
-			letter-spacing: 0;
+			font-size: clamp(1.35rem, 6vw, 1.9rem);
 		}
 	}
 }
