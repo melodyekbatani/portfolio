@@ -65,3 +65,32 @@ themeSwitch.addEventListener('click', () => {
 	const nextTheme = themes[(themes.indexOf(current) + 1) % themes.length]
 	applyTheme(nextTheme)
 })
+
+// Sticky nav scroll state
+const headerNav = document.querySelector('header nav')
+const scrollThreshold = 50
+let navIsScrolled = false
+
+if (headerNav) {
+	headerNav.addEventListener('animationend', () => {
+		headerNav.classList.remove('fade-in', 'grow-in')
+	})
+
+	window.addEventListener('scroll', () => {
+		const nextScrolled = window.scrollY > scrollThreshold
+
+		if (nextScrolled && !navIsScrolled) {
+			headerNav.classList.remove('grow-in')
+			headerNav.classList.add('scrolled')
+			headerNav.classList.add('fade-in')
+		}
+
+		if (!nextScrolled && navIsScrolled) {
+			headerNav.classList.remove('fade-in')
+			headerNav.classList.remove('scrolled')
+			headerNav.classList.add('grow-in')
+		}
+
+		navIsScrolled = nextScrolled
+	})
+}
