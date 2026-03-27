@@ -4,7 +4,7 @@
 	color-scheme: light dark;
 
 	/* Colors */
-	--color-background: light-dark(#F6F8FA, #0d1117);
+	--color-background: light-dark(#F6F8FA, #1a1a1a);
 	--color-border: light-dark(#dbdde0, #21262d);
 	--color-text: light-dark(#000000, #ffffff);
 	--color-surface: light-dark(#ffffff, #000000);
@@ -317,8 +317,11 @@ main {
 		h2 {
 			padding-block: var(--space-md);
 			text-align: center;
-			font-family: var(--font);
-			font-size: 1rem;
+			font-family: var(--font-mono);
+			font-size: var(--type-heading-sm);
+			font-weight: var(--font-weight-medium);
+			letter-spacing: var(--letter-spacing-wide);
+			text-transform: uppercase;
 		}
 	}
 
@@ -371,12 +374,12 @@ main {
 			}
 
 			h2 {
-				font-size: clamp(1rem, 4vw, 1.5rem);
+				font-size: clamp(0.625rem, 1.25vw, 0.75rem);
 				font-weight: 500;
-				margin: 0;
 				font-family: var(--font-mono);
 				text-transform: uppercase;
 				letter-spacing: 0.05em;
+				margin: 0;
 				padding-block-start: clamp(1rem, 4vw, 2rem);
 			}
 
@@ -385,10 +388,12 @@ main {
 			}
 
 			h3 {
-				font-size: clamp(1rem, 4vw, 1.5rem);
-				font-weight: 500;
+				font-size: clamp(1rem, 2vw, 1.25rem);
+				font-weight: 600;
+				font-family: var(--font);
 				margin-block-start: var(--space-md);
 				margin-block-end: var(--space-sm);
+				letter-spacing: 0.02em;
 
 				&:first-child {
 					margin-block-start: 0;
@@ -398,7 +403,9 @@ main {
 			p {
 				margin: 0;
 				padding-block: var(--space-sm);
-				font-size: 1rem;
+				font-size: 0.875rem;
+				font-weight: 400;
+				line-height: 1.35;
 			}
 
 			figure {
@@ -431,13 +438,15 @@ footer {
 	flex-direction: column;
 
 	h3 {
-		font-size: clamp(2rem, 6vw, 4rem);
-		line-height: 0.95;
+		font-size: clamp(1.5rem, 4vw, 2rem);
+		font-weight: 700;
+		font-family: var(--font);
 		margin-block-end: var(--space-sm);
 	}
 
 	> p {
-		font-size: clamp(0.875rem, 2vw, 1.125rem);
+		font-size: 0.875rem;
+		font-weight: 400;
 		margin-block-end: var(--space-md);
 	}
 
@@ -451,6 +460,7 @@ footer {
 		a {
 			font-family: var(--font-mono);
 			font-size: 0.75rem;
+			font-weight: 400;
 			text-transform: uppercase;
 			letter-spacing: 0.1em;
 		}
@@ -644,12 +654,16 @@ main.aeri-page {
 
 	h3 {
 		font-family: var(--font);
-		font-size: clamp(1.125rem, 2.2vw, 1.75rem);
+		font-size: var(--type-heading-md);
+		font-weight: var(--font-weight-semibold);
+		letter-spacing: var(--letter-spacing-normal);
 		margin-block-end: var(--space-sm);
 	}
 
 	p {
-		font-size: clamp(0.9rem, 1.5vw, 1.1rem);
+		font-size: var(--type-body);
+		font-weight: var(--font-weight-regular);
+		line-height: var(--line-height-normal);
 		color: var(--color-text);
 	}
 
@@ -672,20 +686,27 @@ main.aeri-page {
 
 		.aeri-kicker {
 			font-family: var(--font-mono);
-			font-size: 0.75rem;
-			letter-spacing: 0.14em;
+			font-size: var(--type-label);
+			font-weight: var(--font-weight-regular);
+			letter-spacing: var(--letter-spacing-wide);
 			text-transform: uppercase;
 			opacity: 0.8;
 		}
 
 		h2 {
-			font-size: clamp(2rem, 6vw, 4.5rem);
-			line-height: 0.95;
+			font-family: var(--font);
+			font-size: var(--type-heading-xl);
+			font-weight: var(--font-weight-bold);
+			line-height: var(--line-height-tight);
+			letter-spacing: var(--letter-spacing-tight);
 			margin-block: var(--space-sm);
 		}
 
 		p {
 			color: #d6ddeb;
+			font-size: var(--type-body-lg);
+			font-weight: var(--font-weight-regular);
+			line-height: var(--line-height-normal);
 		}
 
 		.aeri-tags {
@@ -702,6 +723,7 @@ main.aeri-page {
 				background-color: rgba(255, 255, 255, 0.12);
 				font-family: var(--font-mono);
 				font-size: 0.78rem;
+				font-weight: var(--font-weight-regular);
 				letter-spacing: 0.03em;
 			}
 		}
@@ -831,36 +853,35 @@ main.aeri-overview-main {
 
 		/* Section headings for overview and design challenge */
 		h2 {
-			font-size: clamp(0.75rem, 1vw, 0.9rem);
+			font-size: 0.75rem;
 			font-weight: 500;
-			line-height: 1.3;
+			font-family: var(--font-mono);
 			color: var(--color-subtle);
 			margin: 0;
 			margin-block-end: clamp(0.15rem, 0.3vw, 0.25rem);
 			text-align: left;
 			inline-size: 100%;
 			text-transform: uppercase;
-			font-family: var(--font-mono);
-			letter-spacing: 0.1em;
+			letter-spacing: 0.05em;
 		}
 
 		/* Metadata category labels */
 		h3 {
-			font-size: clamp(0.75rem, 1vw, 0.9rem);
+			font-size: 0.75rem;
 			font-weight: 500;
-			line-height: 1.3;
+			font-family: var(--font-mono);
 			color: var(--color-subtle);
 			margin: 0;
 			margin-block-end: 0;
-			letter-spacing: 0.1em;
+			letter-spacing: 0.05em;
 			text-align: left;
 			inline-size: 100%;
 			text-transform: uppercase;
-			font-family: var(--font-mono);
 		}
 
 		p {
-			font-size: clamp(0.8rem, 1.1vw, 0.95rem);
+			font-size: 0.8125rem;
+			font-weight: 400;
 			line-height: 1.5;
 			margin: 0;
 			margin-block-start: 0.25rem;
@@ -919,6 +940,11 @@ main.aeri-overview-main {
 				margin: 0;
 				padding: 0;
 				border-radius: 0;
+				font-size: var(--type-heading-lg);
+				font-weight: var(--font-weight-semibold);
+				font-family: var(--font);
+				line-height: var(--line-height-relaxed);
+				letter-spacing: var(--letter-spacing-tight);
 			}
 
 			p {
@@ -928,6 +954,10 @@ main.aeri-overview-main {
 				text-align: left;
 				margin: 0;
 				padding: 0;
+				font-size: var(--type-body);
+				font-weight: var(--font-weight-regular);
+				line-height: var(--line-height-relaxed);
+				letter-spacing: var(--letter-spacing-normal);
 			}
 		}
 
@@ -936,18 +966,19 @@ main.aeri-overview-main {
 			list-style: none;
 			display: grid;
 			grid-template-columns: repeat(4, 1fr);
-			gap: var(--space-md);
+			gap: 1.5rem;
 			background-color: transparent;
 			border: none;
+			max-width: 80%;
 
 			li {
 				aspect-ratio: 1 / 1;
-				background-color: #1a1a1a;
-				border-radius: var(--radius);
+				background-color: transparent;
+				border-radius: 0.5rem;
 				display: flex;
 				align-items: center;
 				justify-content: center;
-				padding: 0;
+				padding: 0.25rem;
 				border: none;
 				position: relative;
 				flex-direction: row;
@@ -959,9 +990,27 @@ main.aeri-overview-main {
 			}
 
 			img {
-				max-width: 80%;
-				max-height: 80%;
-				object-fit: contain;
+				width: 100%;
+				height: 100%;
+				object-fit: cover;
+				transform: scale(1.15);
+			}
+
+			/* Make Lovable slightly smaller */
+			li:nth-child(3) img {
+				transform: scale(1.0);
+			}
+
+			/* Invert colors for OpenAI and Midjourney in dark mode only */
+			li:nth-child(4) img,
+			li:nth-child(5) img {
+				filter: light-dark(none, invert(1));
+			}
+
+			/* Invert Perplexity in dark mode and zoom more */
+			li:nth-child(7) img {
+				filter: light-dark(none, invert(1));
+				transform: scale(1.5);
 			}
 		}
 	}
@@ -1002,10 +1051,16 @@ main.aeri-overview-main {
 	header.aeri-header .aeri-hero-content {
 		h1 {
 			font-size: clamp(4.25rem, 18vw, 6rem);
+			font-weight: var(--font-weight-bold);
+			line-height: var(--line-height-tight);
+			letter-spacing: var(--letter-spacing-tight);
 		}
 
 		p {
 			font-size: clamp(1.35rem, 6vw, 1.9rem);
+			font-weight: var(--font-weight-regular);
+			line-height: var(--line-height-tight);
+			letter-spacing: var(--letter-spacing-normal);
 		}
 	}
 }
