@@ -1,0 +1,437 @@
+/* ─── Case Studies - Article Class Style ─── */
+
+main {
+	margin-inline: auto;
+	max-inline-size: 1200px;
+	article.case-study {
+		padding: var(--space-md);
+		background-color: var(--color-surface);
+		border-radius: var(--radius);
+		border: var(--border-width) solid var(--color-border);
+
+		h2,
+		h3 {
+			font-weight: 600;
+		}
+
+		h2 {
+			font-size: var(--type-subheading-lg);
+		}
+
+		h3 {
+			font-size: var(--type-subheading-md);
+		}
+
+		section {
+			background: none;
+			border: none;
+			padding: 0;
+			gap: 0;
+
+			&:not(:first-child) {
+				margin-block-start: var(--space-lg);
+			}
+		}
+	}
+}
+
+/* ─── Aeri Case Study Page ─── */
+
+main.aeri-page {
+	display: flex;
+	flex-direction: column;
+	gap: var(--space-md);
+
+	section {
+		border: var(--border-width) solid var(--color-border);
+		border-radius: var(--radius);
+		background-color: var(--color-surface);
+		padding: clamp(1rem, 3vw, 2rem);
+	}
+
+	h3 {
+		font-family: var(--font);
+		font-size: var(--type-subheading-md);
+		margin-block-end: var(--space-sm);
+		font-weight: 600;
+	}
+
+	p {
+		font-size: clamp(0.9rem, 1.5vw, 1.1rem);
+		color: var(--color-text);
+	}
+
+	figure {
+		margin: 0;
+		padding: 0;
+	}
+
+	img {
+		display: block;
+		inline-size: 100%;
+		block-size: auto;
+		border-radius: calc(var(--radius) * 0.75);
+	}
+
+	.aeri-hero-card {
+		background: linear-gradient(180deg, #05060a 0%, #0f1320 100%);
+		color: #f3f6ff;
+		padding-block: clamp(1.5rem, 4vw, 3rem);
+
+		.aeri-kicker {
+			font-family: var(--font-mono);
+			font-size: 0.75rem;
+			letter-spacing: 0.02em;
+			opacity: 0.8;
+			color: var(--color-subtle);
+		}
+
+		h2 {
+			font-size: clamp(2rem, 6vw, 4.5rem);
+			line-height: 0.95;
+			margin-block: var(--space-sm);
+		}
+
+		p {
+			color: #d6ddeb;
+		}
+
+		.aeri-tags {
+			list-style: none;
+			display: flex;
+			flex-wrap: wrap;
+			gap: var(--space-sm);
+			margin-block-start: var(--space-md);
+
+			li {
+				padding-block: 0.35rem;
+				padding-inline: 0.85rem;
+				border-radius: 999rem;
+				background-color: rgba(255, 255, 255, 0.12);
+				font-family: var(--font-mono);
+				font-size: var(--type-mono-size);
+				letter-spacing: 0.02em;
+				text-transform: uppercase;
+				color: var(--color-links);
+			}
+		}
+	}
+
+	.aeri-overview-grid {
+		display: grid;
+		grid-template-columns: 1fr;
+		gap: var(--space-sm);
+		background: transparent;
+		border: none;
+		padding: 0;
+
+		section {
+			background-color: var(--color-surface);
+		}
+	}
+
+	.aeri-panel {
+		display: flex;
+		flex-direction: column;
+		gap: var(--space-sm);
+	}
+
+	.aeri-split {
+		figure + figure {
+			margin-block-start: var(--space-sm);
+		}
+	}
+
+	.aeri-band {
+		background-color: #16181f;
+		border-color: #16181f;
+		padding-block: clamp(2rem, 6vw, 3.5rem);
+		text-align: center;
+
+		p {
+			color: #f6f8fc;
+			font-size: clamp(1.25rem, 3.2vw, 2rem);
+		}
+	}
+}
+
+@media (width > 47.95rem) {
+	main.aeri-page {
+		.aeri-overview-grid {
+			grid-template-columns: 1fr 2fr;
+		}
+
+		.aeri-split {
+			display: grid;
+			grid-template-columns: 1fr 1fr;
+			gap: var(--space-sm);
+
+			figure + figure {
+				margin-block-start: 0;
+			}
+		}
+	}
+}
+
+body.aeri-case {
+	padding-block-start: 0;
+
+	main {
+		padding-block-start: 0;
+	}
+}
+
+/* ─── Aeri Hero Header ─── */
+
+header.aeri-header {
+	margin-block-start: -10rem;
+
+	.aeri-hero {
+		inline-size: 100vw;
+		block-size: 90vh;
+		margin-inline: calc(50% - 50vw);
+		margin-block-start: 0;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		padding-inline: var(--space-md);
+		padding-block: 0;
+		background-image:
+			linear-gradient(to bottom, rgba(2, 5, 16, 0.72), rgba(2, 5, 16, 0.5)),
+			url("../aeri/assets/Aeri hero.avif");
+		background-size: cover;
+		background-position: center;
+		background-repeat: no-repeat;
+	}
+
+	.aeri-hero-content {
+		max-inline-size: 42rem;
+		display: grid;
+		place-items: center;
+		text-align: center;
+		color: #f7f9ff;
+		animation: aeriHeroIn 1.15s cubic-bezier(0.22, 1, 0.36, 1) both;
+
+		h1 {
+			font-size: var(--type-hero-title);
+			line-height: 0.9;
+			margin-block-end: var(--space-sm);
+		}
+
+		p {
+			font-size: var(--type-hero-subtitle);
+			line-height: var(--type-hero-line-height);
+			color: #d2d9ee;
+			letter-spacing: 0;
+			max-inline-size: 24ch;
+			margin-inline: auto;
+			text-wrap: balance;
+		}
+	}
+}
+
+@keyframes aeriHeroIn {
+	0% {
+		opacity: 0;
+		transform: translateY(1.5rem) scale(0.97);
+	}
+
+	100% {
+		opacity: 1;
+		transform: translateY(0) scale(1);
+	}
+}
+
+/* ─── Aeri Overview Section ─── */
+
+main.aeri-overview-main {
+	padding-inline: clamp(0.75rem, 2vw, 1.5rem);
+	padding-block: var(--space-md);
+
+	.aeri-overview {
+		display: grid;
+		grid-template-columns: 1fr;
+		gap: var(--space-md);
+
+		/* Section headings for overview and design challenge */
+		h2 {
+			font-size: 0.8rem;
+			font-weight: 400;
+			line-height: 1.3;
+			color: var(--color-subtle);
+			margin: 0;
+			margin-block-end: clamp(0.15rem, 0.3vw, 0.25rem);
+			text-align: left;
+			inline-size: 100%;
+			font-family: var(--font-mono);
+			letter-spacing: 0.02em;
+			text-transform: uppercase;
+		}
+
+		/* Metadata category labels */
+		h3 {
+			font-size: 0.8rem;
+			font-weight: 400;
+			line-height: 1.3;
+			color: var(--color-subtle);
+			margin: 0;
+			margin-block-end: 0;
+			letter-spacing: 0.02em;
+			text-align: left;
+			inline-size: 100%;
+			font-family: var(--font-mono);
+			text-transform: uppercase;
+		}
+
+		p {
+			font-size: clamp(0.8rem, 1.1vw, 0.95rem);
+			line-height: 1.5;
+			margin: 0;
+			margin-block-start: 0.25rem;
+			padding: 0;
+			color: var(--color-text);
+			text-align: left;
+			inline-size: 100%;
+		}
+
+		/* Two-column layout containers */
+		.aeri-overview-meta {
+			display: flex;
+			flex-direction: column;
+			gap: var(--space-md);
+			align-items: flex-start;
+		}
+
+		.aeri-overview-copy {
+			display: flex;
+			flex-direction: column;
+			gap: var(--space-md);
+			align-items: flex-start;
+		}
+
+		/* Left column: metadata */
+		.aeri-overview-meta {
+			section {
+				display: flex;
+				flex-direction: column;
+				gap: var(--space-xs);
+				background-color: transparent;
+				border: none;
+				border-radius: 0;
+				margin: 0;
+				padding: 0;
+			}
+		}
+
+		/* Right column: main content */
+		.aeri-overview-copy {
+			section {
+				display: flex;
+				flex-direction: column;
+				align-items: flex-start;
+				gap: var(--space-sm);
+				background-color: transparent;
+				border: none;
+				border-radius: 0;
+				margin: 0;
+				padding: 0;
+			}
+
+			h2 {
+				max-inline-size: 62ch;
+				inline-size: 100%;
+				margin: 0;
+				padding: 0;
+				border-radius: 0;
+			}
+
+			p {
+				max-inline-size: 62ch;
+				text-wrap: pretty;
+				inline-size: 100%;
+				text-align: left;
+				margin: 0;
+				padding: 0;
+			}
+		}
+
+		/* Tool icons grid */
+		.aeri-tool-grid {
+			list-style: none;
+			display: grid;
+			grid-template-columns: repeat(4, 1fr);
+			gap: 0.5rem;
+			background-color: transparent;
+			border: none;
+			max-width: 80%;
+
+			li {
+				aspect-ratio: 1 / 1;
+				background-color: transparent;
+				border-radius: 0.5rem;
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				padding: 0.25rem;
+				border: none;
+				position: relative;
+				flex-direction: row;
+				overflow: hidden;
+			}
+
+			li:first-child {
+				grid-column: auto;
+			}
+
+			img {
+				inline-size: 100%;
+				block-size: 100%;
+				object-fit: cover;
+				transform: scale(1.15);
+			}
+
+			/* Adjust sizes for specific tools */
+			li:nth-child(4) img,
+			li:nth-child(5) img {
+				transform: scale(0.85);
+			}
+
+			li:nth-child(7) img {
+				transform: scale(1.4);
+			}
+
+			/* Invert colors for OpenAI, Midjourney, and Perplexity in light/party modes */
+			li:nth-child(4) img,
+			li:nth-child(5) img,
+			li:nth-child(7) img {
+				filter: light-dark(invert(1), none);
+			}
+		}
+	}
+}
+
+/* Light mode - explicitly invert tool icons */
+[data-theme="light"] main.aeri-overview-main .aeri-overview .aeri-tool-grid li:nth-child(4) img,
+[data-theme="light"] main.aeri-overview-main .aeri-overview .aeri-tool-grid li:nth-child(5) img,
+[data-theme="light"] main.aeri-overview-main .aeri-overview .aeri-tool-grid li:nth-child(7) img {
+	filter: invert(1);
+}
+
+/* Two-column layout on larger viewports */
+@media (width > 53.125rem) {
+	main.aeri-overview-main {
+		.aeri-overview {
+			grid-template-columns: minmax(0, 1fr) minmax(0, 2fr);
+			gap: var(--space-md);
+			align-items: start;
+
+			.aeri-overview-meta {
+				align-self: start;
+			}
+
+			.aeri-overview-copy {
+				align-self: start;
+			}
+		}
+	}
+}

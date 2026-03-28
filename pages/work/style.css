@@ -1,0 +1,91 @@
+/* ─── Archive Grid (Code/Work Pages) ─── */
+
+main {
+	margin-inline: auto;
+	max-inline-size: 1200px;
+	ul.archive-grid {
+		display: grid;
+		grid-template-columns: 1fr;
+		gap: var(--space-sm);
+
+		li {
+			padding: 0;
+			border-radius: var(--radius);
+			overflow: hidden;
+			background-color: var(--color-surface);
+			border: var(--border-width) solid var(--color-border);
+
+			&:first-child {
+				grid-column: auto;
+			}
+
+			figure {
+				padding: 0;
+				margin: 0;
+			}
+
+			a {
+				display: block;
+				text-decoration: none;
+			}
+
+			img,
+			video {
+				display: block;
+				inline-size: 100%;
+				block-size: auto;
+				max-block-size: none;
+				object-fit: cover;
+			}
+		}
+	}
+}
+
+main {
+	ul.code-projects {
+		li:first-child {
+			grid-column: auto;
+		}
+	}
+}
+
+/* ─── Responsive Grid Layouts ─── */
+
+@media (width > 35.95rem) {
+	main ul.code-projects {
+		grid-template-columns: 1fr 1fr;
+
+		li:first-child {
+			grid-column: auto;
+		}
+	}
+
+	main ul.archive-grid {
+		grid-template-columns: 1fr 1fr;
+
+		li:first-child {
+			grid-column: auto;
+		}
+
+		li,
+		li figure {
+			padding: 0;
+			margin-block-end: 0;
+		}
+	}
+}
+
+@media (width > 47.95rem) {
+	main ul.code-projects {
+		grid-template-columns: 1fr 1fr;
+
+		li:first-child {
+			grid-column: auto;
+		}
+	}
+
+	main ul.archive-grid {
+		grid-template-columns: repeat(3, 1fr);
+		grid-template-rows: repeat(4, auto);
+	}
+}
