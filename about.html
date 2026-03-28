@@ -3,94 +3,85 @@
     <head>
         <title>About — Melody Ekbatani</title> 
         <link id="theme-favicon" href="favicons/Favicon.ico" rel="icon" type="image/x-icon">
-        <link href="/Icons/Touch.png"  rel="apple-touch-icon">
+        <link href="/Icons/Touch.png" rel="apple-touch-icon">
         <meta property="description" content="Learn more about Melody Ekbatani.">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link href="reset.css" rel="stylesheet">
         <link href="style.css" rel="stylesheet">
 
-<!-- Geist font - brand font -->
+        <!-- Geist font - brand font -->
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Archivo:ital,wght@0,100..900;1,100..900&family=Geist:wght@100..900&display=swap" rel="stylesheet">
-
-        <link rel="preconnect" href="https://fonts.googleapis.com">
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link href="https://fonts.googleapis.com/css2?family=Archivo:ital,wght@0,100..900;1,100..900&family=Geist+Mono:wght@100..900&family=Geist:wght@100..900&display=swap" rel="stylesheet">
-
+        <link href="https://fonts.googleapis.com/css2?family=Geist+Mono:wght@100..900&display=swap" rel="stylesheet">
     </head>
 
     <body>
         <header>
-        <nav>
-        <a href="index.html" class="logo">ME</a>
-        <button id="menu-toggle" aria-label="Toggle menu">☰</button>
-        <ul class="menu">
-             <li class="item1">
-                <a href="work.html">Work</a>
-            </li>
-            <li class="item3">
-                <a href="code.html">Code</a>
-            </li>
-            <li class="item4">
-                <a href="about.html">About</a>
-            </li>
-            <li class="item5">
-                <a href="https://drive.google.com/file/d/1eqL9vpAWU0jnXxsERxlHpBRtxqiBFxkq/view">Resume</a>
-            </li>
-            <li class="item6">
-                <button id="theme-switch">🌙</button>
-            </li>
-        </ul>
-        </nav>
-
-        <hgroup>
-        <p class="subtitle">MELODY EKBATANI</p>
-        <h1>About</h1>
-        <p>Get to know me</p>
-        </hgroup>
+            <nav>
+                <a href="index.html" class="logo">ME</a>
+                <button id="menu-toggle" aria-label="Toggle menu">☰</button>
+                <ul class="menu">
+                    <li>
+                        <a href="index.html#projects">Work</a>
+                    </li>
+                    <li>
+                        <a href="code.html">Code</a>
+                    </li>
+                    <li>
+                        <a href="about.html">About</a>
+                    </li>
+                    <li>
+                        <a href="https://drive.google.com/file/d/1eqL9vpAWU0jnXxsERxlHpBRtxqiBFxkq/view">Resume</a>
+                    </li>
+                    <li>
+                        <button id="theme-switch">🌙</button>
+                    </li>
+                </ul>
+            </nav>
         </header>
 
         <main>
-        <article>
-            <section>
-                <h2>Background</h2>
-                <p>Add your background and journey here. Talk about your education, what inspired you to design and develop, and your approach to creative work.</p>
-            </section>
-
-            <section>
-                <h2>Skills & Tools</h2>
-                <p>List your core skills and the tools you work with. This could include design tools, programming languages, frameworks, and methodologies.</p>
-            </section>
-
-            <section>
-                <h2>Process</h2>
-                <p>Describe your design and development process. How do you approach problems? What's your philosophy on creating digital experiences?</p>
-            </section>
-
-            <section>
-                <h2>Currently</h2>
-                <p>What are you working on right now? Any interests, projects, or things you're learning?</p>
-            </section>
-        </article>
+            <article class="about-grid">
+                <figure>
+                    <img src="about/headshot.png" alt="Melody Ekbatani headshot">
+                </figure>
+                <section class="about-bio">
+                    <p class="about-greeting">HI I'M MEL</p>
+                    <p class="about-statement">I care deeply about designing products that help people do more with confidence.</p>
+                </section>
+            </article>
         </main>
 
+        <!-- Photo gallery — sibling of <main>, isolated from page grid -->
+<section class="gallery-section" aria-label="Photo gallery">
+  <figure class="gallery-stack" role="group" aria-label="Travel photo collage">
+    <figure class="gallery-card c1"><img src="about/Highlights imagery-1.png" alt="Highlight 1"></figure>
+    <figure class="gallery-card c2"><img src="about/Highlights imagery-2.png" alt="Highlight 2"></figure>
+    <figure class="gallery-card c3"><img src="about/Highlights imagery-3.png" alt="Highlight 3"></figure>
+    <figure class="gallery-card c4"><img src="about/Highlights imagery-4.png" alt="Highlight 4"></figure>
+    <figure class="gallery-card c5"><img src="about/Highlights imagery-5.png" alt="Highlight 5"></figure>
+    <figure class="gallery-card c6"><img src="about/Highlights imagery-6.png" alt="Highlight 6"></figure>
+    <figure class="gallery-card c7"><img src="about/Highlights imagery-7.png" alt="Highlight 7"></figure>
+  </figure>
+</section>
+
         <footer>
-            <h3>Melody Ekbatani </h3>
+            <h3>Melody Ekbatani</h3>
             <p>Designing through clarity, storytelling, and moments of delight</p>
             <nav class="footer-menu-container">
-             <ul class="footer-menu">
-             <li class="item1">
-                <a href="https://drive.google.com/file/d/1eqL9vpAWU0jnXxsERxlHpBRtxqiBFxkq/view?usp=sharing">Resume</a>
-            </li>
-            <li class="item2">
-                <a href="https://www.linkedin.com/in/melody-ekbatani/">Linkedin</a>
-            </li>
-            <li class="item3">
-                <a href="https://github.com/melodyekbatani">Github</a>
-            </li>
-            </ul>
-            <a href="mailto:melodyekbatani@gmail.com"> melodyekbatani@gmail.com </a>
+                <ul class="footer-menu">
+                    <li>
+                        <a href="https://drive.google.com/file/d/1eqL9vpAWU0jnXxsERxlHpBRtxqiBFxkq/view?usp=sharing">Resume</a>
+                    </li>
+                    <li>
+                        <a href="https://www.linkedin.com/in/melody-ekbatani/">Linkedin</a>
+                    </li>
+                    <li>
+                        <a href="https://github.com/melodyekbatani">Github</a>
+                    </li>
+                </ul>
+                <a href="mailto:melodyekbatani@gmail.com">melodyekbatani@gmail.com</a>
             </nav>
         </footer>
     </body>
