@@ -132,7 +132,7 @@ header {
 			margin-block-start: var(--space-md);
 			margin-block-end: var(--space-md);
 			margin-inline: auto;
-			inline-size: min(calc(100% - (var(--space-sm) * 2)), calc(var(--max-width) + 6rem));
+			inline-size: min(calc(100% - (var(--space-sm) * 2)), 1200px);
 
 		a {
 			text-decoration: none;
