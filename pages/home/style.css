@@ -103,9 +103,8 @@ main {
 			figure {
 				display: flex;
 				gap: var(--space-sm);
-				overflow: hidden;
 				margin: 0;
-				padding: var(--space-sm);
+				padding: 0;
 				border-radius: var(--radius);
 				align-items: center;
 				justify-content: center;
@@ -117,13 +116,22 @@ main {
 					max-block-size: 22rem;
 					inline-size: auto;
 					block-size: auto;
+					display: block;
+					border-radius: var(--radius);
+					overflow: hidden;
 				}
+			}
+
+			&:first-child figure {
+				padding: 0;
 			}
 
 			&:first-child figure img {
 				border-radius: var(--radius);
 				max-block-size: 24rem;
 				object-fit: cover;
+				display: block;
+				overflow: hidden;
 			}
 		}
 	}
