@@ -39,9 +39,9 @@
 	--color-surface: #0f1420;
 	--color-subtle: #888896;
 	--color-links: #999999;
-	/* Cursor — bright sky blue + white arrow */
-	--cursor-bg: #34a8ff;
-	--cursor-bg-hover: #34a8ff;
+	/* Cursor — magenta / hot pink + white arrow */
+	--cursor-bg: #e9008c;
+	--cursor-bg-hover: #e9008c;
 	--cursor-arrow-color: #ffffff;
 }
 
@@ -52,8 +52,8 @@
 	--color-surface: #f6f6f6;
 	--color-subtle: #888888;
 	--color-links: #555555;
-	--cursor-bg: #34a8ff;
-	--cursor-bg-hover: #34a8ff;
+	--cursor-bg: #e9008c;
+	--cursor-bg-hover: #e9008c;
 	--cursor-arrow-color: #ffffff;
 }
 
@@ -473,7 +473,9 @@ html.custom-cursor-active.custom-cursor-native body * {
 	margin: 0;
 	padding: 0;
 	border: none;
-	background-color: var(--cursor-bg, #34a8ff);
+	/* Solid fill so color always shows (also set per theme on :root) */
+	background-color: #e9008c;
+	background-color: var(--cursor-bg, #e9008c);
 	border-radius: 50%;
 	box-sizing: border-box;
 	will-change: transform, width, height, opacity;
@@ -515,7 +517,8 @@ html.custom-cursor-active.custom-cursor-native #custom-cursor {
 #custom-cursor.active {
 	width: var(--cursor-size-hover);
 	height: var(--cursor-size-hover);
-	background-color: var(--cursor-bg-hover, #34a8ff);
+	background-color: #e9008c;
+	background-color: var(--cursor-bg-hover, #e9008c);
 }
 
 #custom-cursor.active .cursor-arrow {

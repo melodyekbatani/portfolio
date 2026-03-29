@@ -6,9 +6,10 @@
 	'use strict'
 
 	const CURSOR_ID = 'custom-cursor'
+	// Phosphor Icons — ArrowUpRight (light) · MIT · https://phosphoricons.com
 	const ARROW_SVG =
-		'<svg class="cursor-arrow" viewBox="0 0 24 24" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg">' +
-		'<path d="M7 17L17 7M17 7H11M17 7V13" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/>' +
+		'<svg class="cursor-arrow" viewBox="0 0 256 256" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" fill="currentColor">' +
+		'<path d="M198,64V168a6,6,0,0,1-12,0V78.48L68.24,196.24a6,6,0,0,1-8.48-8.48L177.52,70H88a6,6,0,0,1,0-12H192A6,6,0,0,1,198,64Z"/>' +
 		'</svg>'
 
 	/** Match interactive targets (extend with [data-clickable] on custom hit areas). */
