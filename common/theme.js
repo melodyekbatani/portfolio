@@ -17,11 +17,12 @@ const getCurrentTheme = () => {
 
 const updateFavicon = (theme) => {
 	const link = document.getElementById('theme-favicon')
+	if (!link) return
 	if (theme === 'dark') {
-		link.href = 'favicons/Favicon-dark.svg'
+		link.href = '../../common/favicons/Favicon-dark.svg'
 		link.type = 'image/svg+xml'
 	} else {
-		link.href = 'favicons/Favicon.ico'
+		link.href = '../../common/favicons/Favicon.ico'
 		link.type = 'image/x-icon'
 	}
 }
@@ -29,7 +30,7 @@ const updateFavicon = (theme) => {
 const applyTheme = (theme) => {
 	document.documentElement.setAttribute('data-theme', theme)
 	document.documentElement.style.colorScheme = theme
-	themeSwitch.innerHTML = themeIcons[theme]
+	if (themeSwitch) themeSwitch.innerHTML = themeIcons[theme]
 	updateFavicon(theme)
 	localStorage.setItem('theme', theme)
 }
@@ -68,11 +69,13 @@ if (menuToggle && menu) {
 }
 
 // Theme switch
-themeSwitch.addEventListener('click', () => {
-	const current = document.documentElement.getAttribute('data-theme')
-	const nextTheme = themes[(themes.indexOf(current) + 1) % themes.length]
-	applyTheme(nextTheme)
-})
+if (themeSwitch) {
+	themeSwitch.addEventListener('click', () => {
+		const current = document.documentElement.getAttribute('data-theme')
+		const nextTheme = themes[(themes.indexOf(current) + 1) % themes.length]
+		applyTheme(nextTheme)
+	})
+}
 
 // Sticky nav scroll state
 const headerNav = document.querySelector('header nav')

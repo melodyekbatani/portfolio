@@ -39,6 +39,10 @@
 	--color-surface: #0f1420;
 	--color-subtle: #888896;
 	--color-links: #999999;
+	/* Cursor: soft light greys (readable on dark UI) */
+	--cursor-bg: #d1d5dc;
+	--cursor-bg-hover: #e8eaef;
+	--cursor-arrow-color: #111111;
 }
 
 [data-theme="light"] {
@@ -48,6 +52,10 @@
 	--color-surface: #f6f6f6;
 	--color-subtle: #888888;
 	--color-links: #555555;
+	/* Cursor: soft light greys (readable on light UI) */
+	--cursor-bg: #c5c9d1;
+	--cursor-bg-hover: #dce0e6;
+	--cursor-arrow-color: #111111;
 }
 
 /* ─── Reset & Global Styles ─── */
@@ -285,6 +293,7 @@ header {
 		min-block-size: auto;
 		justify-content: flex-start;
 		gap: 1.5rem;
+		border-radius: var(--radius);
 
 		.subtitle {
 			margin-inline-start: 0;
@@ -418,5 +427,132 @@ footer {
 				gap: var(--space-md);
 			}
 		}
+	}
+}
+
+/* ─── Custom Cursor System ─── */
+/*
+ * Customize: --cursor-size-default, --cursor-size-hover, --cursor-bg, --cursor-bg-hover,
+ *            --cursor-arrow-size, --cursor-z
+ * JS adds .custom-cursor-active on <html> when enabled; if JS fails, class is absent → native cursor.
+ */
+
+/*
+ * Cursor sizes only here — colors live on [data-theme] above so they are not
+ * overridden by this second :root block (same specificity as [data-theme]).
+ */
+:root {
+	--cursor-size-default: 18px;
+	--cursor-size-hover: 48px;
+	--cursor-arrow-size: 24px;
+	--cursor-z: 2147483646;
+	--cursor-transition-duration: 0.28s;
+	--cursor-transition-ease: cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+/* Hide native cursor only when custom system is active (failsafe: no class → browser default). */
+html.custom-cursor-active body,
+html.custom-cursor-active body * {
+	cursor: none !important;
+}
+
+html.custom-cursor-active.custom-cursor-native,
+html.custom-cursor-active.custom-cursor-native body,
+html.custom-cursor-active.custom-cursor-native body * {
+	cursor: auto !important;
+}
+
+#custom-cursor {
+	--cursor-opacity: 1;
+	position: fixed;
+	left: 0;
+	top: 0;
+	pointer-events: none;
+	z-index: var(--cursor-z);
+	width: var(--cursor-size-default);
+	height: var(--cursor-size-default);
+	margin: 0;
+	padding: 0;
+	border: none;
+	background-color: var(--cursor-bg, #c5c9d1);
+	border-radius: 50%;
+	box-sizing: border-box;
+	will-change: transform, width, height, opacity;
+	transition:
+		width var(--cursor-transition-duration) var(--cursor-transition-ease),
+		height var(--cursor-transition-duration) var(--cursor-transition-ease),
+		background-color var(--cursor-transition-duration) var(--cursor-transition-ease),
+		opacity 0.15s ease;
+	transform: translate3d(0, 0, 0) translate(-50%, -50%);
+	opacity: var(--cursor-opacity);
+}
+
+#custom-cursor.custom-cursor--away {
+	opacity: 0;
+}
+
+#custom-cursor.custom-cursor-native {
+	opacity: 0;
+}
+
+html.custom-cursor-active.custom-cursor-native #custom-cursor {
+	opacity: 0;
+}
+
+#custom-cursor .cursor-arrow {
+	position: absolute;
+	inset: 0;
+	margin: auto;
+	width: var(--cursor-arrow-size);
+	height: var(--cursor-arrow-size);
+	color: var(--cursor-arrow-color, #111111);
+	opacity: 0;
+	transform: scale(0.65);
+	transition:
+		opacity var(--cursor-transition-duration) ease,
+		transform var(--cursor-transition-duration) var(--cursor-transition-ease);
+}
+
+#custom-cursor.active {
+	width: var(--cursor-size-hover);
+	height: var(--cursor-size-hover);
+	background-color: var(--cursor-bg-hover, #dce0e6);
+}
+
+#custom-cursor.active .cursor-arrow {
+	opacity: 1;
+	transform: scale(1);
+}
+
+#custom-cursor.custom-cursor--pressed:not(.custom-cursor-native) {
+	opacity: 0.88;
+}
+
+input,
+textarea,
+select,
+[contenteditable="true"] {
+	cursor: auto !important;
+}
+
+@media (prefers-reduced-motion: reduce) {
+	:root {
+		--cursor-transition-duration: 0.05s;
+	}
+
+	#custom-cursor .cursor-arrow {
+		transition: opacity 0.05s ease, transform 0.05s ease;
+	}
+}
+
+/* Touch-primary devices only — do not use (hover: none) alone; it matches some desktops. */
+@media (pointer: coarse) {
+	#custom-cursor {
+		display: none !important;
+	}
+
+	html.custom-cursor-active body,
+	html.custom-cursor-active body * {
+		cursor: auto !important;
 	}
 }
