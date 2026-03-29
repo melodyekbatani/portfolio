@@ -478,67 +478,6 @@ main.aeri-page {
 			transform: scale(1);
 		}
 	}
-
-	@media (prefers-color-scheme: dark) {
-		.aeri-band {
-			background-color: #ffffff;
-			border-color: #ffffff;
-			filter: invert(1);
-
-			p {
-				color: #000000;
-			}
-
-			.aeri-band-kicker {
-				color: #000000;
-			}
-
-			h2 {
-				color: #000000;
-			}
-		}
-
-		.aeri-impacts {
-			background-color: #ffffff;
-			border-color: #ffffff;
-			filter: invert(1);
-
-			p {
-				color: #000000;
-			}
-
-			.aeri-impacts-kicker {
-				color: #000000;
-			}
-
-			h2 {
-				color: #000000;
-			}
-
-			.aeri-impacts-subtitle {
-				color: #000000;
-			}
-		}
-
-		.aeri-insights {
-			background-color: #ffffff;
-			border-color: #ffffff;
-			filter: invert(1);
-
-			p {
-				color: #000000;
-			}
-
-			.aeri-insights-kicker {
-				color: #000000;
-			}
-
-			h2 {
-				color: #000000;
-			}
-		}
-	}
-	}
 }
 
 /* Dark mode via toggle switch */
