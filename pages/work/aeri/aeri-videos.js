@@ -67,9 +67,10 @@
 		});
 	});
 
-	// Band, impacts, and insights scroll animation
+	// Band, impacts, pitch and insights scroll animation
 	const band = document.querySelector(".aeri-band");
 	const impacts = document.querySelector(".aeri-impacts");
+	const pitch = document.querySelector(".aeri-pitch");
 	const insights = document.querySelector(".aeri-insights");
 	
 	const observeElement = (el) => {
@@ -94,5 +95,6 @@
 
 	observeElement(band);
 	observeElement(impacts);
+	observeElement(pitch);
 	observeElement(insights);
 })();

@@ -7,7 +7,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link href="../../../common/reset.css" rel="stylesheet">
         <link href="../../../common/style.css?v=8" rel="stylesheet">
-        <link href="../case-study.css?v=49" rel="stylesheet">
+        <link href="../case-study.css?v=53" rel="stylesheet">
 
 <!-- Geist font - brand font -->
         <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -248,13 +248,56 @@
         </section>
 
         <section class="aeri-iterations" id="aeri-section-iterations" aria-labelledby="aeri-heading-iterations">
-            <h2 id="aeri-heading-iterations">Iterations</h2>
-            <p class="aeri-research-lede">Exploring layout, hierarchy, and AR overlays across rounds of design.</p>
-            <ul class="aeri-iteration-grid">
-                <li><figure><img src="assets/Aeri-Iteration%201.avif" alt="Design iteration 1" width="900" height="700" loading="lazy" decoding="async"></figure></li>
-                <li><figure><img src="assets/Aeri-Iteration%202.avif" alt="Design iteration 2" width="900" height="700" loading="lazy" decoding="async"></figure></li>
-                <li><figure><img src="assets/Aeri-Iteration%203.avif" alt="Design iteration 3" width="900" height="700" loading="lazy" decoding="async"></figure></li>
+            <p class="aeri-iterations-kicker">Iteration</p>
+            <h2 id="aeri-heading-iterations">Translating ideas into a working vision</h2>
+            
+            <ul class="aeri-iterations-grid">
+                <li>
+                    <figure><img src="assets/Aeri-Iteration%201.avif" alt="Whiteboarding exploration" width="900" height="700" loading="lazy" decoding="async"></figure>
+                    <h3>Whiteboarding</h3>
+                    <ul class="aeri-iterations-list">
+                        <li>Mapped early system directions</li>
+                        <li>Explored sensing, prediction, and interaction flows</li>
+                        <li>Tested multiple concepts to identify viable pathways</li>
+                    </ul>
+                </li>
+                <li>
+                    <figure><img src="assets/Aeri-Iteration%202.avif" alt="Prompting and interface exploration" width="900" height="700" loading="lazy" decoding="async"></figure>
+                    <h3>Prompting</h3>
+                    <ul class="aeri-iterations-list">
+                        <li>Generated interface behaviors</li>
+                        <li>Explored interactions at higher fidelity</li>
+                        <li>Evaluated clarity, usability, and feasibility</li>
+                    </ul>
+                </li>
+                <li>
+                    <figure><img src="assets/Aeri-Iteration%203.avif" alt="Asset creation and refinement" width="900" height="700" loading="lazy" decoding="async"></figure>
+                    <h3>Asset Creation</h3>
+                    <ul class="aeri-iterations-list">
+                        <li>Built interface and visual system outputs</li>
+                        <li>Developed scenes to show the product in context</li>
+                        <li>Refined consistency across touchpoints</li>
+                    </ul>
+                </li>
             </ul>
+        </section>
+
+        <section class="aeri-pitch" id="aeri-section-pitch" aria-labelledby="aeri-heading-pitch">
+            <p class="aeri-pitch-kicker">The Pitch</p>
+            <h2 id="aeri-heading-pitch">Proactive care, guided in real time</h2>
+        </section>
+
+        <section class="aeri-youtube-embed" id="aeri-section-youtube" aria-label="Aeri pitch video">
+            <div class="aeri-youtube-container">
+                <iframe
+                    width="100%"
+                    height="600"
+                    src="https://www.youtube.com/embed/ETbjoDGkTJc"
+                    title="Aeri pitch video"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowfullscreen>
+                </iframe>
+            </div>
         </section>
 
         <section class="aeri-video-block" id="aeri-section-motion" aria-labelledby="aeri-heading-motion">
@@ -277,6 +320,36 @@
                 <video class="aeri-video-autoplay" src="assets/Aeri-Video%204.mp4" playsinline muted preload="metadata" aria-label="Motion sequence"></video>
             </figure>
         </section>
+
+        <section class="aeri-reflection" id="aeri-section-reflection" aria-labelledby="aeri-heading-reflection">
+            <p class="aeri-reflection-kicker">Reflection</p>
+            <h2 id="aeri-heading-reflection">Our takeaways</h2>
+            <div class="aeri-takeaways">
+                <div class="aeri-takeaway">
+                    <h3>Working through a 24-hour sprint</h3>
+                    <p>Working in a collaborative sprint setting reinforced the importance of aligning early, defining roles quickly, and a shared understanding of the concept.</p>
+                </div>
+                <div class="aeri-takeaway">
+                    <h3>Working with AI</h3>
+                    <p>I learned to use AI as a tool to accelerate exploration and production, while staying intentional in directing and refining outputs. Strong results came from guiding, editing, and curating rather than relying on it passively.</p>
+                </div>
+                <div class="aeri-takeaway">
+                    <h3>Working with complex systems</h3>
+                    <p>I learned how to simplify a complex system under time pressure by focusing on what is most relevant to the user. This meant prioritizing clarity over completeness and translating technical logic into understandable moments of guidance.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="aeri-next-steps" id="aeri-section-next-steps" aria-labelledby="aeri-heading-next-steps">
+            <p class="aeri-next-steps-kicker">Future Development</p>
+            <h2 id="aeri-heading-next-steps">Next Steps</h2>
+            <ul class="aeri-next-steps-list">
+                <li>Further evaluate the biomedical feasibility of the sensing approach and underlying hardware.</li>
+                <li>Refine predictive modeling with clinical datasets to improve accuracy and reliability.</li>
+                <li>Test AR guidance interactions in real-world contexts to validate usability and behavior.</li>
+                <li>Expand user research with individuals managing Type 2 diabetes to ground the system in lived experience.</li>
+            </ul>
+        </section>
         </main>
 
         <nav class="aeri-toc" id="aeri-toc" aria-label="Table of contents">
@@ -298,7 +371,11 @@
                 <li><a href="#aeri-section-market-research-video">Market Research film</a></li>
                 <li><a href="#aeri-section-competitor-research">Competitor Research</a></li>
                 <li><a href="#aeri-section-iterations">Iterations</a></li>
+                <li><a href="#aeri-section-pitch">The Pitch</a></li>
+                <li><a href="#aeri-section-youtube">Pitch video</a></li>
                 <li><a href="#aeri-section-motion">Motion &amp; film</a></li>
+                <li><a href="#aeri-section-reflection">Reflection</a></li>
+                <li><a href="#aeri-section-next-steps">Next Steps</a></li>
             </ul>
         </nav>
         </div>
