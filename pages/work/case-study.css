@@ -60,7 +60,7 @@ main.aeri-page {
 
 	.aeri-solution {
 		box-shadow: light-dark(0 0.0625rem 0.1875rem rgba(15, 20, 32, 0.08), 0 0.0625rem 0.25rem rgba(0, 0, 0, 0.35));
-		padding: clamp(1.5rem, 4vw, 2.75rem);
+		padding: clamp(1rem, 3vw, 2rem);
 	}
 
 	/* Outer section stays in the page rhythm; one inner card holds intro + caption */
@@ -82,8 +82,8 @@ main.aeri-page {
 	}
 
 	.aeri-problem-intro {
-		padding: clamp(1.5rem, 4vw, 2.75rem);
-		padding-block-end: clamp(1rem, 2.5vw, 1.35rem);
+		padding: clamp(1rem, 3vw, 2rem);
+		padding-block-end: clamp(0.85rem, 2vw, 1.35rem);
 	}
 
 	.aeri-problem-intro p:not(.aeri-problem-kicker) {
@@ -111,10 +111,10 @@ main.aeri-page {
 	.aeri-problem h2,
 	.aeri-solution h2 {
 		font-family: var(--font);
-		font-size: clamp(1.35rem, 2.6vw, 1.85rem);
-		font-weight: 600;
-		line-height: 1.2;
-		letter-spacing: -0.02em;
+		font-size: clamp(1.75rem, 3.5vw, 2.5rem);
+		font-weight: 500;
+		line-height: 1.3;
+		letter-spacing: -0.01em;
 		color: var(--color-text);
 		margin: 0;
 	}
@@ -138,7 +138,7 @@ main.aeri-page {
 		border-radius: var(--radius);
 		background-color: var(--color-surface);
 		box-shadow: light-dark(0 0.0625rem 0.1875rem rgba(15, 20, 32, 0.08), 0 0.0625rem 0.25rem rgba(0, 0, 0, 0.35));
-		padding: clamp(1.5rem, 4vw, 2.75rem);
+		padding: clamp(1rem, 3vw, 2rem);
 	}
 
 	.aeri-approach-kicker {
@@ -155,13 +155,13 @@ main.aeri-page {
 
 	.aeri-approach h2 {
 		font-family: var(--font);
-		font-size: clamp(1.35rem, 2.6vw, 1.85rem);
-		font-weight: 600;
-		line-height: 1.2;
-		letter-spacing: -0.02em;
+		font-size: clamp(1.75rem, 3.5vw, 2.5rem);
+		font-weight: 500;
+		line-height: 1.3;
+		letter-spacing: -0.01em;
 		color: var(--color-text);
 		margin: 0;
-		margin-block-end: clamp(1rem, 2.5vw, 1.5rem);
+		margin-block-end: clamp(1.5rem, 3vw, 2rem);
 	}
 
 	.aeri-approach p {
@@ -190,7 +190,7 @@ main.aeri-page {
 		font-family: var(--font);
 		font-size: var(--type-subheading-md);
 		margin-block-end: var(--space-sm);
-		font-weight: 600;
+		font-weight: 500;
 	}
 
 	p {
@@ -315,10 +315,11 @@ main.aeri-page {
 
 		h2 {
 			margin: 0;
-			max-inline-size: 65%;
-			line-height: 1.15;
-			font-weight: 600;
-			font-size: clamp(3.5rem, 8vw, 5.5rem);
+			max-inline-size: 70%;
+			line-height: 1.3;
+			font-weight: 500;
+			font-size: clamp(2.5rem, 6vw, 4rem);
+			letter-spacing: -0.01em;
 			color: #f6f8fc;
 			font-family: var(--font);
 		}
@@ -327,6 +328,253 @@ main.aeri-page {
 			transform: scale(1);
 		}
 	}
+
+	.aeri-impacts {
+		background-color: #000000;
+		border-color: #000000;
+		border-radius: 0;
+		width: 100vw;
+		height: 100vh;
+		margin-inline: calc(-50vw + 50%);
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+		text-align: center;
+		padding: var(--space-md);
+		transform: scale(0);
+		transform-origin: center;
+		transition: transform 1.2s cubic-bezier(0.22, 1, 0.36, 1);
+
+		p {
+			color: #f6f8fc;
+			margin: 0;
+		}
+
+		.aeri-impacts-kicker {
+			font-family: var(--font-mono);
+			font-size: 0.8rem;
+			font-weight: 400;
+			line-height: 1.3;
+			letter-spacing: 0.02em;
+			text-transform: uppercase;
+			color: var(--color-subtle);
+			margin: 0;
+			margin-block-end: clamp(0.4rem, 1vw, 0.65rem);
+		}
+
+		h2 {
+			margin: 0;
+			max-inline-size: 70%;
+			line-height: 1.3;
+			font-weight: 500;
+			font-size: clamp(2.5rem, 6vw, 4rem);
+			letter-spacing: -0.01em;
+			color: #f6f8fc;
+			font-family: var(--font);
+		}
+
+		.aeri-impacts-subtitle {
+			font-size: clamp(0.95rem, 1.5vw, 1.15rem);
+			color: #b0b8c8;
+			margin-block-start: clamp(1rem, 2.5vw, 1.5rem);
+		}
+
+		&.in-view {
+			transform: scale(1);
+		}
+	}
+
+	.aeri-context {
+		border: var(--border-width) solid var(--color-border);
+		border-radius: var(--radius);
+		background-color: var(--color-surface);
+		padding: clamp(1rem, 3vw, 2rem);
+	}
+
+	.aeri-context-kicker {
+		font-family: var(--font-mono);
+		font-size: 0.8rem;
+		font-weight: 400;
+		line-height: 1.3;
+		letter-spacing: 0.02em;
+		text-transform: uppercase;
+		color: var(--color-subtle);
+		margin: 0;
+		margin-block-end: clamp(0.4rem, 1vw, 0.65rem);
+	}
+
+	.aeri-context h2 {
+		font-family: var(--font);
+		font-size: clamp(1.75rem, 3.5vw, 2.5rem);
+		font-weight: 500;
+		line-height: 1.3;
+		letter-spacing: -0.01em;
+		color: var(--color-text);
+		margin: 0;
+		margin-block-end: clamp(1.5rem, 3vw, 2rem);
+	}
+
+	.aeri-context-copy {
+		max-inline-size: 62ch;
+
+		p {
+			margin-block: 0;
+			line-height: 1.55;
+			font-size: 1rem;
+		}
+
+		p + p {
+			margin-block-start: var(--space-md);
+		}
+	}
+
+	.aeri-insights {
+		background-color: #000000;
+		border-color: #000000;
+		border-radius: 0;
+		width: 100vw;
+		height: 100vh;
+		margin-inline: calc(-50vw + 50%);
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+		text-align: center;
+		transform: scale(0);
+		transform-origin: center;
+		transition: transform 1.2s cubic-bezier(0.22, 1, 0.36, 1);
+		padding: var(--space-md);
+
+		p {
+			color: #f6f8fc;
+			margin: 0;
+		}
+
+		.aeri-insights-kicker {
+			font-family: var(--font-mono);
+			font-size: 0.8rem;
+			font-weight: 400;
+			line-height: 1.3;
+			letter-spacing: 0.02em;
+			text-transform: uppercase;
+			color: var(--color-subtle);
+			margin: 0;
+			margin-block-end: clamp(0.4rem, 1vw, 0.65rem);
+		}
+
+		h2 {
+			margin: 0;
+			max-inline-size: 70%;
+			line-height: 1.3;
+			font-weight: 500;
+			font-size: clamp(2.5rem, 6vw, 4rem);
+			letter-spacing: -0.01em;
+			color: #f6f8fc;
+			font-family: var(--font);
+		}
+
+		&.in-view {
+			transform: scale(1);
+		}
+	}
+
+	@media (prefers-color-scheme: dark) {
+		.aeri-band {
+			background-color: #ffffff;
+			border-color: #ffffff;
+			filter: invert(1);
+
+			p {
+				color: #000000;
+			}
+
+			.aeri-band-kicker {
+				color: #000000;
+			}
+
+			h2 {
+				color: #000000;
+			}
+		}
+
+		.aeri-impacts {
+			background-color: #ffffff;
+			border-color: #ffffff;
+			filter: invert(1);
+
+			p {
+				color: #000000;
+			}
+
+			.aeri-impacts-kicker {
+				color: #000000;
+			}
+
+			h2 {
+				color: #000000;
+			}
+
+			.aeri-impacts-subtitle {
+				color: #000000;
+			}
+		}
+
+		.aeri-insights {
+			background-color: #ffffff;
+			border-color: #ffffff;
+			filter: invert(1);
+
+			p {
+				color: #000000;
+			}
+
+			.aeri-insights-kicker {
+				color: #000000;
+			}
+
+			h2 {
+				color: #000000;
+			}
+		}
+	}
+	}
+}
+
+/* Dark mode via toggle switch */
+[data-theme="dark"] main.aeri-page .aeri-band,
+[data-theme="dark"] main.aeri-page .aeri-impacts,
+[data-theme="dark"] main.aeri-page .aeri-insights {
+	background-color: #ffffff;
+	border-color: #ffffff;
+}
+
+[data-theme="dark"] main.aeri-page .aeri-band p,
+[data-theme="dark"] main.aeri-page .aeri-impacts p,
+[data-theme="dark"] main.aeri-page .aeri-insights p {
+	color: #000000;
+}
+
+[data-theme="dark"] main.aeri-page .aeri-band h2,
+[data-theme="dark"] main.aeri-page .aeri-impacts h2,
+[data-theme="dark"] main.aeri-page .aeri-insights h2 {
+	color: #000000;
+}
+
+[data-theme="dark"] main.aeri-page .aeri-band-kicker {
+	color: #000000;
+}
+
+[data-theme="dark"] main.aeri-page .aeri-impacts-kicker {
+	color: #000000;
+}
+
+[data-theme="dark"] main.aeri-page .aeri-impacts-subtitle {
+	color: #000000;
+}
+
+[data-theme="dark"] main.aeri-page .aeri-insights-kicker {
+	color: #000000;
 }
 
 @media (width > 47.95rem) {
@@ -668,7 +916,7 @@ main.aeri-overview-main.aeri-page {
 
 	.aeri-split-row {
 		display: grid;
-		gap: var(--space-sm);
+		gap: var(--space-md);
 		grid-template-columns: 1fr;
 		padding: 0;
 		border: none;
@@ -690,7 +938,7 @@ main.aeri-overview-main.aeri-page {
 
 	.aeri-images-grid {
 		display: grid;
-		gap: var(--space-sm);
+		gap: var(--space-md);
 		grid-template-columns: 1fr;
 		padding: 0;
 		border: none;
@@ -715,8 +963,10 @@ main.aeri-overview-main.aeri-page {
 	.aeri-iterations,
 	.aeri-video-block {
 		h2 {
-			font-size: clamp(1.25rem, 2.5vw, 1.75rem);
-			font-weight: 600;
+			font-size: clamp(1.75rem, 3.5vw, 2.5rem);
+			font-weight: 500;
+			line-height: 1.3;
+			letter-spacing: -0.01em;
 			margin: 0 0 var(--space-sm);
 			font-family: var(--font);
 		}
@@ -740,7 +990,7 @@ main.aeri-overview-main.aeri-page {
 		margin: 0;
 		padding: 0;
 		display: grid;
-		gap: var(--space-sm);
+		gap: var(--space-md);
 	}
 
 	.aeri-research-grid {
@@ -775,8 +1025,88 @@ main.aeri-overview-main.aeri-page {
 		}
 	}
 
+	.aeri-features-kicker {
+		font-family: var(--font-mono);
+		font-size: 0.8rem;
+		font-weight: 400;
+		line-height: 1.3;
+		letter-spacing: 0.02em;
+		text-transform: uppercase;
+		color: var(--color-subtle);
+		margin: 0;
+		margin-block-end: clamp(0.4rem, 1vw, 0.65rem);
+	}
+
+	.aeri-features h2 {
+		font-family: var(--font);
+		font-size: clamp(1.75rem, 3.5vw, 2.5rem);
+		font-weight: 500;
+		line-height: 1.3;
+		letter-spacing: -0.01em;
+		color: var(--color-text);
+		margin: 0;
+		margin-block-end: clamp(1.5rem, 3vw, 2rem);
+	}
+
+	.aeri-features-grid {
+		list-style: none;
+		margin: 0;
+		padding: 0;
+		display: grid;
+		gap: var(--space-md);
+		grid-template-columns: repeat(3, 1fr);
+		margin-block-start: clamp(1.5rem, 3vw, 2rem);
+
+		li {
+			display: flex;
+			flex-direction: column;
+		}
+
+		video {
+			display: block;
+			inline-size: 100%;
+			block-size: auto;
+			border: var(--border-width) solid var(--color-border);
+			border-radius: calc(var(--radius) * 0.85);
+			overflow: hidden;
+			margin-block-end: var(--space-md);
+		}
+
+		h3 {
+			font-size: clamp(1.25rem, 2.5vw, 1.75rem);
+			font-weight: 500;
+			line-height: 1.3;
+			letter-spacing: -0.01em;
+			margin: 0;
+			padding: 0;
+		}
+	}
+
+	.aeri-features-list {
+		list-style: none;
+		margin: var(--space-sm) 0 0 0;
+		padding-left: 0;
+		display: flex;
+		flex-direction: column;
+		gap: var(--space-xs);
+
+		li {
+			font-size: 1rem;
+			line-height: 1.5;
+			margin: 0;
+			position: relative;
+			padding-left: 1.25rem;
+		}
+
+		li::before {
+			content: "•";
+			position: absolute;
+			left: 0;
+		}
+	}
+
 	.aeri-video-figure {
-		margin: 0 0 var(--space-md);
+		margin: 0;
 
 		video {
 			display: block;
@@ -800,6 +1130,7 @@ main.aeri-overview-main.aeri-page {
 	.aeri-video-grid {
 		grid-template-columns: 1fr;
 		margin-block-end: var(--space-md);
+		gap: var(--space-md);
 
 		li {
 			border: var(--border-width) solid var(--color-border);
@@ -837,6 +1168,12 @@ main.aeri-overview-main.aeri-page {
 	}
 }
 
+@media (width < 40rem) {
+	main.aeri-overview-main.aeri-page .aeri-features-list {
+		display: none !important;
+	}
+}
+
 @media (width > 40rem) {
 	main.aeri-overview-main.aeri-page {
 		.aeri-split-row {
@@ -848,6 +1185,10 @@ main.aeri-overview-main.aeri-page {
 		}
 
 		.aeri-iteration-grid {
+			grid-template-columns: repeat(3, minmax(0, 1fr));
+		}
+
+		.aeri-features-grid {
 			grid-template-columns: repeat(3, minmax(0, 1fr));
 		}
 

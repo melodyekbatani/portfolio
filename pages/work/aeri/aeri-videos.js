@@ -67,10 +67,14 @@
 		});
 	});
 
-	// Band scroll animation
+	// Band, impacts, and insights scroll animation
 	const band = document.querySelector(".aeri-band");
-	if (band) {
-		const bandObserver = new IntersectionObserver(
+	const impacts = document.querySelector(".aeri-impacts");
+	const insights = document.querySelector(".aeri-insights");
+	
+	const observeElement = (el) => {
+		if (!el) return;
+		const observer = new IntersectionObserver(
 			(entries) => {
 				entries.forEach((entry) => {
 					if (entry.isIntersecting) {
@@ -85,7 +89,10 @@
 				rootMargin: "0px",
 			},
 		);
+		observer.observe(el);
+	};
 
-		bandObserver.observe(band);
-	}
+	observeElement(band);
+	observeElement(impacts);
+	observeElement(insights);
 })();
