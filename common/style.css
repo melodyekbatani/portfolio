@@ -39,10 +39,10 @@
 	--color-surface: #0f1420;
 	--color-subtle: #888896;
 	--color-links: #999999;
-	/* Cursor: soft light greys (readable on dark UI) */
-	--cursor-bg: #d1d5dc;
-	--cursor-bg-hover: #e8eaef;
-	--cursor-arrow-color: #111111;
+	/* Cursor — bright sky blue + white arrow */
+	--cursor-bg: #34a8ff;
+	--cursor-bg-hover: #34a8ff;
+	--cursor-arrow-color: #ffffff;
 }
 
 [data-theme="light"] {
@@ -52,10 +52,9 @@
 	--color-surface: #f6f6f6;
 	--color-subtle: #888888;
 	--color-links: #555555;
-	/* Cursor: soft light greys (readable on light UI) */
-	--cursor-bg: #c5c9d1;
-	--cursor-bg-hover: #dce0e6;
-	--cursor-arrow-color: #111111;
+	--cursor-bg: #34a8ff;
+	--cursor-bg-hover: #34a8ff;
+	--cursor-arrow-color: #ffffff;
 }
 
 /* ─── Reset & Global Styles ─── */
@@ -474,7 +473,7 @@ html.custom-cursor-active.custom-cursor-native body * {
 	margin: 0;
 	padding: 0;
 	border: none;
-	background-color: var(--cursor-bg, #c5c9d1);
+	background-color: var(--cursor-bg, #34a8ff);
 	border-radius: 50%;
 	box-sizing: border-box;
 	will-change: transform, width, height, opacity;
@@ -505,7 +504,7 @@ html.custom-cursor-active.custom-cursor-native #custom-cursor {
 	margin: auto;
 	width: var(--cursor-arrow-size);
 	height: var(--cursor-arrow-size);
-	color: var(--cursor-arrow-color, #111111);
+	color: var(--cursor-arrow-color, #ffffff);
 	opacity: 0;
 	transform: scale(0.65);
 	transition:
@@ -516,7 +515,7 @@ html.custom-cursor-active.custom-cursor-native #custom-cursor {
 #custom-cursor.active {
 	width: var(--cursor-size-hover);
 	height: var(--cursor-size-hover);
-	background-color: var(--cursor-bg-hover, #dce0e6);
+	background-color: var(--cursor-bg-hover, #34a8ff);
 }
 
 #custom-cursor.active .cursor-arrow {
