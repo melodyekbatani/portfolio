@@ -375,7 +375,7 @@ footer {
 		.footer-menu,
 		a {
 			font-family: var(--font-mono);
-			font-size: var(--type-mono-size);
+			font-size: 0.87rem;
 			letter-spacing: 0.02em;
 			text-transform: uppercase;
 		}

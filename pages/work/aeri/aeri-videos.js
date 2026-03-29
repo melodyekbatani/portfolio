@@ -66,4 +66,26 @@
 			if (revealTarget(v).classList.contains("is-in-view")) playInView(v);
 		});
 	});
+
+	// Band scroll animation
+	const band = document.querySelector(".aeri-band");
+	if (band) {
+		const bandObserver = new IntersectionObserver(
+			(entries) => {
+				entries.forEach((entry) => {
+					if (entry.isIntersecting) {
+						entry.target.classList.add("in-view");
+					} else {
+						entry.target.classList.remove("in-view");
+					}
+				});
+			},
+			{
+				threshold: [0],
+				rootMargin: "0px",
+			},
+		);
+
+		bandObserver.observe(band);
+	}
 })();
