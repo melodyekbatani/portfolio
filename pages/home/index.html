@@ -5,9 +5,9 @@
         <link id="theme-favicon" href="../../common/favicons/Favicon.ico" rel="icon" type="image/x-icon">
         <meta property="description" content="Hand-coded projects developed in the MPS Communication Design program at Parsons School of Design. Using HTML, CSS, and JavaScript, the work responsive type, and interactive systems on the web.">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link href="../../common/reset.css" rel="stylesheet">
-        <link href="../../common/style.css?v=3" rel="stylesheet">
-        <link href="style.css" rel="stylesheet">
+        <link href="../../common/reset.css?v=8" rel="stylesheet">
+        <link href="../../common/style.css?v=8" rel="stylesheet">
+        <link href="style.css?v=9" rel="stylesheet">
 
 <!-- Geist font - brand font -->
         <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -33,13 +33,16 @@
                 <a href="../code/code.html">Code</a>
             </li>
             <li class="item4">
-                <a href="../about/about.html">About</a>
+                <a href="../play/index.html">Play</a>
             </li>
             <li class="item5">
-                <a href="https://drive.google.com/file/d/1eqL9vpAWU0jnXxsERxlHpBRtxqiBFxkq/view">Resume</a>
+                <a href="../about/about.html">About</a>
             </li>
             <li class="item6">
-                <button id="theme-switch">🌙</button>
+                <a href="https://drive.google.com/file/d/1eqL9vpAWU0jnXxsERxlHpBRtxqiBFxkq/view">Resume</a>
+            </li>
+            <li class="item7">
+                <button id="theme-switch" type="button" aria-label="Toggle theme"></button>
             </li>
         </ul>
        
@@ -58,65 +61,65 @@
         <h2>Explore some of my projects below ↓</h2>
         </section>
         <ul class="projects">
-            <li class="item4">
+            <li class="item4" data-project>
                 <figure>
                 <img src="Assets/Aeri.png" alt="aeri project"> 
                 </figure>
                 <h2>Aeri</h2>
                  <p>AI-powered preventative diabetes care with AR integration.</p>
                 <a href="../work/aeri/aeri.html">View project</a>
-                <div class="tags">
-                    <span class="tag">Health Tech</span>
-                    <span class="tag">AI Integration</span>
-                </div>
+                <ul class="tags">
+                    <li class="tag">Health Tech</li>
+                    <li class="tag">AI Integration</li>
+                </ul>
             </li>
-            <li class="item2">
+            <li class="item2" data-project>
                 <figure>
                 <img src="Assets/Parameter.png" alt="Parameter project"> 
                 </figure>
                 <h2>Parameter</h2>
                 <p>AI-powered preventative diabetes care with AR integration.</p>
                 <a href="../work/parameter/parameter.html">View project</a>
-                <div class="tags">
-                    <span class="tag">Health Tech</span>
-                    <span class="tag">AI</span>
-                </div>
+                <ul class="tags">
+                    <li class="tag">Health Tech</li>
+                    <li class="tag">AI</li>
+                </ul>
             </li>
-            <li class="item3">
+            <li class="item3" data-project>
                 <figure>
                 <img src="Assets/Loam.png" alt="Loam project"> 
                 </figure>
                 <h2>Loam</h2>
                  <p>AI-powered preventative diabetes care with AR integration.</p>
                   <a href="../work/loam/loam.html">View project</a>
-                <div class="tags">
-                    <span class="tag">Sustainability</span>
-                    <span class="tag">E-commerce</span>
-                </div>
+                <ul class="tags">
+                    <li class="tag">Sustainability</li>
+                    <li class="tag">E-commerce</li>
+                </ul>
             </li>
-            <li class="item4">
+            <li class="item4" data-project>
                 <figure>
                 <img src="Assets/Google gemini.png" alt="re:search project"> 
                 </figure>
                 <h2>Google Gemini</h2>
                 <p>AI-powered preventative diabetes care with AR integration.</p>
                 <a href="../work/research/research.html">View project</a>
-                <div class="tags">
-                    <span class="tag">AI</span>
-                    <span class="tag">Chat</span>
-                </div>
+                <ul class="tags">
+                    <li class="tag">AI</li>
+                    <li class="tag">Chat</li>
+                </ul>
             </li>
-            <li class="item5">
+            <li class="item5" data-project>
                 <figure>
                 <img src="Assets/Stash it.png" alt="Stashit project"> 
                 </figure>
                 <h2>Stashit</h2>
                 <p>AI-powered preventative diabetes care with AR integration.</p>
                 <a href="../work/stashit/stashit.html">View project</a>
-                <div class="tags">
-                    <span class="tag">Productivity</span>
-                    <span class="tag">Storage</span>
-                </div>
+                <ul class="tags">
+                    <li class="tag">Productivity</li>
+                    <li class="tag">Storage</li>
+                </ul>
             </li>
         </ul>
         </main>
@@ -138,6 +141,11 @@
             <a href="mailto:melodyekbatani@gmail.com"> melodyekbatani@gmail.com </a>
             </nav>
         </footer>
+    <span id="custom-cursor" aria-hidden="true"></span>
+
+    <script src="../../common/theme.js?v=8"></script>
+
+    <script src="../../common/cursor.js?v=8"></script>
+
     </body>
-    <script src="../../common/theme.js"></script>
 </html>
