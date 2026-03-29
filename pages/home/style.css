@@ -1,9 +1,5 @@
 /* ─── Main Content Grid ─── */
 
-header hgroup .subtitle {
-	font-size: 1rem;
-}
-
 main {
 	margin-inline: auto;
 	max-inline-size: 1200px;
@@ -29,8 +25,7 @@ main {
 			background-color: var(--color-surface);
 			border-radius: var(--radius);
 			border: var(--border-width) solid var(--color-border);
-			cursor: pointer;
-			position: relative;
+			overflow: hidden;
 			transform: scale(1);
 			transition: transform 0.38s cubic-bezier(0.23, 1, 0.32, 1);
 
@@ -111,9 +106,10 @@ main {
 			figure {
 				display: flex;
 				gap: var(--space-sm);
+				overflow: hidden;
 				margin: 0;
-				padding: 0;
-				border-radius: var(--radius);
+				padding: var(--space-sm);
+
 				align-items: center;
 				justify-content: center;
 
@@ -123,23 +119,12 @@ main {
 					max-inline-size: 100%;
 					max-block-size: 22rem;
 					inline-size: auto;
-					block-size: auto;
-					display: block;
-					border-radius: var(--radius);
-					overflow: hidden;
-				}
-			}
-
-			&:first-child figure {
-				padding: 0;
+					block-size: auto;				}
 			}
 
 			&:first-child figure img {
-				border-radius: var(--radius);
 				max-block-size: 24rem;
 				object-fit: cover;
-				display: block;
-				overflow: hidden;
 			}
 		}
 	}
@@ -168,42 +153,4 @@ main {
 		padding: var(--space-md);
 		margin-block-end: var(--space-sm);
 	}
-}
-
-@media (prefers-reduced-motion: reduce) {
-	main ul li,
-	main article section {
-		transition: none;
-		transform: none;
-	}
-
-	main ul li:hover,
-	main article section:hover {
-		transform: none;
-	}
-}
-
-/* ─── Custom Cursor Blob ─── */
-
-.cursor-blob {
-	position: fixed;
-	pointer-events: none;
-	background: #111;
-	color: #fff;
-	font-family: var(--font-mono);
-	font-size: 12px;
-	font-weight: 400;
-	padding: 10px 18px;
-	border-radius: 100px;
-	white-space: nowrap;
-	opacity: 0;
-	transform: translate(-50%, -50%) scale(0.7);
-	transition: opacity 0.18s ease, transform 0.18s ease;
-	z-index: 9999;
-	letter-spacing: 0.01em;
-}
-
-.cursor-blob.visible {
-	opacity: 1;
-	transform: translate(-50%, -50%) scale(1);
 }

@@ -17,12 +17,11 @@ const getCurrentTheme = () => {
 
 const updateFavicon = (theme) => {
 	const link = document.getElementById('theme-favicon')
-	if (!link) return
 	if (theme === 'dark') {
-		link.href = '../../common/favicons/Favicon-dark.svg'
+		link.href = 'favicons/Favicon-dark.svg'
 		link.type = 'image/svg+xml'
 	} else {
-		link.href = '../../common/favicons/Favicon.ico'
+		link.href = 'favicons/Favicon.ico'
 		link.type = 'image/x-icon'
 	}
 }
@@ -30,7 +29,7 @@ const updateFavicon = (theme) => {
 const applyTheme = (theme) => {
 	document.documentElement.setAttribute('data-theme', theme)
 	document.documentElement.style.colorScheme = theme
-	if (themeSwitch) themeSwitch.innerHTML = themeIcons[theme]
+	themeSwitch.innerHTML = themeIcons[theme]
 	updateFavicon(theme)
 	localStorage.setItem('theme', theme)
 }

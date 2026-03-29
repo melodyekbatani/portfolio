@@ -6,7 +6,7 @@
         <meta property="description" content="Learn more about Melody Ekbatani.">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link href="../../common/reset.css" rel="stylesheet">
-        <link href="../../common/style.css" rel="stylesheet">
+        <link href="../../common/style.css?v=3" rel="stylesheet">
         <link href="style.css" rel="stylesheet">
 
         <!-- Geist font - brand font -->
@@ -29,33 +29,28 @@
                         <a href="../code/code.html">Code</a>
                     </li>
                     <li>
-                        <a href="../play/index.html">Play</a>
-                    </li>
-                    <li>
                         <a href="about.html">About</a>
                     </li>
                     <li>
                         <a href="https://drive.google.com/file/d/1eqL9vpAWU0jnXxsERxlHpBRtxqiBFxkq/view">Resume</a>
                     </li>
                     <li>
-                        <button id="theme-switch" aria-label="Toggle theme"></button>
+                        <button id="theme-switch">🌙</button>
                     </li>
                 </ul>
             </nav>
         </header>
 
         <main>
-            <div class="about-hero-wrapper">
-                <div class="about-header-content">
-                    <figure class="about-headshot">
-                        <img src="assets/About/Headshot.png" alt="Melody Ekbatani headshot">
-                    </figure>
-                    <div class="about-header-text">
-                        <p class="subtitle">HI I'M MEL</p>
-                        <h2>I care deeply about designing products that help people navigate complexity and act with confidence</h2>
-                    </div>
-                </div>
-            </div>
+            <article class="about-grid">
+                <figure>
+                    <img src="assets/About/Headshot.png" alt="Melody Ekbatani headshot">
+                </figure>
+                <section class="about-bio">
+                    <p class="about-greeting">HI I'M MEL</p>
+                    <p class="about-statement">I care deeply about designing products that help people do more with confidence.</p>
+                </section>
+            </article>
 
             <section class="about-sections-grid">
                 <section id="about-detailed">
@@ -146,8 +141,6 @@
                 <a href="mailto:melodyekbatani@gmail.com">melodyekbatani@gmail.com</a>
             </nav>
         </footer>
-        <div id="custom-cursor" aria-hidden="true"></div>
     </body>
     <script src="../../common/theme.js"></script>
-    <script src="../../common/cursor.js"></script>
 </html>
