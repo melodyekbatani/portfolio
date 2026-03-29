@@ -40,13 +40,109 @@ main {
 main.aeri-page {
 	display: flex;
 	flex-direction: column;
-	gap: var(--space-md);
+	gap: var(--aeri-section-gap, clamp(2rem, 3.5vw, 3.25rem));
 
 	section {
 		border: var(--border-width) solid var(--color-border);
 		border-radius: var(--radius);
 		background-color: var(--color-surface);
 		padding: clamp(1rem, 3vw, 2rem);
+	}
+
+	/* Intro: flat on page background — no card chrome */
+	.aeri-overview {
+		border: none;
+		border-radius: 0;
+		background-color: transparent;
+		padding: 0;
+		box-shadow: none;
+	}
+
+	.aeri-solution {
+		box-shadow: light-dark(0 0.0625rem 0.1875rem rgba(15, 20, 32, 0.08), 0 0.0625rem 0.25rem rgba(0, 0, 0, 0.35));
+		padding: clamp(1.5rem, 4vw, 2.75rem);
+	}
+
+	/* Outer section stays in the page rhythm; one inner card holds intro + caption */
+	.aeri-problem {
+		border: none;
+		border-radius: 0;
+		background-color: transparent;
+		padding: 0;
+		box-shadow: none;
+		overflow: visible;
+	}
+
+	.aeri-problem-card {
+		border: var(--border-width) solid var(--color-border);
+		border-radius: var(--radius);
+		background-color: var(--color-surface);
+		box-shadow: light-dark(0 0.0625rem 0.1875rem rgba(15, 20, 32, 0.08), 0 0.0625rem 0.25rem rgba(0, 0, 0, 0.35));
+		overflow: hidden;
+	}
+
+	.aeri-problem-intro {
+		padding: clamp(1.5rem, 4vw, 2.75rem);
+		padding-block-end: clamp(1rem, 2.5vw, 1.35rem);
+	}
+
+	.aeri-problem-intro p:not(.aeri-problem-kicker) {
+		max-inline-size: 62ch;
+		margin: 0;
+		margin-block-start: clamp(0.85rem, 2vw, 1.1rem);
+		line-height: 1.55;
+		color: var(--color-text);
+		font-size: clamp(0.9rem, 1.45vw, 1.05rem);
+	}
+
+	.aeri-problem-kicker,
+	.aeri-solution-kicker {
+		font-family: var(--font-mono);
+		font-size: 0.8rem;
+		font-weight: 400;
+		line-height: 1.3;
+		letter-spacing: 0.02em;
+		text-transform: uppercase;
+		color: var(--color-subtle);
+		margin: 0;
+		margin-block-end: clamp(0.4rem, 1vw, 0.65rem);
+	}
+
+	.aeri-problem h2,
+	.aeri-solution h2 {
+		font-family: var(--font);
+		font-size: clamp(1.35rem, 2.6vw, 1.85rem);
+		font-weight: 600;
+		line-height: 1.2;
+		letter-spacing: -0.02em;
+		color: var(--color-text);
+		margin: 0;
+	}
+
+	.aeri-solution h2 {
+		margin-block-end: clamp(1rem, 2.5vw, 1.5rem);
+	}
+
+	.aeri-solution p {
+		max-inline-size: 62ch;
+		margin-block: 0;
+		line-height: 1.55;
+	}
+
+	.aeri-solution p + p {
+		margin-block-start: var(--space-md);
+	}
+
+	.aeri-problem-caption {
+		margin: 0;
+		padding: clamp(0.85rem, 2vw, 1.15rem) clamp(1.5rem, 4vw, 2.75rem) clamp(1.35rem, 4vw, 2.5rem);
+		font-size: clamp(0.8rem, 1.15vw, 0.98rem);
+		line-height: 1.35;
+		color: var(--color-subtle);
+		text-align: start;
+		text-wrap: balance;
+		max-inline-size: 100%;
+		min-inline-size: 0;
 	}
 
 	h3 {
@@ -152,6 +248,17 @@ main.aeri-page {
 			color: #f6f8fc;
 			font-size: clamp(1.25rem, 3.2vw, 2rem);
 		}
+
+		h2 {
+			margin: 0;
+			max-inline-size: 48ch;
+			margin-inline: auto;
+			line-height: 1.15;
+			font-weight: 600;
+			font-size: clamp(1.35rem, 3.5vw, 2.25rem);
+			color: #f6f8fc;
+			font-family: var(--font);
+		}
 	}
 }
 
@@ -174,37 +281,59 @@ main.aeri-page {
 }
 
 body.aeri-case {
+	/* One rhythm for all vertical gaps between case-study sections (main column + shell above TOC) */
+	--aeri-section-gap: clamp(2rem, 3.5vw, 3.25rem);
 	padding-block-start: 0;
-
-	main {
-		padding-block-start: 0;
-	}
+	/* Space for fixed project nav so footer and last sections are not covered */
+	padding-block-end: calc(clamp(5rem, 14vh, 7.5rem) + env(safe-area-inset-bottom, 0px));
+	/* main top padding lives on main.aeri-overview-main (hero → intro gap). Do not zero it:
+	   body main { padding-block-start: 0 } would override that rule due to specificity. */
 }
 
 /* ─── Aeri Hero Header ─── */
 
 header.aeri-header {
 	margin-block-start: -10rem;
+	margin-block-end: clamp(1.5rem, 4vw, 3rem);
 
 	.aeri-hero {
+		position: relative;
+		isolation: isolate;
 		inline-size: 100vw;
-		block-size: 90vh;
+		min-block-size: 90vh;
 		margin-inline: calc(50% - 50vw);
 		margin-block-start: 0;
 		display: flex;
 		align-items: center;
 		justify-content: center;
 		padding-inline: var(--space-md);
-		padding-block: 0;
-		background-image:
-			linear-gradient(to bottom, rgba(2, 5, 16, 0.72), rgba(2, 5, 16, 0.5)),
-			url("../aeri/assets/Aeri hero.avif");
-		background-size: cover;
-		background-position: center;
-		background-repeat: no-repeat;
+		padding-block: clamp(4rem, 12vh, 8rem);
+		overflow: hidden;
+		background-color: #05060a;
+
+		&::after {
+			content: "";
+			position: absolute;
+			inset: 0;
+			z-index: 1;
+			pointer-events: none;
+			background: linear-gradient(to bottom, rgba(2, 5, 16, 0.72), rgba(2, 5, 16, 0.5));
+		}
+	}
+
+	.aeri-hero-image {
+		position: absolute;
+		inset: 0;
+		z-index: 0;
+		inline-size: 100%;
+		block-size: 100%;
+		object-fit: cover;
+		object-position: center;
 	}
 
 	.aeri-hero-content {
+		position: relative;
+		z-index: 2;
 		max-inline-size: 42rem;
 		display: grid;
 		place-items: center;
@@ -244,9 +373,15 @@ header.aeri-header {
 
 /* ─── Aeri Overview Section ─── */
 
+/* Hero → intro: top padding (kept modest so overview sits closer to hero) */
+main.aeri-overview-main.aeri-page {
+	--aeri-intro-block: clamp(1.75rem, 4vw, 2.75rem);
+}
+
 main.aeri-overview-main {
 	padding-inline: clamp(0.75rem, 2vw, 1.5rem);
-	padding-block: var(--space-md);
+	padding-block-start: var(--aeri-intro-block, clamp(1.75rem, 4vw, 2.75rem));
+	padding-block-end: 0;
 
 	.aeri-overview {
 		display: grid;
@@ -434,4 +569,322 @@ main.aeri-overview-main {
 			}
 		}
 	}
+}
+
+/* ─── Aeri — gallery, research, iterations, video (below overview) ─── */
+
+main.aeri-overview-main.aeri-page {
+	.aeri-gallery {
+		padding: 0;
+		border: none;
+		background: transparent;
+	}
+
+	.aeri-fullbleed {
+		margin: 0;
+		border-radius: var(--radius);
+		overflow: hidden;
+
+		img {
+			display: block;
+			inline-size: 100%;
+			block-size: auto;
+			border-radius: inherit;
+		}
+	}
+
+	.aeri-fullbleed--tight img {
+		max-block-size: min(70vh, 32rem);
+		object-fit: contain;
+		margin-inline: auto;
+	}
+
+	.aeri-split-row {
+		display: grid;
+		gap: var(--space-sm);
+		grid-template-columns: 1fr;
+		padding: 0;
+		border: none;
+		background: transparent;
+
+		figure {
+			margin: 0;
+			border-radius: var(--radius);
+			overflow: hidden;
+			background-color: var(--color-surface);
+		}
+
+		img {
+			display: block;
+			inline-size: 100%;
+			block-size: auto;
+		}
+	}
+
+	.aeri-copy-block,
+	.aeri-research,
+	.aeri-iterations,
+	.aeri-video-block {
+		h2 {
+			font-size: clamp(1.25rem, 2.5vw, 1.75rem);
+			font-weight: 600;
+			margin: 0 0 var(--space-sm);
+			font-family: var(--font);
+		}
+
+		> p {
+			margin-block-end: var(--space-md);
+			max-inline-size: 62ch;
+		}
+	}
+
+	.aeri-research-lede {
+		font-size: clamp(0.95rem, 1.4vw, 1.05rem);
+		color: var(--color-subtle);
+		margin-block: 0 var(--space-md);
+	}
+
+	.aeri-research-grid,
+	.aeri-iteration-grid,
+	.aeri-video-grid {
+		list-style: none;
+		margin: 0;
+		padding: 0;
+		display: grid;
+		gap: var(--space-sm);
+	}
+
+	.aeri-research-grid {
+		grid-template-columns: 1fr;
+
+		li figure {
+			margin: 0;
+			border-radius: calc(var(--radius) * 0.85);
+			overflow: hidden;
+		}
+
+		img {
+			display: block;
+			inline-size: 100%;
+			block-size: auto;
+		}
+	}
+
+	.aeri-iteration-grid {
+		grid-template-columns: 1fr;
+
+		li figure {
+			margin: 0;
+			border-radius: calc(var(--radius) * 0.85);
+			overflow: hidden;
+		}
+
+		img {
+			display: block;
+			inline-size: 100%;
+			block-size: auto;
+		}
+	}
+
+	.aeri-video-figure {
+		margin: 0 0 var(--space-md);
+		overflow: hidden;
+		border: var(--border-width) solid var(--color-border);
+		border-radius: calc(var(--radius) * 0.85);
+		background-color: #0a0c12;
+
+		video {
+			display: block;
+			inline-size: 100%;
+			block-size: auto;
+			background-color: #0a0c12;
+		}
+
+		figcaption {
+			margin-block-start: var(--space-xs);
+			font-family: var(--font-mono);
+			font-size: var(--type-mono-size);
+			color: var(--color-subtle);
+		}
+	}
+
+	.aeri-video-grid {
+		grid-template-columns: 1fr;
+		margin-block-end: var(--space-md);
+
+		li {
+			border: var(--border-width) solid var(--color-border);
+			border-radius: calc(var(--radius) * 0.85);
+			overflow: hidden;
+			background-color: #0a0c12;
+		}
+
+		video {
+			display: block;
+			inline-size: 100%;
+			block-size: auto;
+		}
+	}
+
+	/* Viewport autoplay videos: subtle scroll-in (see aeri-videos.js — html.aeri-videos-ready) */
+	@media (prefers-reduced-motion: no-preference) {
+		html.aeri-videos-ready & .aeri-video-figure,
+		html.aeri-videos-ready & .aeri-video-grid li {
+			transition:
+				opacity 0.5s cubic-bezier(0.22, 1, 0.36, 1),
+				transform 0.55s cubic-bezier(0.22, 1, 0.36, 1);
+		}
+
+		html.aeri-videos-ready & .aeri-video-figure:not(.is-in-view),
+		html.aeri-videos-ready & .aeri-video-grid li:not(.is-in-view) {
+			opacity: 0.82;
+			transform: translate3d(0, 14px, 0);
+		}
+
+		html.aeri-videos-ready & .aeri-video-figure.is-in-view,
+		html.aeri-videos-ready & .aeri-video-grid li.is-in-view {
+			opacity: 1;
+			transform: translate3d(0, 0, 0);
+		}
+	}
+}
+
+@media (width > 40rem) {
+	main.aeri-overview-main.aeri-page {
+		.aeri-split-row {
+			grid-template-columns: 1fr 1fr;
+		}
+
+		.aeri-research-grid {
+			grid-template-columns: repeat(2, minmax(0, 1fr));
+		}
+
+		.aeri-iteration-grid {
+			grid-template-columns: repeat(3, minmax(0, 1fr));
+		}
+
+		.aeri-video-grid {
+			grid-template-columns: repeat(3, minmax(0, 1fr));
+		}
+	}
+}
+
+@media (width > 64rem) {
+	main.aeri-overview-main.aeri-page {
+		.aeri-research-grid {
+			grid-template-columns: repeat(3, minmax(0, 1fr));
+		}
+	}
+}
+
+/* ─── Aeri — project nav: fixed bar, mirrors header `nav` (common/style.css) ─── */
+
+body.aeri-case .aeri-page-shell {
+	max-inline-size: 1200px;
+	margin-inline: auto;
+	inline-size: 100%;
+	display: flex;
+	flex-direction: column;
+	gap: var(--aeri-section-gap);
+}
+
+body.aeri-case .aeri-page-shell > main {
+	margin-inline: 0;
+	max-inline-size: 100%;
+}
+
+.aeri-toc {
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	justify-content: space-between;
+	align-items: center;
+	gap: var(--space-md);
+	position: fixed;
+	z-index: 900;
+	left: 0;
+	right: 0;
+	bottom: calc(var(--space-md) + env(safe-area-inset-bottom, 0px));
+	inline-size: min(calc(100% - (var(--space-sm) * 2)), 1200px);
+	margin-inline: auto;
+	padding-block: var(--space-sm);
+	padding-inline: var(--space-md);
+	background-color: var(--color-surface);
+	font-family: var(--font);
+	border-radius: var(--radius);
+	border: var(--border-width) solid var(--color-border);
+	box-sizing: border-box;
+	transition:
+		inline-size 0.45s ease,
+		padding 0.45s ease,
+		border-radius 0.45s ease,
+		opacity 0.35s ease;
+}
+
+.aeri-toc-heading {
+	flex: 0 0 auto;
+	font-family: var(--font-mono);
+	font-size: var(--type-mono-size);
+	font-weight: 500;
+	letter-spacing: 0.02em;
+	text-transform: uppercase;
+	color: var(--color-text);
+	margin: 0;
+}
+
+.aeri-toc-list {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	justify-content: flex-end;
+	align-items: center;
+	gap: var(--space-md);
+	flex: 1 1 auto;
+	min-inline-size: 0;
+}
+
+.aeri-toc-list li {
+	display: flex;
+	align-items: center;
+}
+
+.aeri-toc a {
+	display: inline-block;
+	font-family: var(--font-mono);
+	font-size: var(--type-mono-size);
+	font-weight: 400;
+	line-height: 1.3;
+	letter-spacing: 0.02em;
+	text-transform: uppercase;
+	text-decoration: none;
+	color: var(--color-links);
+	transition: opacity 0.2s ease;
+}
+
+.aeri-toc a:hover {
+	opacity: 0.7;
+}
+
+.aeri-toc a.is-active {
+	color: var(--color-text);
+	font-weight: 600;
+	opacity: 1;
+}
+
+.aeri-toc a:focus-visible {
+	outline: 2px solid var(--color-links);
+	outline-offset: 2px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+	.aeri-toc a {
+		transition: none;
+	}
+}
+
+main.aeri-overview-main.aeri-page > section[id] {
+	scroll-margin-block-start: clamp(4rem, 10vh, 5.5rem);
 }

@@ -6,8 +6,8 @@
         <meta property="description" content="aeri project page.">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link href="../../../common/reset.css" rel="stylesheet">
-        <link href="../../../common/style.css?v=3" rel="stylesheet">
-        <link href="../case-study.css" rel="stylesheet">
+        <link href="../../../common/style.css?v=8" rel="stylesheet">
+        <link href="../case-study.css?v=31" rel="stylesheet">
 
 <!-- Geist font - brand font -->
         <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -47,6 +47,7 @@
         </nav>
 
         <section class="aeri-hero" aria-label="aeri project hero">
+            <img class="aeri-hero-image" src="assets/Aeri%20hero.avif" alt="" width="1920" height="1080" fetchpriority="high" decoding="async">
             <section class="aeri-hero-content">
                 <h1>aeri</h1>
                 <p>AI-powered preventative care contact lense for diabetes with AR&nbsp;integration.</p>
@@ -54,8 +55,9 @@
         </section>
         </header>
 
-        <main class="aeri-overview-main">
-        <section class="aeri-overview" aria-label="Aeri overview section">
+        <div class="aeri-page-shell">
+        <main class="aeri-overview-main aeri-page">
+        <section class="aeri-overview" id="aeri-section-overview" aria-label="Aeri overview section">
             <!-- Project metadata: timeline, role, team, tools -->
             <article class="aeri-overview-meta">
                 <section>
@@ -103,7 +105,132 @@
                 </section>
             </article>
         </section>
+
+        <section class="aeri-problem" id="aeri-section-problem" aria-labelledby="aeri-heading-problem">
+            <div class="aeri-problem-card">
+            <div class="aeri-problem-intro">
+                <p class="aeri-problem-kicker">Problem</p>
+                <h2 id="aeri-heading-problem">Diabetes treatments today are reactive</h2>
+                <p>Most tools surface glucose and trends, but they still lean on the person to interpret what it means and what to do next.</p>
+                <p>Care often stays reactive: responding after numbers shift instead of helping people anticipate what is coming.</p>
+            </div>
+
+            <p class="aeri-problem-caption">Current devices show the data, but users are left to carry the cognitive load.</p>
+            </div>
+        </section>
+
+        <section class="aeri-gallery" id="aeri-section-problem-video" aria-label="Context film">
+            <figure class="aeri-video-figure">
+                <video class="aeri-video-autoplay" src="assets/Aeri-Video%201.mp4" playsinline muted preload="metadata" aria-label="Context motion clip"></video>
+            </figure>
+        </section>
+
+        <section class="aeri-solution" id="aeri-section-solution" aria-labelledby="aeri-heading-solution">
+            <p class="aeri-solution-kicker">Solution</p>
+            <h2 id="aeri-heading-solution">Shifting toward proactive care</h2>
+            <p>We set out to design a system that helps people act before issues intensify. We focused on the management of Type 2 diabetes approaching the problem through earlier awareness, clearer guidance, and more confident decision-making.</p>
+            <p>Our solution, Aeri, is an AI-powered preventative care concept that utilizes an AR-integrated contact lens to help users anticipate changes earlier throughout the day.</p>
+        </section>
+
+        <section class="aeri-band" id="aeri-section-frontier" aria-labelledby="aeri-heading-frontier">
+            <h2 id="aeri-heading-frontier">A new frontier in diabetes management</h2>
+        </section>
+
+        <section class="aeri-gallery" id="aeri-section-vision" aria-label="Product vision">
+            <figure class="aeri-fullbleed">
+                <img src="assets/Aeri-Image%201.avif" alt="Aeri ambient interface in a living space" width="1600" height="900" loading="lazy" decoding="async">
+            </figure>
+        </section>
+
+        <section class="aeri-split-row" id="aeri-section-environments" aria-label="Environment and interface">
+            <figure>
+                <img src="assets/Aeri-Image%202.avif" alt="Aeri UI in a forest setting" width="1200" height="800" loading="lazy" decoding="async">
+            </figure>
+            <figure>
+                <img src="assets/Aeri-Image%203.avif" alt="Aeri interface detail" width="1200" height="800" loading="lazy" decoding="async">
+            </figure>
+        </section>
+
+        <section class="aeri-gallery" id="aeri-section-vision-2" aria-label="Additional vision">
+            <figure class="aeri-fullbleed">
+                <img src="assets/Aeri-Image%204.avif" alt="Aeri experience in context" width="1600" height="900" loading="lazy" decoding="async">
+            </figure>
+        </section>
+
+        <section class="aeri-copy-block" id="aeri-section-ecosystem" aria-labelledby="aeri-heading-ecosystem">
+            <h2 id="aeri-heading-ecosystem">The ecosystem</h2>
+            <p>An integrated approach: sensing, guidance, and calm interfaces that meet people where they are.</p>
+            <figure class="aeri-fullbleed aeri-fullbleed--tight">
+                <img src="assets/mySUN.png" alt="Aeri product ecosystem reference" width="1400" height="788" loading="lazy" decoding="async">
+            </figure>
+        </section>
+
+        <section class="aeri-research" id="aeri-section-research" aria-labelledby="aeri-heading-research">
+            <h2 id="aeri-heading-research">Evaluating the current landscape</h2>
+            <p class="aeri-research-lede">Benchmarks and references that informed positioning, flows, and visual language.</p>
+            <ul class="aeri-research-grid">
+                <li><figure><img src="assets/Aeri-Competitor%20Research%201.avif" alt="Competitor research board 1" width="800" height="600" loading="lazy" decoding="async"></figure></li>
+                <li><figure><img src="assets/Aeri-Competitor%20Research%202.avif" alt="Competitor research board 2" width="800" height="600" loading="lazy" decoding="async"></figure></li>
+                <li><figure><img src="assets/Aeri-Competitor%20Research%203.avif" alt="Competitor research board 3" width="800" height="600" loading="lazy" decoding="async"></figure></li>
+                <li><figure><img src="assets/Aeri-Competitor%20Research%204.avif" alt="Competitor research board 4" width="800" height="600" loading="lazy" decoding="async"></figure></li>
+                <li><figure><img src="assets/Aeri-Competitor%20Research%205.avif" alt="Competitor research board 5" width="800" height="600" loading="lazy" decoding="async"></figure></li>
+            </ul>
+        </section>
+
+        <section class="aeri-iterations" id="aeri-section-iterations" aria-labelledby="aeri-heading-iterations">
+            <h2 id="aeri-heading-iterations">Iterations</h2>
+            <p class="aeri-research-lede">Exploring layout, hierarchy, and AR overlays across rounds of design.</p>
+            <ul class="aeri-iteration-grid">
+                <li><figure><img src="assets/Aeri-Iteration%201.avif" alt="Design iteration 1" width="900" height="700" loading="lazy" decoding="async"></figure></li>
+                <li><figure><img src="assets/Aeri-Iteration%202.avif" alt="Design iteration 2" width="900" height="700" loading="lazy" decoding="async"></figure></li>
+                <li><figure><img src="assets/Aeri-Iteration%203.avif" alt="Design iteration 3" width="900" height="700" loading="lazy" decoding="async"></figure></li>
+            </ul>
+        </section>
+
+        <section class="aeri-video-block" id="aeri-section-motion" aria-labelledby="aeri-heading-motion">
+            <h2 id="aeri-heading-motion">Motion &amp; film</h2>
+            <ul class="aeri-video-grid" aria-label="Short motion clips">
+                <li>
+                    <video class="aeri-video-autoplay" src="assets/Aeri-Video%20Grid%201.mp4" playsinline muted loop preload="metadata" aria-label="Motion clip 1"></video>
+                </li>
+                <li>
+                    <video class="aeri-video-autoplay" src="assets/Aeri-Video%20Grid%202.mp4" playsinline muted loop preload="metadata" aria-label="Motion clip 2"></video>
+                </li>
+                <li>
+                    <video class="aeri-video-autoplay" src="assets/Aeri-Video%20Grid%203.mp4" playsinline muted loop preload="metadata" aria-label="Motion clip 3"></video>
+                </li>
+            </ul>
+            <figure class="aeri-video-figure">
+                <video class="aeri-video-autoplay" src="assets/Aeri-Video%202.mp4" playsinline muted preload="metadata" aria-label="Additional motion sequence"></video>
+                <figcaption>Additional sequence</figcaption>
+            </figure>
+            <figure class="aeri-video-figure">
+                <video class="aeri-video-autoplay" src="assets/Aeri-Video%203.mp4" playsinline muted preload="metadata" aria-label="Motion sequence"></video>
+            </figure>
+            <figure class="aeri-video-figure">
+                <video class="aeri-video-autoplay" src="assets/Aeri-Video%204.mp4" playsinline muted preload="metadata" aria-label="Motion sequence"></video>
+            </figure>
+        </section>
         </main>
+
+        <nav class="aeri-toc" id="aeri-toc" aria-label="Table of contents">
+            <p class="aeri-toc-heading">Contents</p>
+            <ul class="aeri-toc-list">
+                <li><a href="#aeri-section-overview">Overview</a></li>
+                <li><a href="#aeri-section-problem">Problem</a></li>
+                <li><a href="#aeri-section-problem-video">Context film</a></li>
+                <li><a href="#aeri-section-solution">Solution</a></li>
+                <li><a href="#aeri-section-frontier">A new frontier</a></li>
+                <li><a href="#aeri-section-vision">Product vision</a></li>
+                <li><a href="#aeri-section-environments">Environments</a></li>
+                <li><a href="#aeri-section-vision-2">Extended vision</a></li>
+                <li><a href="#aeri-section-ecosystem">The ecosystem</a></li>
+                <li><a href="#aeri-section-research">Landscape</a></li>
+                <li><a href="#aeri-section-iterations">Iterations</a></li>
+                <li><a href="#aeri-section-motion">Motion &amp; film</a></li>
+            </ul>
+        </nav>
+        </div>
 
         <footer>
             <h3>Melody Ekbatani </h3>
@@ -123,6 +250,14 @@
             <a href="mailto:melodyekbatani@gmail.com"> melodyekbatani@gmail.com </a>
             </nav>
         </footer>
+    
+    <span id="custom-cursor" aria-hidden="true"></span>
+
+    <script src="../../../common/theme.js?v=8"></script>
+
+    <script src="../../../common/cursor.js?v=8"></script>
+    <script src="aeri-toc.js?v=1" defer></script>
+    <script src="aeri-videos.js?v=7" defer></script>
+
     </body>
-    <script src="../../../common/theme.js"></script>
 </html>
