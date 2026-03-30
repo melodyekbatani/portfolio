@@ -5,24 +5,29 @@
 	const links = [...nav.querySelectorAll('a[href^="#"]')];
 	const ids = links.map((a) => a.getAttribute("href").slice(1));
 	const sections = ids.map((id) => document.getElementById(id)).filter(Boolean);
+	const darkSectionIds = new Set(["aeri-section-frontier", "aeri-section-impacts", "aeri-section-insights"]);
 
 	function setActive(id) {
-		links.forEach((a) => {
-			const match = a.getAttribute("href") === "#" + id;
+		const activeIndex = links.findIndex((a) => a.getAttribute("href") === "#" + id);
+		links.forEach((a, idx) => {
+			const match = idx === activeIndex;
 			a.classList.toggle("is-active", match);
+			a.classList.toggle("is-past", activeIndex !== -1 && idx < activeIndex);
 			if (match) {
 				a.setAttribute("aria-current", "location");
 			} else {
 				a.removeAttribute("aria-current");
 			}
 		});
+		nav.classList.toggle("is-on-dark", darkSectionIds.has(id));
 	}
 
 	function clearActive() {
 		links.forEach((a) => {
-			a.classList.remove("is-active");
+			a.classList.remove("is-active", "is-past");
 			a.removeAttribute("aria-current");
 		});
+		nav.classList.remove("is-on-dark");
 	}
 
 	function updateActive() {

@@ -687,6 +687,8 @@ main.aeri-page {
 	}
 }
 
+}
+
 body.aeri-case {
 	/* One rhythm for all vertical gaps between case-study sections (main column + shell above TOC) */
 	--aeri-section-gap: clamp(2rem, 3.5vw, 3.25rem);
@@ -1543,86 +1545,127 @@ body.aeri-case .aeri-page-shell > main {
 	max-inline-size: 100%;
 }
 
-.aeri-toc {
+body.aeri-case .aeri-toc {
 	display: none;
 }
 
 @media (width > 66rem) {
-	.aeri-toc {
-		display: flex;
-		flex-direction: column;
-		position: fixed;
-		top: 0;
-		right: 0;
-		height: 100vh;
-		width: 280px;
-		z-index: 900;
-		background-color: #1a1a1a;
-		padding-block: clamp(2rem, 5vw, 3rem);
-		padding-inline: clamp(1.5rem, 3vw, 2rem);
-		gap: clamp(1.5rem, 3vw, 2.5rem);
+	body.aeri-case .aeri-page-shell {
+		display: grid;
+		grid-template-columns: minmax(11rem, 14rem) minmax(0, 1fr);
+		align-items: start;
+		column-gap: clamp(1rem, 2vw, 1.5rem);
+	}
+
+	body.aeri-case .aeri-page-shell > main {
+		grid-column: 2;
+		min-inline-size: 0;
+	}
+
+	body.aeri-case .aeri-toc {
+		display: block;
+		grid-column: 1;
+		position: sticky;
+		top: calc(var(--space-md) + 4.75rem);
+		align-self: start;
+		max-block-size: calc(100vh - (var(--space-md) * 2 + 4.75rem));
 		overflow-y: auto;
-		border-left: var(--border-width) solid rgba(255, 255, 255, 0.1);
+		padding-inline-end: 0.5rem;
 	}
 }
 
-.aeri-toc-heading {
+body.aeri-case .aeri-toc-heading {
 	font-family: var(--font-mono);
-	font-size: 0.75rem;
+	font-size: 0.72rem;
 	font-weight: 500;
-	letter-spacing: 0.04em;
+	letter-spacing: 0.08em;
 	text-transform: uppercase;
-	color: #888888;
-	margin: 0;
+	color: var(--color-subtle);
+	margin: 0 0 0.7rem;
 }
 
-.aeri-toc-list {
+body.aeri-case .aeri-toc-list {
 	list-style: none;
 	margin: 0;
-	padding: 0;
+	padding: 0 0 0 0.9rem;
 	display: flex;
 	flex-direction: column;
-	gap: clamp(0.75rem, 1.5vw, 1.25rem);
+	gap: 0.35rem;
+	position: relative;
 }
 
-.aeri-toc-list li {
+body.aeri-case .aeri-toc-list::before {
+	content: "";
+	position: absolute;
+	left: 0.25rem;
+	top: 0.15rem;
+	bottom: 0.15rem;
+	width: 1px;
+	background-color: var(--color-border);
+}
+
+body.aeri-case .aeri-toc-list li {
 	display: flex;
 }
 
-.aeri-toc a {
-	font-family: var(--font);
-	font-size: 0.95rem;
-	font-weight: 400;
-	line-height: 1.4;
-	letter-spacing: -0.01em;
+body.aeri-case .aeri-toc a {
+	font-family: var(--font-mono);
+	font-size: 0.72rem;
+	font-weight: 500;
+	line-height: 1.25;
+	letter-spacing: 0.04em;
+	text-transform: uppercase;
 	text-decoration: none;
-	color: #ffffff;
-	transition: color 0.2s ease;
+	color: var(--color-subtle);
+	position: relative;
+	padding: 0.05rem 0 0.05rem 0.45rem;
+	transition:
+		color 0.2s ease,
+		transform 0.2s ease;
 }
 
-.aeri-toc a:hover {
-	color: #d0d0d0;
+body.aeri-case .aeri-toc a::before {
+	content: "";
+	position: absolute;
+	left: -0.78rem;
+	top: 50%;
+	inline-size: 0.38rem;
+	block-size: 0.38rem;
+	border-radius: 50%;
+	background-color: var(--color-border);
+	transform: translateY(-50%);
 }
 
-@media (width > 80rem) {
-	main.aeri-page {
-		padding-inline-end: 320px;
-	}
+body.aeri-case .aeri-toc a:hover {
+	color: var(--color-text);
 }
 
-.aeri-toc a.is-active {
+body.aeri-case .aeri-toc a.is-past {
+	color: color-mix(in srgb, var(--color-text) 68%, var(--color-subtle));
+}
+
+body.aeri-case .aeri-toc a.is-past::before {
+	background-color: color-mix(in srgb, var(--color-text) 45%, var(--color-border));
+}
+
+body.aeri-case .aeri-toc a.is-active {
 	color: var(--color-text);
 	font-weight: 600;
-	opacity: 1;
+	transform: translateX(0.1rem);
 }
 
-.aeri-toc a:focus-visible {
+body.aeri-case .aeri-toc a.is-active::before {
+	background-color: #e9008c;
+	box-shadow: 0 0 0 0.14rem color-mix(in srgb, #e9008c 25%, transparent);
+}
+
+body.aeri-case .aeri-toc a:focus-visible {
 	outline: 2px solid var(--color-links);
 	outline-offset: 2px;
 }
 
 @media (prefers-reduced-motion: reduce) {
-	.aeri-toc a {
+	body.aeri-case .aeri-toc a {
 		transition: none;
 	}
 }
