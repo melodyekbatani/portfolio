@@ -28,6 +28,7 @@ main {
 			border-radius: var(--radius);
 			border: var(--border-width) solid var(--color-border);
 			overflow: hidden;
+			position: relative;
 			transform: scale(1);
 			transition: transform 0.38s cubic-bezier(0.23, 1, 0.32, 1);
 
@@ -42,8 +43,7 @@ main {
 			}
 
 			h2,
-			p,
-			a {
+			p {
 				padding-inline: 0.8rem;
 			}
 
@@ -58,7 +58,9 @@ main {
 			}
 
 			a {
-				padding-block-end: clamp(1rem, 4vw, 2rem);
+				position: absolute;
+				inset: 0;
+				z-index: 1;
 			}
 
 			h3 {
@@ -90,21 +92,6 @@ main {
 				padding-inline-start: 0.8rem;
 				list-style: none;
 				margin: 0;
-			}
-
-			.tag {
-				display: inline-flex;
-				align-items: center;
-				padding-block: 0.4rem;
-				padding-inline: 0.8rem;
-				background-color: var(--color-text);
-				color: var(--color-surface);
-				border-radius: 9999px;
-				font-family: var(--font);
-				font-size: 0.85rem;
-				font-weight: 500;
-				letter-spacing: 0.01em;
-				white-space: nowrap;
 			}
 
 			figure {

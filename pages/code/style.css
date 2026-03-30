@@ -48,8 +48,7 @@ main {
 			}
 
 			h2,
-			p,
-			a {
+			p {
 				padding-inline: 0.8rem;
 			}
 
@@ -63,9 +62,10 @@ main {
 			}
 
 			a {
-				padding-block-end: clamp(1rem, 4vw, 2rem);
+				position: absolute;
+				inset: 0;
+				z-index: 1;
 				text-decoration: none;
-				display: block;
 			}
 
 			p {

@@ -159,6 +159,9 @@ header {
 			font-family: var(--font-mono);
 			text-transform: uppercase;
 			text-decoration: none;
+			color: #ff1493;
+			display: flex;
+			align-items: center;
 		}
 
 		#menu-toggle {
@@ -241,6 +244,7 @@ header {
 		inline-size: min(calc(100% - (var(--space-md) * 2)), calc(var(--max-width) - 8rem));
 
 		.logo {
+			height: auto;
 			font-size: var(--type-mono-size);
 		}
 
@@ -399,6 +403,23 @@ footer {
 	}
 }
 
+/* ─── Tags ─── */
+.tag {
+	display: inline-flex;
+	align-items: center;
+	padding-block: 0.4rem;
+	padding-inline: 0.8rem;
+	background-color: #ffffff;
+	color: var(--color-text);
+	border: 1.5px solid #ff1493;
+	border-radius: 9999px;
+	font-family: var(--font);
+	font-size: 0.85rem;
+	font-weight: 500;
+	letter-spacing: 0.01em;
+	white-space: nowrap;
+}
+
 /* ─── Responsive Adjustments ─── */
 
 /* Tablet - iPad */
@@ -503,6 +524,8 @@ html.custom-cursor-active.custom-cursor-native body * {
 		color: var(--cursor-arrow-color, #ffffff);
 		fill: #ffffff;
 		fill: var(--cursor-arrow-color, #ffffff);
+		stroke: #ffffff;
+		stroke-width: 1.5;
 		opacity: 0;
 		transform: scale(0.65);
 		transition:
@@ -511,6 +534,8 @@ html.custom-cursor-active.custom-cursor-native body * {
 
 		path {
 			fill: inherit;
+			stroke: inherit;
+			stroke-width: inherit;
 		}
 	}
 }
