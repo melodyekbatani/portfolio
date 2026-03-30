@@ -1,16 +1,18 @@
 /* ─── Main Content Grid ─── */
 /* Mobile-first: single column, wider breakpoints in the @media block below. */
 
-main {
-	margin-inline: auto;
-	max-inline-size: 1200px;
+/* Shell: margin, max-width, padding-inline — common/style.css .page-shell */
 
+main.page-shell {
 	section:first-of-type {
 		h2 {
 			padding-block: var(--space-md);
 			text-align: center;
 			font-family: var(--font);
-			font-size: 1rem;
+			font-size: var(--type-section-title);
+			font-weight: 600;
+			letter-spacing: -0.02em;
+			line-height: var(--line-title);
 		}
 	}
 
@@ -122,7 +124,7 @@ main {
 }
 
 /* Aeri cover — radius on the <img> (explicit selector so it wins over reset / flex) */
-main ul.projects > li:first-child figure > img {
+main.page-shell ul.projects > li:first-child figure > img {
 	display: block;
 	inline-size: 100%;
 	max-inline-size: 100%;
@@ -133,8 +135,8 @@ main ul.projects > li:first-child figure > img {
 /* ─── Tablet & Responsive ─── */
 
 @media (width > 35.95rem) {
-	main ul,
-	main article {
+	main.page-shell ul,
+	main.page-shell article {
 		grid-template-columns: 1fr 1fr;
 
 		li:first-child,
@@ -143,21 +145,21 @@ main ul.projects > li:first-child figure > img {
 		}
 	}
 
-	main li,
-	main section {
+	main.page-shell li,
+	main.page-shell section {
 		padding: var(--space-md);
 	}
 
-	main li figure,
-	main section figure {
+	main.page-shell li figure,
+	main.page-shell section figure {
 		padding: var(--space-md);
 		margin-block-end: var(--space-sm);
 	}
 }
 
 @media (prefers-reduced-motion: reduce) {
-	main ul li,
-	main article section {
+	main.page-shell ul li,
+	main.page-shell article section {
 		transition: none;
 		transform: none;
 	}

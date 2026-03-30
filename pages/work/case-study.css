@@ -691,7 +691,7 @@ main.aeri-page {
 
 body.aeri-case {
 	/* One rhythm for all vertical gaps between case-study sections (main column + shell above TOC) */
-	--aeri-section-gap: clamp(2rem, 3.5vw, 3.25rem);
+	--aeri-section-gap: var(--page-section-gap);
 	padding-block-start: 0;
 	/* Space for fixed project nav so footer and last sections are not covered */
 	padding-block-end: calc(clamp(5rem, 14vh, 7.5rem) + env(safe-area-inset-bottom, 0px));
@@ -1585,9 +1585,11 @@ body.aeri-case .aeri-toc-heading {
 }
 
 body.aeri-case .aeri-toc-list {
+	--toc-pad: 0.9rem;
+	--toc-line-x: 0.25rem;
 	list-style: none;
 	margin: 0;
-	padding: 0 0 0 0.9rem;
+	padding: 0 0 0 var(--toc-pad);
 	display: flex;
 	flex-direction: column;
 	gap: 0.35rem;
@@ -1597,7 +1599,7 @@ body.aeri-case .aeri-toc-list {
 body.aeri-case .aeri-toc-list::before {
 	content: "";
 	position: absolute;
-	left: 0.25rem;
+	left: var(--toc-line-x);
 	top: 0.15rem;
 	bottom: 0.15rem;
 	width: 1px;
@@ -1619,21 +1621,19 @@ body.aeri-case .aeri-toc a {
 	color: var(--color-subtle);
 	position: relative;
 	padding: 0.05rem 0 0.05rem 0.45rem;
-	transition:
-		color 0.2s ease,
-		transform 0.2s ease;
+	transition: color 0.2s ease;
 }
 
 body.aeri-case .aeri-toc a::before {
 	content: "";
 	position: absolute;
-	left: -0.78rem;
+	left: calc(var(--toc-line-x) + 0.5px - var(--toc-pad));
 	top: 50%;
 	inline-size: 0.38rem;
 	block-size: 0.38rem;
 	border-radius: 50%;
 	background-color: var(--color-border);
-	transform: translateY(-50%);
+	transform: translate(-50%, -50%);
 }
 
 body.aeri-case .aeri-toc a:hover {
@@ -1651,7 +1651,6 @@ body.aeri-case .aeri-toc a.is-past::before {
 body.aeri-case .aeri-toc a.is-active {
 	color: var(--color-text);
 	font-weight: 600;
-	transform: translateX(0.1rem);
 }
 
 body.aeri-case .aeri-toc a.is-active::before {

@@ -21,6 +21,25 @@
 	--type-subheading-lg: clamp(1.5rem, 4vw, 2rem);
 	--type-subheading-md: clamp(1.25rem, 3.5vw, 1.75rem);
 
+	/* Unified scale — section titles, body, rhythm (use across pages) */
+	--type-display: clamp(1.875rem, 4vw + 0.85rem, 2.875rem);
+	--type-section-title: clamp(1.125rem, 1.35vw + 0.85rem, 1.5rem);
+	--type-cta-title: clamp(1.35rem, 2.2vw + 0.75rem, 2rem);
+	--type-body: clamp(1rem, 1.2vw + 0.85rem, 1.125rem);
+	--type-body-lede: clamp(0.98rem, 1.15vw + 0.82rem, 1.08rem);
+	--type-label: 0.75rem;
+	--type-meta: 0.72rem;
+	--line-display: 1.12;
+	--line-title: 1.28;
+	--line-body: 1.55;
+	--line-relaxed: 1.62;
+	--prose-max-ch: 62ch;
+	--section-rhythm: clamp(2.5rem, 5vw, 4rem);
+	--section-rhythm-tight: clamp(2rem, 4vw, 3rem);
+	/* Aligns with case-study vertical rhythm (Aeri, etc.) */
+	--page-section-gap: clamp(2rem, 3.5vw, 3.25rem);
+	--block-gap: clamp(0.65rem, 1.5vw, 1rem);
+
 	/* Layout */
 	--space-xs: 0.25rem;
 	--space-sm: 0.5rem;
@@ -107,6 +126,84 @@ body {
 	h4 {
 		font-family: var(--font);
 	}
+}
+
+/* ─── Page sections & type utilities (shared) ─── */
+
+.page-section {
+	display: flex;
+	flex-direction: column;
+	gap: var(--block-gap);
+}
+
+.page-section-header {
+	display: flex;
+	flex-direction: column;
+	gap: var(--space-xs);
+}
+
+.page-section-title {
+	font-family: var(--font);
+	font-size: var(--type-section-title);
+	font-weight: 600;
+	letter-spacing: -0.02em;
+	line-height: var(--line-title);
+	margin: 0;
+	color: var(--color-text);
+}
+
+.page-section-title--cta {
+	font-size: var(--type-cta-title);
+	line-height: var(--line-title);
+}
+
+.page-section-lede {
+	font-family: var(--font);
+	font-size: var(--type-body-lede);
+	line-height: var(--line-body);
+	margin: 0;
+	max-inline-size: var(--prose-max-ch);
+	color: var(--color-text);
+}
+
+.page-section-body {
+	display: flex;
+	flex-direction: column;
+	gap: var(--block-gap);
+}
+
+.page-section-body > p {
+	margin: 0;
+	font-size: var(--type-body);
+	line-height: var(--line-relaxed);
+	max-inline-size: var(--prose-max-ch);
+	color: var(--color-text);
+}
+
+.page-section-header--center {
+	text-align: center;
+	align-items: center;
+}
+
+.type-eyebrow {
+	font-family: var(--font-mono);
+	font-size: var(--type-label);
+	font-weight: 400;
+	letter-spacing: 0.06em;
+	text-transform: uppercase;
+	color: var(--color-subtle);
+	line-height: 1.4;
+}
+
+/*
+ * Portfolio pages (home, code): main column matches header hgroup horizontal inset
+ * so hero text and project cards share the same 1200px-wide column edges.
+ */
+main.page-shell {
+	margin-inline: auto;
+	max-inline-size: 1200px;
+	padding-inline: var(--space-md);
+	box-sizing: border-box;
 }
 
 @keyframes growIn {
@@ -328,7 +425,8 @@ header {
 			margin: 0;
 			padding: 0;
 			margin-block-end: clamp(1.25rem, 2.5vw, 2rem);
-			max-inline-size: 80%;
+			/* Align to page column edge (same inset as main.page-shell), not a narrower text band */
+			max-inline-size: min(100%, 75ch);
 			-webkit-text-size-adjust: 100%;
 
 			span {
@@ -430,6 +528,13 @@ footer {
 
 	p {
 		max-inline-size: 60%;
+	}
+
+	/* Prose / editorial columns — override default p width */
+	main.about-main p,
+	main.page-prose p,
+	.page-section-body p {
+		max-inline-size: min(var(--prose-max-ch), 100%);
 	}
 
 	footer {
