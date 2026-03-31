@@ -20,7 +20,7 @@ main.page-shell {
 	article {
 		display: grid;
 		grid-template-columns: 1fr;
-		gap: clamp(0.5rem, 2vw, 1rem);
+		gap: clamp(1.5rem, 2vw, 1rem);
 
 		li,
 		section {
@@ -165,7 +165,7 @@ main.page-shell ul.projects > li:first-child figure > img {
 }
 
 main.page-shell ul.projects > li:first-child p {
-	max-inline-size: 60%;
+	max-inline-size: 100%;
 }
 
 /* ─── Tablet & Responsive ─── */

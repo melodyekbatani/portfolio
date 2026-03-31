@@ -26,7 +26,7 @@ main.code-main .code-intro .page-section-title {
 main.code-main ul.projects {
 	display: grid;
 	grid-template-columns: 1fr;
-	gap: clamp(0.5rem, 2vw, 1rem);
+	gap: clamp(1.5rem, 2vw, 1rem);
 }
 
 main.code-main ul.projects li {

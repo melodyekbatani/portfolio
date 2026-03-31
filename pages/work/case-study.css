@@ -761,7 +761,7 @@ header.aeri-header {
 			line-height: var(--type-hero-line-height);
 			color: #d2d9ee;
 			letter-spacing: 0;
-			max-inline-size: 24ch;
+			max-inline-size: 62ch;
 			margin-inline: auto;
 			text-wrap: balance;
 		}

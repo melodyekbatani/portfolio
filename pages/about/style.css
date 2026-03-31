@@ -1,758 +1,328 @@
-/* ─── About page — editorial layout (scoped to this page) ─── */
-
 main.about-main {
 	margin-inline: auto;
 	max-inline-size: 1200px;
-	padding-block: clamp(3rem, 8vw, 5rem);
 	padding-inline: var(--space-md);
+	padding-block: clamp(2.5rem, 6vw, 4rem);
+	display: grid;
+	gap: clamp(1.5rem, 4vw, 2.5rem);
+	box-sizing: border-box;
+	inline-size: 100%;
+}
+
+main.about-main section,
+main.about-main article {
+	background: var(--color-surface);
+	border: var(--border-width) solid var(--color-border);
+	border-radius: var(--radius);
+	padding: clamp(1.25rem, 3vw, 2rem);
+}
+
+main.about-main .about-hero {
 	display: flex;
 	flex-direction: column;
-	align-items: stretch;
-	inline-size: 100%;
-	text-align: left;
-}
-
-main.about-main .page-section-header,
-main.about-main .page-section-body,
-main.about-main .about-career-body {
-	text-align: left;
 	align-items: flex-start;
-}
-
-/* Hero — grey container with generous padding */
-main.about-main article.about-grid.about-hero {
-	display: grid;
-	grid-template-columns: auto minmax(0, 1fr);
-	gap: clamp(1.5rem, 5vw, 3rem);
-	align-items: start;
-	background: var(--color-surface);
-	border-radius: var(--radius);
-	border: var(--border-width) solid var(--color-border);
-	border-bottom: 3px solid #97B1F1;
-	padding-block: clamp(2.5rem, 6vw, 4.5rem);
-	padding-inline: clamp(2rem, 5vw, 3.5rem);
-	margin: 0;
-	margin-block-start: clamp(2rem, 5vw, 3.5rem);
-	margin-block-end: clamp(4.5rem, 12vw, 7rem);
-	position: relative;
-}
-
-/* Animated dot to the left of hero */
-main.about-main article.about-grid.about-hero::before {
-	content: "";
-	position: absolute;
-	left: -3.5rem;
-	top: 2rem;
-	inline-size: 12px;
-	block-size: 12px;
-	border-radius: 50%;
-	background: #97B1F1;
-	animation: dotBounce 2s ease-in-out infinite;
-}
-
-@keyframes dotBounce {
-	0%, 100% {
-		transform: translateY(0);
-		opacity: 1;
-	}
-	50% {
-		transform: translateY(-8px);
-		opacity: 0.7;
-	}
-}
-
-@media (width < 48rem) {
-	main.about-main article.about-grid.about-hero::before {
-		display: none;
-	}
+	text-align: left;
+	gap: clamp(1.25rem, 3vw, 2.25rem);
+	background: transparent;
+	border: none;
+	padding: 0;
+	max-inline-size: 56rem;
+	margin-inline: auto;
+	padding-block-end: clamp(1.25rem, 3.5vw, 2.25rem);
 }
 
 main.about-main .about-avatar {
 	margin: 0;
-	padding: 0;
+	inline-size: clamp(5.25rem, 10vw, 6.75rem);
+	block-size: clamp(5.25rem, 10vw, 6.75rem);
 	border-radius: 50%;
 	overflow: hidden;
-	inline-size: clamp(5rem, 12vw, 6.5rem);
-	block-size: clamp(5rem, 12vw, 6.5rem);
-	flex-shrink: 0;
 }
 
 main.about-main .about-avatar img {
-	display: block;
 	inline-size: 100%;
 	block-size: 100%;
 	object-fit: cover;
+	display: block;
 }
 
-main.about-main .about-bio {
-	background: transparent;
-	border: none;
-	padding: 0;
-	display: flex;
-	flex-direction: column;
-	gap: clamp(0.75rem, 2vw, 1.25rem);
-	max-inline-size: none;
+main.about-main .about-hero-copy {
+	display: grid;
+	gap: 1.5rem;
+	justify-items: start;
+	flex: 1;
 }
 
-main.about-main .about-greeting.type-eyebrow {
-	text-transform: uppercase;
-}
-
-main.about-main .about-name-accent {
-	color: var(--cursor-bg);
-	font-weight: 500;
-}
-
-/* Display — hero statement (largest text on page) */
-main.about-main .about-statement {
+main.about-main .about-hero-greeting {
 	font-family: var(--font);
-	font-size: clamp(2rem, 5.5vw, 3.5rem);
-	font-weight: 500;
-	line-height: 1.22;
-	letter-spacing: -0.02em;
-	max-inline-size: min(60ch, 100%);
-	margin: 0;
-	color: var(--color-text);
-}
-
-/* In-main section headers are not the site chrome header; avoid global header { margin-inline: auto } */
-main.about-main header.page-section-header {
-	margin-inline: 0;
-	max-inline-size: none;
-	inline-size: 100%;
-}
-
-/* Background section — reduced padding, top-aligned */
-main.about-main section.about-background {
-	padding-block: clamp(1.5rem, 3vw, 2rem);
-	padding-inline: clamp(1.5rem, 3vw, 2rem);
-	margin-block-end: clamp(2.5rem, 5vw, 4rem);
-	border-left: 3px solid #97B1F1;
-}
-
-main.about-main section.about-background .page-section-body {
-	max-inline-size: min(65ch, var(--prose-max-ch));
-}
-
-main.about-main section.about-background .page-section-body p {
-	font-size: clamp(0.95rem, 1.3vw, 1.05rem);
-	line-height: 1.62;
-	margin: 0;
-	color: var(--color-text);
-}
-
-/* Emphasis container — grey box styling */
-main.about-main .about-emphasis-container {
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	padding-block: clamp(3rem, 7vw, 5rem);
-	padding-inline: clamp(1.5rem, 3vw, 2.5rem);
-	text-align: center;
-	margin-block-end: clamp(2.5rem, 5vw, 4rem);
-	border-bottom: 3px solid #97B1F1;
-}
-
-/* Emphasis block — strategic typography moments */
-main.about-main .about-emphasis-block {
-	font-family: var(--font);
-	font-size: clamp(1.75rem, 4vw, 2.75rem);
-	font-weight: 500;
-	line-height: 1.3;
+	font-size: clamp(2rem, 6vw, 3.5rem);
+	line-height: 1.1;
+	font-weight: 700;
 	letter-spacing: -0.015em;
 	margin: 0;
-	color: var(--color-text);
+	margin-block-end: 0.3rem;
+	max-inline-size: min(100%, 75ch);
+}
+
+main.about-main .about-hero-name {
+	color: var(--cursor-bg);
+	font-weight: 600;
+}
+
+main.about-main .about-hero-copy strong {
+	font-weight: 600;
+}
+
+main.about-main .about-hero-copy h1 {
+	font-family: var(--font);
+	font-size: clamp(1.5rem, 2.7vw, 2.25rem);
+	line-height: 1.25;
+	letter-spacing: -0.02em;
+	margin: 0;
+	max-inline-size: min(30ch, 100%);
+}
+
+main.about-main .about-hero-copy p {
+	margin: 0;
+	font-size: var(--type-body);
+	line-height: var(--line-relaxed);
 	max-inline-size: 60ch;
 }
 
-main.about-main .about-emphasis-block p {
-	margin: 0;
-}
-
-main.about-main .about-emphasis-highlight {
-	color: var(--cursor-bg);
-}
-
-main.about-main .page-section-header {
-	display: flex;
-	flex-direction: column;
-	gap: var(--space-xs);
-	text-align: left;
-	margin-block-end: clamp(0.85rem, 1.5vw, 1.35rem);
-}
-
-main.about-main .page-section-title {
-	font-family: var(--font);
-	font-size: var(--type-section-title);
-	font-weight: 600;
-	letter-spacing: -0.02em;
-	line-height: var(--line-title);
-	margin: 0;
+main.about-main .about-hero-copy p:first-of-type {
+	font-size: var(--type-body);
 	color: var(--color-text);
-	text-align: left;
+	margin: 0;
 }
 
-main.about-main .about-two-col {
+main.about-main .about-hero-copy p:first-of-type strong {
+	font-weight: 400;
+}
+
+main.about-main .about-grid-two {
 	display: grid;
 	grid-template-columns: 1fr 1fr;
-	gap: clamp(2rem, 4vw, 3rem);
-	align-items: stretch;
+	gap: clamp(1rem, 2vw, 1.5rem);
+	background: transparent;
+	border: none;
+	padding: 0;
+}
+
+main.about-main .about-card h2,
+main.about-main .about-section-header h2 {
+	margin: 0 0 0.55rem 0;
+	font-size: var(--type-section-title);
+	line-height: var(--line-title);
+	letter-spacing: -0.02em;
+}
+
+main.about-main .about-section-header h2 {
+	font-size: calc(var(--type-section-title) * 1.08);
+}
+
+main.about-main .about-card p,
+main.about-main .about-section p {
+	margin: 0;
+	font-size: var(--type-body);
+	line-height: var(--line-relaxed);
+}
+
+main.about-main .about-section-header p {
+	color: var(--color-subtle);
+	font-size: 0.92rem;
+}
+
+main.about-main .about-career-list {
+	list-style: none;
+	margin: 1rem 0 0 0;
+	padding: 0;
+	display: grid;
+	gap: 0.9rem;
+}
+
+main.about-main .about-career-list li {
+	display: grid;
+	gap: 0.2rem;
+	padding-block-end: 0.9rem;
+	border-bottom: var(--border-width) solid var(--color-border);
+}
+
+main.about-main .about-career-list li:last-child {
+	padding-block-end: 0;
+	border-bottom: none;
+}
+
+main.about-main .about-career-list time {
+	font-family: var(--font-mono);
+	font-size: 0.7rem;
+	letter-spacing: 0.08em;
+	text-transform: uppercase;
+	color: var(--color-subtle);
+}
+
+main.about-main .about-career-list p {
+	font-size: clamp(0.98rem, 1.3vw, 1.08rem);
+}
+
+main.about-main .about-career-list p span {
+	font-weight: 600;
+}
+
+main.about-main .about-highlights {
+	display: grid;
+	grid-template-columns: repeat(6, minmax(0, 1fr));
+	gap: clamp(0.5rem, 1.2vw, 0.85rem);
+}
+
+main.about-main .about-highlights figure.about-highlight {
+	margin: 0;
+	display: grid;
+	gap: 0.55rem;
+	background: transparent;
+	border: none;
+	padding: 0;
+}
+
+main.about-main .about-highlight-media {
+	overflow: hidden;
+	border-radius: calc(var(--radius) - 6px);
+	border: var(--border-width) solid var(--color-border);
+	background: var(--color-background);
+	transform-origin: center bottom;
+}
+
+main.about-main .about-highlight-media img {
+	inline-size: 100%;
+	block-size: 100%;
+	aspect-ratio: 4 / 5;
+	max-block-size: none;
+	object-fit: cover;
+	display: block;
+	transition: transform 0.18s ease-out;
+}
+
+main.about-main .about-highlight-caption {
+	display: block;
+	margin: 0;
+	font-family: var(--font-mono);
+	font-size: 0.72rem;
+	letter-spacing: 0.08em;
+	text-transform: uppercase;
+	color: var(--cursor-bg);
+	opacity: 1 !important;
+	transform: none !important;
+	visibility: visible !important;
+	pointer-events: auto;
+}
+
+main.about-main .about-highlights figure.about-highlight:hover .about-highlight-media img {
+	transform: scale(1.04);
+}
+
+/* Captions should always be visible (no hover-only behavior). */
+
+main.about-main .about-experience-list {
+	display: grid;
+	gap: 0.8rem;
+	margin-top: 0.8rem;
+	text-align: left;
+}
+
+main.about-main .about-experience-item {
+	padding: 1rem;
+	border-radius: calc(var(--radius) - 6px);
+	border: none;
+	text-align: left;
+}
+
+@media (width >= 66rem) {
+	main.about-main .about-section {
+		margin-top: 0.35rem;
+	}
+}
+
+main.about-main .about-experience-item h3 {
+	margin: 0 0 0.25rem 0;
+	font-size: clamp(1rem, 1.7vw, 1.15rem);
+	line-height: 1.3;
+}
+
+main.about-main .about-experience-item .meta {
+	margin: 0 0 0.55rem 0;
+	font-family: var(--font-mono);
+	font-size: 0.68rem;
+	letter-spacing: 0.08em;
+	text-transform: uppercase;
+	color: var(--color-subtle);
+}
+
+main.about-main .about-fun ul {
+	margin: 0.5rem 0 0 0;
+	padding-left: 1.15rem;
+	display: grid;
+	gap: 0.45rem;
+}
+
+main.about-main .about-fun li {
+	font-size: var(--type-body);
+	line-height: var(--line-relaxed);
+}
+
+/* Desktop / large viewports — balanced rhythm and readable measure */
+@media (width >= 66rem) {
+	main.about-main {
+		padding-block: clamp(3rem, 5vw, 5.5rem);
+		gap: clamp(2rem, 4vw, 3rem);
+	}
+
+	main.about-main .about-hero {
+		padding-block: clamp(1.5rem, 3vw, 2.5rem);
+	}
+
+	main.about-main .about-hero-copy h1 {
+		max-inline-size: min(30ch, 100%);
+		font-size: clamp(1.7rem, 2.3vw, 2.4rem);
+	}
+
+	main.about-main .about-highlights {
+		grid-template-columns: repeat(6, minmax(0, 1fr));
+	}
+
+	main.about-main .about-highlights img {
+		max-block-size: none;
+	}
+}
+
+@media (width >= 80rem) {
+	main.about-main .about-experience-list {
+		grid-template-columns: repeat(3, minmax(0, 1fr));
+		gap: 1rem;
+		align-items: stretch;
+	}
+
+	main.about-main .about-experience-item {
+		display: flex;
+		flex-direction: column;
+		min-block-size: 100%;
+	}
+}
+
+@media (width < 66rem) {
+	main.about-main .about-highlights {
+		grid-template-columns: repeat(3, minmax(0, 1fr));
+	}
 }
 
 @media (width < 48rem) {
-	main.about-main .about-two-col {
-		grid-template-columns: 1fr;
-	}
-}
-
-/* Approach and AI Tools — grey containers with consistent styling */
-main.about-main #approach,
-main.about-main #ai-tools {
-	padding-block: clamp(1.75rem, 3.5vw, 2.25rem);
-	padding-inline: clamp(1.5rem, 3vw, 2rem);
-	border-top: 3px solid #97B1F1;
-}
-
-main.about-main #approach .page-section-body,
-main.about-main #ai-tools .page-section-body {
-	max-inline-size: 100%;
-}
-
-main.about-main #approach .page-section-body p,
-main.about-main #ai-tools .page-section-body p {
-	font-size: clamp(0.95rem, 1.3vw, 1.05rem);
-	line-height: 1.65;
-	margin: 0;
-	color: var(--color-text);
-}
-
-main.about-main #career-highlights {
-	margin: 0;
-	padding-inline: 0;
-	text-align: left;
-}
-
-main.about-main #career-highlights .page-section-header,
-main.about-main #career-highlights .page-section-body {
-	text-align: left;
-	align-items: stretch;
-}
-
-main.about-main .page-section-lede {
-	font-family: var(--font);
-	font-size: var(--type-body-lede);
-	line-height: 1.62;
-	margin: 0;
-	max-inline-size: var(--prose-max-ch);
-	color: var(--color-text);
-	text-align: left;
-}
-
-main.about-main .about-career-timeline {
-	list-style: none;
-	margin: 0;
-	padding: 0;
-	max-inline-size: none;
-	inline-size: 100%;
-}
-
-main.about-main .about-career-timeline li {
-	padding-inline-start: 0;
-	padding-block-end: clamp(1.25rem, 3vw, 1.75rem);
-	margin: 0;
-}
-
-main.about-main .about-career-timeline li:last-child {
-	padding-block-end: 0;
-}
-
-main.about-main .about-career-time {
-	display: block;
-	font-family: var(--font-mono);
-	font-size: 0.72rem;
-	font-weight: 400;
-	letter-spacing: 0.06em;
-	text-transform: uppercase;
-	color: var(--color-subtle);
-	margin-block-end: 0.35rem;
-}
-
-main.about-main .about-career-line {
-	margin: 0;
-	font-size: clamp(0.95rem, 1.5vw, 1.05rem);
-	line-height: 1.45;
-	color: var(--color-text);
-}
-
-main.about-main #career-highlights .about-job-title {
-	font-weight: 600;
-}
-
-main.about-main #career-highlights .about-job-company {
-	font-weight: 700;
-}
-
-/* Full-bleed gallery — edge to edge of viewport */
-main.about-main .about-gallery-fullbleed {
-	inline-size: 100vw;
-	margin-inline: calc(50% - 50vw);
-	padding-block: clamp(1.5rem, 4vw, 3rem);
-	padding-inline: clamp(0.75rem, 3vw, 1.5rem);
-	box-sizing: border-box;
-	position: relative;
-	overflow-x: clip;
-}
-
-main.about-main .gallery-section.about-highlights-gallery {
-	display: flex;
-	align-items: center;
-	justify-content: flex-start;
-	inline-size: 100%;
-	min-block-size: clamp(18rem, 42vw, 26rem);
-	padding: 0;
-	background: transparent;
-	isolation: isolate;
-	overflow: visible;
-	margin: 0;
-}
-
-main.about-main .gallery-stack {
-	--fan-card-w: 160px;
-	--fan-x: clamp(2.5rem, 11vw, 7.5rem);
-	position: relative;
-	inline-size: min(100%, 34rem);
-	block-size: clamp(16rem, 38vw, 22rem);
-	margin-inline: auto;
-	padding: 0;
-	padding-block-end: 2.1rem;
-	cursor: pointer;
-	outline: none;
-}
-
-main.about-main .gallery-stack:focus-visible {
-	box-shadow: 0 0 0 2px var(--color-border);
-	border-radius: var(--radius);
-}
-
-main.about-main .gallery-card-unit {
-	position: absolute;
-	left: 50%;
-	top: 0;
-	display: flex;
-	flex-direction: column;
-	align-items: center;
-	justify-content: flex-start;
-	inline-size: var(--fan-card-w);
-	transform-origin: center bottom;
-	transition:
-		transform 0.4s cubic-bezier(0.2, 0.85, 0.2, 1),
-		box-shadow 0.35s ease;
-	will-change: transform;
-	z-index: 1;
-}
-
-main.about-main .gallery-card {
-	margin: 0;
-	padding: 0;
-	border: none;
-	inline-size: var(--fan-card-w);
-	block-size: 210px;
-	border-radius: var(--radius);
-	overflow: hidden;
-	background: var(--color-border);
-	box-shadow: 0 6px 20px rgba(0, 0, 0, 0.12);
-	transform-origin: center bottom;
-	transition: transform 0.35s ease, box-shadow 0.35s ease;
-}
-
-[data-theme="dark"] main.about-main .gallery-card {
-	box-shadow: 0 6px 24px rgba(0, 0, 0, 0.45);
-}
-
-main.about-main .gallery-card img {
-	inline-size: 100% !important;
-	block-size: 100% !important;
-	object-fit: cover;
-	object-position: center;
-	display: block !important;
-	margin: 0 !important;
-	padding: 0 !important;
-	border-radius: 0 !important;
-}
-
-main.about-main .gallery-card-caption {
-	display: block;
-	margin-block-start: 0.45rem;
-	max-inline-size: 11rem;
-	font-family: var(--font-mono);
-	font-size: 0.65rem;
-	font-weight: 500;
-	letter-spacing: 0.06em;
-	text-transform: uppercase;
-	text-align: center;
-	line-height: 1.25;
-	color: var(--cursor-bg);
-	opacity: 0;
-	transform: translateY(4px);
-	transition: opacity 0.3s ease, transform 0.3s ease;
-	pointer-events: none;
-}
-
-/* Expanded default fan (always out in a curve) */
-main.about-main .gallery-card-unit.c1 { transform: translateX(calc(-50% - 3 * var(--fan-x))) translateY(32px) rotate(-20deg) scale(1.04); z-index: 1; }
-main.about-main .gallery-card-unit.c2 { transform: translateX(calc(-50% - 2 * var(--fan-x))) translateY(18px) rotate(-12deg) scale(1.04); z-index: 2; }
-main.about-main .gallery-card-unit.c3 { transform: translateX(calc(-50% - 1 * var(--fan-x))) translateY(8px) rotate(-5deg) scale(1.04); z-index: 3; }
-main.about-main .gallery-card-unit.c4 { transform: translateX(-50%) translateY(0) rotate(0deg) scale(1.06); z-index: 7; }
-main.about-main .gallery-card-unit.c5 { transform: translateX(calc(-50% + 1 * var(--fan-x))) translateY(8px) rotate(5deg) scale(1.04); z-index: 3; }
-main.about-main .gallery-card-unit.c6 { transform: translateX(calc(-50% + 2 * var(--fan-x))) translateY(18px) rotate(12deg) scale(1.04); z-index: 2; }
-main.about-main .gallery-card-unit.c7 { transform: translateX(calc(-50% + 3 * var(--fan-x))) translateY(32px) rotate(20deg) scale(1.04); z-index: 1; }
-
-main.about-main .gallery-stack:hover .gallery-card,
-main.about-main .gallery-stack:focus-within .gallery-card {
-	box-shadow: 0 12px 32px rgba(0, 0, 0, 0.15);
-}
-
-[data-theme="dark"] main.about-main .gallery-stack:hover .gallery-card,
-[data-theme="dark"] main.about-main .gallery-stack:focus-within .gallery-card {
-	box-shadow: 0 12px 36px rgba(0, 0, 0, 0.5);
-}
-
-main.about-main .gallery-card-unit:hover .gallery-card-caption,
-main.about-main .gallery-card-unit:focus-within .gallery-card-caption {
-	opacity: 1;
-	transform: translateY(0);
-}
-
-/* Per-card hover: subtle lift on image only */
-main.about-main .gallery-card-unit:hover .gallery-card,
-main.about-main .gallery-card-unit:focus-within .gallery-card {
-	transform: scale(1.05);
-	box-shadow: 0 14px 36px rgba(0, 0, 0, 0.2);
-}
-
-/* Section rhythm — unified vertical gaps */
-main.about-main .about-sections-grid {
-	display: flex;
-	flex-direction: column;
-	gap: clamp(2.5rem, 5vw, 4rem);
-	margin-inline: 0;
-	max-inline-size: none;
-}
-
-main.about-main .about-sections-grid > .page-section {
-	background: transparent;
-	border: none;
-	border-radius: 0;
-	overflow: visible;
-	padding: 0;
-}
-
-main.about-main .about-career-body {
-	max-inline-size: 100%;
-}
-
-/* Experience — surface block + vertical timeline */
-main.about-main .about-sections-grid > #experience.page-section--surface {
-	background-color: var(--color-surface);
-	border-radius: var(--radius);
-	border: var(--border-width) solid var(--color-border);
-	border-left: 3px solid #97B1F1;
-	padding-block: clamp(2.25rem, 4vw, 3rem);
-	padding-inline: clamp(1.75rem, 3.5vw, 2.5rem);
-	gap: clamp(1rem, 2.5vw, 1.35rem);
-	margin-block-start: clamp(2rem, 4vw, 3.5rem);
-}
-
-main.about-main #experience .page-section-header {
-	margin-block-end: 0;
-}
-
-main.about-main #experience .about-experience-timeline {
-	position: relative;
-	padding-inline-start: 0;
-	margin: 0;
-}
-
-main.about-main #experience .about-experience-timeline::before {
-	content: "";
-	position: absolute;
-	inset-inline-start: 0.35rem;
-	inset-block: 0.65rem 0.5rem;
-	inline-size: 1px;
-	background: var(--color-border);
-}
-
-main.about-main #experience article {
-	position: relative;
-	background-color: transparent;
-	border: none;
-	padding-inline-start: 1.65rem;
-	padding-inline-end: 0;
-	padding-block: clamp(2.25rem, 4vw, 3rem);
-	border-bottom: var(--border-width) solid var(--color-border);
-	margin: 0;
-}
-
-main.about-main #experience article::before {
-	content: "";
-	position: absolute;
-	inset-inline-start: 0.35rem;
-	inset-block-start: 2rem;
-	inline-size: 0.5rem;
-	block-size: 0.5rem;
-	border-radius: 50%;
-	background: var(--color-surface);
-	border: 2px solid var(--color-text);
-	box-sizing: border-box;
-	z-index: 1;
-	transform: translateX(-50%);
-}
-
-main.about-main #experience article:first-of-type::before {
-	inset-block-start: 1.7rem;
-}
-
-main.about-main #experience article:last-child {
-	border-bottom: none;
-	padding-block-end: 0;
-}
-
-main.about-main #experience article:first-of-type {
-	padding-block-start: 0;
-}
-
-main.about-main #experience h3 {
-	font-size: clamp(1rem, 2vw, 1.15rem);
-	font-weight: 500;
-	margin: 0;
-	margin-block-end: 0.35rem;
-	line-height: 1.35;
-}
-
-main.about-main #experience .about-job-title {
-	font-weight: 600;
-}
-
-main.about-main #experience .about-job-company {
-	font-weight: 700;
-}
-
-main.about-main #experience .subtitle {
-	font-size: 0.7rem;
-	font-family: var(--font-mono);
-	font-weight: 400;
-	color: var(--color-subtle);
-	opacity: 0.6;
-	margin: 0;
-	margin-block-end: clamp(1.35rem, 2.5vw, 1.75rem);
-	letter-spacing: 0.08em;
-	text-transform: uppercase;
-}
-
-main.about-main #experience ul {
-	list-style: none;
-	display: flex;
-	flex-direction: column;
-	gap: clamp(1.15rem, 2.5vw, 1.65rem);
-	padding: 0;
-	margin: 0;
-}
-
-main.about-main #experience li {
-	font-size: clamp(0.95rem, 1.4vw, 1.05rem);
-	line-height: 1.62;
-	color: var(--color-text);
-	max-inline-size: 65ch;
-	padding: 0;
-	margin: 0;
-	position: relative;
-	padding-inline-start: 1.1em;
-}
-
-main.about-main #experience li::before {
-	content: "";
-	position: absolute;
-	inset-inline-start: 0.15em;
-	inset-block-start: 0.7em;
-	inline-size: 0.35em;
-	block-size: 0.35em;
-	border-radius: 50%;
-	background: var(--color-subtle);
-	opacity: 0.4;
-}
-
-/* Contact — CTA */
-main.about-main #contact.page-section--cta {
-	padding-block: clamp(2.25rem, 4vw, 3rem);
-	padding-inline: clamp(1.75rem, 3.5vw, 2.5rem);
-	margin-block-end: clamp(2rem, 5vw, 3.5rem);
-}
-
-main.about-main #contact .page-section-header {
-	margin-block-end: clamp(1.35rem, 2.5vw, 2rem);
-}
-
-main.about-main #contact .page-section-title {
-	font-size: clamp(1.5rem, 3.5vw, 2rem);
-	margin-block-end: 0;
-}
-
-main.about-main #contact .page-section-lede {
-	max-inline-size: 40ch;
-	margin: 0;
-}
-
-main.about-main .about-contact-bar {
-	display: flex;
-	flex-wrap: wrap;
-	align-items: baseline;
-	gap: clamp(1.5rem, 3vw, 2.25rem);
-	margin-block-start: clamp(1.35rem, 2.5vw, 2rem);
-	margin: 0;
-	padding: 0;
-}
-
-main.about-main .about-contact-email {
-	font-family: var(--font);
-	font-size: clamp(1.15rem, 2.2vw, 1.35rem);
-	text-decoration: none;
-	color: var(--color-links);
-	transition: color 0.2s ease;
-}
-
-main.about-main .about-contact-email:hover {
-	color: var(--cursor-bg);
-}
-
-/* Legacy helpers (unused on current markup; safe to keep for older links) */
-header hgroup .subtitle {
-	font-size: 1rem;
-}
-
-.about-hero-wrapper {
-	display: flex;
-	justify-content: center;
-	inline-size: 100%;
-}
-
-.about-header-content {
-	display: grid;
-	grid-template-columns: auto 1fr;
-	gap: var(--space-md);
-	align-items: center;
-	max-inline-size: 60vw;
-	margin-block-start: 7rem;
-	margin-block-end: 7rem;
-}
-
-.about-header-content > div {
-	text-align: left;
-}
-
-.about-header-content .subtitle {
-	font-family: var(--font-mono);
-	font-size: 0.75rem;
-	font-weight: 400;
-	letter-spacing: 0.02em;
-	color: var(--color-subtle);
-	margin: 0 0 0.5rem 0;
-	text-transform: uppercase;
-}
-
-.about-header-content h2 {
-	font-size: 2rem;
-	font-weight: 600;
-	margin: 0;
-	line-height: 1.3;
-	max-inline-size: 30ch;
-}
-
-.about-headshot {
-	margin: 0;
-	padding: 0;
-	border-radius: 50%;
-	overflow: hidden;
-	inline-size: 100px;
-	block-size: 100px;
-	flex-shrink: 0;
-}
-
-.about-headshot img {
-	display: block;
-	inline-size: 100%;
-	block-size: 100%;
-	object-fit: cover;
-}
-
-@media (width < 60rem) {
-	main.about-main .gallery-section.about-highlights-gallery {
-		justify-content: center;
-		overflow-x: auto;
-		-webkit-overflow-scrolling: touch;
-		padding-block-end: clamp(1rem, 3vw, 1.5rem);
-	}
-}
-
-@media (width < 47.95rem) {
-	main.about-main .gallery-section.about-highlights-gallery {
-		justify-content: flex-start;
-	}
-
-	main.about-main .gallery-stack {
-		display: flex;
-		flex-direction: row;
-		flex-wrap: nowrap;
-		align-items: flex-end;
-		justify-content: flex-start;
-		gap: var(--space-xs);
-		position: static;
-		inline-size: max-content;
-		block-size: auto;
-		min-block-size: 11rem;
-		padding-block-end: 0;
-		cursor: default;
-	}
-
-	main.about-main .gallery-stack:focus-visible {
-		box-shadow: none;
-	}
-
-	main.about-main .gallery-card-unit,
-	main.about-main .gallery-card-unit.c1,
-	main.about-main .gallery-card-unit.c2,
-	main.about-main .gallery-card-unit.c3,
-	main.about-main .gallery-card-unit.c4,
-	main.about-main .gallery-card-unit.c5,
-	main.about-main .gallery-card-unit.c6,
-	main.about-main .gallery-card-unit.c7 {
-		position: static;
-		transform: none !important;
-		inline-size: 100px;
-		flex-shrink: 0;
-	}
-
-	main.about-main .gallery-card-unit .gallery-card {
-		block-size: 130px;
-		inline-size: 100px;
-		box-shadow: 0 4px 14px rgba(0, 0, 0, 0.1);
-	}
-
-	main.about-main .gallery-card-caption {
-		font-size: 0.58rem;
-		max-inline-size: 100px;
-	}
-
-	[data-theme="dark"] main.about-main .gallery-card-unit .gallery-card {
-		box-shadow: 0 4px 18px rgba(0, 0, 0, 0.4);
-	}
-}
-
-@media (width < 40rem) {
-	main.about-main article.about-grid.about-hero {
+	main.about-main .about-hero {
 		grid-template-columns: 1fr;
 	}
 
-	main.about-main .about-avatar {
-		justify-self: start;
+	main.about-main .about-grid-two {
+		grid-template-columns: 1fr;
+	}
+
+	main.about-main .about-highlights {
+		grid-template-columns: repeat(2, minmax(0, 1fr));
 	}
 }
