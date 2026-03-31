@@ -44,8 +44,8 @@ main.code-main ul.projects li {
 @media (hover: hover) and (pointer: fine) {
 	main.code-main ul.projects li:hover {
 		transform: scale(1.02);
-		border-color: #6b7f4d;
-		box-shadow: 0 0 0 1px #6b7f4d;
+		border-color: #97B1F1;
+		box-shadow: 0 0 0 1px #97B1F1;
 	}
 }
 
@@ -108,7 +108,7 @@ main.code-main ul.projects li .tag {
 	padding-inline: 0.8rem;
 	background-color: #ffffff;
 	color: var(--color-text);
-	border: 1.5px solid #6b7f4d;
+	border: 1.5px solid #97B1F1;
 	border-radius: 9999px;
 	font-family: var(--font);
 	font-size: 0.85rem;
@@ -121,11 +121,11 @@ main.code-main ul.projects li .tag {
 [data-theme="dark"] main.code-main ul.projects li .tag {
 	background-color: #000000;
 	color: #ffffff;
-	border-color: #6b7f4d;
+	border-color: #97B1F1;
 }
 
 main.code-main ul.projects li .tag:hover {
-	background-color: #6b7f4d;
+	background-color: #97B1F1;
 	color: #ffffff;
 }
 

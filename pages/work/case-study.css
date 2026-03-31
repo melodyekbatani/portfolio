@@ -1654,8 +1654,8 @@ body.aeri-case .aeri-toc a.is-active {
 }
 
 body.aeri-case .aeri-toc a.is-active::before {
-	background-color: #e10600;
-	box-shadow: 0 0 0 0.14rem color-mix(in srgb, #e10600 25%, transparent);
+	background-color: #97B1F1;
+	box-shadow: 0 0 0 0.14rem color-mix(in srgb, #97B1F1 25%, transparent);
 }
 
 body.aeri-case .aeri-toc a:focus-visible {

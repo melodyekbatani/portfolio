@@ -98,8 +98,8 @@ body.aeri-case .aeri-toc a.is-active {
 }
 
 body.aeri-case .aeri-toc a.is-active::before {
-	background-color: #e10600 !important;
-	box-shadow: 0 0 0 0.14rem color-mix(in srgb, #e10600 25%, transparent) !important;
+	background-color: #97B1F1 !important;
+	box-shadow: 0 0 0 0.14rem color-mix(in srgb, #97B1F1 25%, transparent) !important;
 }
 
 body.aeri-case .aeri-toc a:focus-visible {
@@ -130,8 +130,8 @@ body.aeri-case .aeri-toc.is-on-dark a.is-active {
 }
 
 body.aeri-case .aeri-toc.is-on-dark a.is-active::before {
-	background-color: #e10600 !important;
-	box-shadow: 0 0 0 0.14rem rgba(225, 6, 0, 0.35) !important;
+	background-color: #97B1F1 !important;
+	box-shadow: 0 0 0 0.14rem rgba(151, 177, 241, 0.35) !important;
 }
 
 @media (prefers-reduced-motion: reduce) {

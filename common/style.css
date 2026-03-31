@@ -66,8 +66,8 @@
 	--color-surface: #0f1420;
 	--color-subtle: #888896;
 	--color-links: #999999;
-	--cursor-bg: #6b7f4d;
-	--cursor-bg-hover: #6b7f4d;
+	--cursor-bg: #97B1F1;
+	--cursor-bg-hover: #97B1F1;
 	--cursor-arrow-color: #ffffff;
 }
 
@@ -78,8 +78,8 @@
 	--color-surface: #f6f6f6;
 	--color-subtle: #888888;
 	--color-links: #555555;
-	--cursor-bg: #6b7f4d;
-	--cursor-bg-hover: #6b7f4d;
+	--cursor-bg: #97B1F1;
+	--cursor-bg-hover: #97B1F1;
 	--cursor-arrow-color: #ffffff;
 }
 
@@ -257,7 +257,7 @@ header {
 			font-family: var(--font-mono);
 			text-transform: uppercase;
 			text-decoration: none;
-			color: #6b7f4d;
+			color: #97B1F1;
 			display: flex;
 			align-items: center;
 		}
@@ -299,12 +299,12 @@ header {
 
 					@media (hover: hover) and (pointer: fine) {
 						&:hover {
-							color: #6b7f4d;
+							color: #97B1F1;
 						}
 					}
 
 					&:focus-visible {
-						outline: 1px solid #6b7f4d;
+						outline: 1px solid #97B1F1;
 						outline-offset: 4px;
 						border-radius: 2px;
 					}
@@ -510,7 +510,7 @@ footer {
 
 				@media (hover: hover) and (pointer: fine) {
 					&:hover {
-						color: #6b7f4d;
+						color: #97B1F1;
 					}
 				}
 			}
@@ -523,7 +523,7 @@ footer {
 
 			@media (hover: hover) and (pointer: fine) {
 				&:hover {
-					color: #6b7f4d;
+					color: #97B1F1;
 				}
 			}
 		}
@@ -538,7 +538,7 @@ footer {
 	padding-inline: 0.8rem;
 	background-color: #ffffff;
 	color: var(--color-text);
-	border: 1.5px solid #6b7f4d;
+	border: 1.5px solid #97B1F1;
 	border-radius: 9999px;
 	font-family: var(--font);
 	font-size: 0.85rem;
@@ -551,12 +551,12 @@ footer {
 [data-theme="dark"] .tag {
 	background-color: #000000;
 	color: #ffffff;
-	border-color: #6b7f4d;
+	border-color: #97B1F1;
 }
 
 @media (hover: hover) and (pointer: fine) {
 	.tag:hover {
-		background-color: #6b7f4d;
+		background-color: #97B1F1;
 		color: #ffffff;
 	}
 }
@@ -629,8 +629,8 @@ html.custom-cursor-active.custom-cursor-native body * {
 	margin: 0;
 	padding: 0;
 	border: none;
-	background-color: #6b7f4d;
-	background-color: var(--cursor-bg, #6b7f4d);
+	background-color: #97B1F1;
+	background-color: var(--cursor-bg, #97B1F1);
 	border-radius: 50%;
 	box-sizing: border-box;
 	will-change: transform, inline-size, block-size, opacity;
@@ -653,8 +653,8 @@ html.custom-cursor-active.custom-cursor-native body * {
 	&.active {
 		inline-size: var(--cursor-size-hover);
 		block-size: var(--cursor-size-hover);
-		background-color: #6b7f4d;
-		background-color: var(--cursor-bg-hover, #6b7f4d);
+		background-color: #97B1F1;
+		background-color: var(--cursor-bg-hover, #97B1F1);
 
 		.cursor-arrow {
 			opacity: 1;

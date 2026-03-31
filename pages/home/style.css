@@ -37,8 +37,8 @@ main.page-shell {
 			@media (hover: hover) and (pointer: fine) {
 				&:hover {
 					transform: scale(1.02);
-					border-color: #6b7f4d;
-					box-shadow: 0 0 0 1px #6b7f4d;
+					border-color: #97B1F1;
+					box-shadow: 0 0 0 1px #97B1F1;
 				}
 			}
 
@@ -105,7 +105,7 @@ main.page-shell {
 				padding-inline: 0.8rem;
 				background-color: #ffffff;
 				color: var(--color-text);
-				border: 1.5px solid #6b7f4d;
+				border: 1.5px solid #97B1F1;
 				border-radius: 9999px;
 				font-family: var(--font);
 				font-size: 0.85rem;
@@ -116,7 +116,7 @@ main.page-shell {
 
 				@media (hover: hover) and (pointer: fine) {
 					&:hover {
-						background-color: #6b7f4d;
+						background-color: #97B1F1;
 						color: #ffffff;
 					}
 				}
@@ -125,7 +125,7 @@ main.page-shell {
 			[data-theme="dark"] & .tag {
 				background-color: #000000;
 				color: #ffffff;
-				border-color: #6b7f4d;
+				border-color: #97B1F1;
 			}
 
 			figure {
