@@ -7,7 +7,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link href="../../common/reset.css" rel="stylesheet">
         <link href="../../common/style.css?v=11" rel="stylesheet">
-        <link href="style.css" rel="stylesheet">
+        <link href="style.css?v=1" rel="stylesheet">
 
         <!-- Geist font - brand font -->
         <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -16,7 +16,7 @@
         <link href="https://fonts.googleapis.com/css2?family=Geist+Mono:wght@100..900&display=swap" rel="stylesheet">
     </head>
 
-    <body>
+    <body class="play-page">
         <header>
             <nav>
                 <a href="../home/index.html" class="logo">mel</a>
@@ -29,12 +29,15 @@
                         <a href="../code/code.html">Code</a>
                     </li>
                     <li class="item4">
-                        <a href="../about/about.html">About</a>
+                        <a href="../play/index.html">Play</a>
                     </li>
                     <li class="item5">
-                        <a href="https://drive.google.com/file/d/1eqL9vpAWU0jnXxsERxlHpBRtxqiBFxkq/view">Resume</a>
+                        <a href="../about/about.html">About</a>
                     </li>
                     <li class="item6">
+                        <a href="https://drive.google.com/file/d/1eqL9vpAWU0jnXxsERxlHpBRtxqiBFxkq/view">Resume</a>
+                    </li>
+                    <li class="item7">
                         <button id="theme-switch" aria-label="Toggle theme"></button>
                     </li>
                 </ul>
@@ -47,13 +50,39 @@
             </hgroup>
         </header>
 
-        <main>
-            <section>
-                <h2>Explore some experiments below ↓</h2>
-            </section>
-            <ul class="projects">
-                <!-- Add project items here -->
-            </ul>
+        <main class="play-canvas" aria-label="Play experiments canvas">
+            <div class="play-canvas-surface">
+                <section>
+                    <h2>Explore some experiments below ↓</h2>
+                </section>
+                <ul class="projects">
+                    <li class="item1" data-project>
+                        <figure>
+                            <div class="image-placeholder"></div>
+                        </figure>
+                    </li>
+                    <li class="item2" data-project>
+                        <figure>
+                            <div class="image-placeholder"></div>
+                        </figure>
+                    </li>
+                    <li class="item3" data-project>
+                        <figure>
+                            <div class="image-placeholder"></div>
+                        </figure>
+                    </li>
+                    <li class="item4" data-project>
+                        <figure>
+                            <div class="image-placeholder"></div>
+                        </figure>
+                    </li>
+                    <li class="item5" data-project>
+                        <figure>
+                            <div class="image-placeholder"></div>
+                        </figure>
+                    </li>
+                </ul>
+            </div>
         </main>
 
         <footer>

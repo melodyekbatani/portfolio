@@ -2,9 +2,9 @@
 
 main.about-main {
 	margin-inline: auto;
-	max-inline-size: min(var(--max-width), 100%);
-	padding-block: clamp(2.5rem, 6vw, 4rem);
-	padding-inline: clamp(0.75rem, 3vw, 1.5rem);
+	max-inline-size: 1200px;
+	padding-block: clamp(3rem, 8vw, 5rem);
+	padding-inline: var(--space-md);
 	display: flex;
 	flex-direction: column;
 	align-items: stretch;
@@ -14,23 +14,57 @@ main.about-main {
 
 main.about-main .page-section-header,
 main.about-main .page-section-body,
-main.about-main .about-career-body,
-main.about-main .about-career-layout {
+main.about-main .about-career-body {
 	text-align: left;
 	align-items: flex-start;
 }
 
-/* Hero — flat on page background (no card) */
+/* Hero — grey container with generous padding */
 main.about-main article.about-grid.about-hero {
 	display: grid;
 	grid-template-columns: auto minmax(0, 1fr);
-	gap: clamp(1.25rem, 4vw, 2rem);
+	gap: clamp(1.5rem, 5vw, 3rem);
 	align-items: start;
-	background: transparent;
-	border: none;
-	padding: 0;
+	background: var(--color-surface);
+	border-radius: var(--radius);
+	border: var(--border-width) solid var(--color-border);
+	border-bottom: 3px solid #97B1F1;
+	padding-block: clamp(2.5rem, 6vw, 4.5rem);
+	padding-inline: clamp(2rem, 5vw, 3.5rem);
 	margin: 0;
-	margin-block-end: clamp(3rem, 8vw, 5.5rem);
+	margin-block-start: clamp(2rem, 5vw, 3.5rem);
+	margin-block-end: clamp(4.5rem, 12vw, 7rem);
+	position: relative;
+}
+
+/* Animated dot to the left of hero */
+main.about-main article.about-grid.about-hero::before {
+	content: "";
+	position: absolute;
+	left: -3.5rem;
+	top: 2rem;
+	inline-size: 12px;
+	block-size: 12px;
+	border-radius: 50%;
+	background: #97B1F1;
+	animation: dotBounce 2s ease-in-out infinite;
+}
+
+@keyframes dotBounce {
+	0%, 100% {
+		transform: translateY(0);
+		opacity: 1;
+	}
+	50% {
+		transform: translateY(-8px);
+		opacity: 0.7;
+	}
+}
+
+@media (width < 48rem) {
+	main.about-main article.about-grid.about-hero::before {
+		display: none;
+	}
 }
 
 main.about-main .about-avatar {
@@ -69,86 +103,167 @@ main.about-main .about-name-accent {
 	font-weight: 500;
 }
 
-/* Display — maps to global --type-display */
+/* Display — hero statement (largest text on page) */
 main.about-main .about-statement {
 	font-family: var(--font);
-	font-size: var(--type-display);
+	font-size: clamp(2rem, 5.5vw, 3.5rem);
 	font-weight: 500;
-	line-height: var(--line-display);
+	line-height: 1.22;
 	letter-spacing: -0.02em;
-	max-inline-size: min(58ch, var(--prose-max-ch));
+	max-inline-size: min(60ch, 100%);
 	margin: 0;
 	color: var(--color-text);
 }
 
-/* Approach + AI — two grey boxes */
-main.about-main .about-two-col {
-	display: grid;
-	grid-template-columns: 1fr;
-	gap: var(--page-section-gap, var(--section-rhythm));
+/* In-main section headers are not the site chrome header; avoid global header { margin-inline: auto } */
+main.about-main header.page-section-header {
+	margin-inline: 0;
+	max-inline-size: none;
+	inline-size: 100%;
 }
 
-@media (width >= 48rem) {
+/* Background section — reduced padding, top-aligned */
+main.about-main section.about-background {
+	padding-block: clamp(1.5rem, 3vw, 2rem);
+	padding-inline: clamp(1.5rem, 3vw, 2rem);
+	margin-block-end: clamp(2.5rem, 5vw, 4rem);
+	border-left: 3px solid #97B1F1;
+}
+
+main.about-main section.about-background .page-section-body {
+	max-inline-size: min(65ch, var(--prose-max-ch));
+}
+
+main.about-main section.about-background .page-section-body p {
+	font-size: clamp(0.95rem, 1.3vw, 1.05rem);
+	line-height: 1.62;
+	margin: 0;
+	color: var(--color-text);
+}
+
+/* Emphasis container — grey box styling */
+main.about-main .about-emphasis-container {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	padding-block: clamp(3rem, 7vw, 5rem);
+	padding-inline: clamp(1.5rem, 3vw, 2.5rem);
+	text-align: center;
+	margin-block-end: clamp(2.5rem, 5vw, 4rem);
+	border-bottom: 3px solid #97B1F1;
+}
+
+/* Emphasis block — strategic typography moments */
+main.about-main .about-emphasis-block {
+	font-family: var(--font);
+	font-size: clamp(1.75rem, 4vw, 2.75rem);
+	font-weight: 500;
+	line-height: 1.3;
+	letter-spacing: -0.015em;
+	margin: 0;
+	color: var(--color-text);
+	max-inline-size: 60ch;
+}
+
+main.about-main .about-emphasis-block p {
+	margin: 0;
+}
+
+main.about-main .about-emphasis-highlight {
+	color: var(--cursor-bg);
+}
+
+main.about-main .page-section-header {
+	display: flex;
+	flex-direction: column;
+	gap: var(--space-xs);
+	text-align: left;
+	margin-block-end: clamp(0.85rem, 1.5vw, 1.35rem);
+}
+
+main.about-main .page-section-title {
+	font-family: var(--font);
+	font-size: var(--type-section-title);
+	font-weight: 600;
+	letter-spacing: -0.02em;
+	line-height: var(--line-title);
+	margin: 0;
+	color: var(--color-text);
+	text-align: left;
+}
+
+main.about-main .about-two-col {
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	gap: clamp(2rem, 4vw, 3rem);
+	align-items: stretch;
+}
+
+@media (width < 48rem) {
 	main.about-main .about-two-col {
-		grid-template-columns: 1fr 1fr;
-		align-items: stretch;
+		grid-template-columns: 1fr;
 	}
 }
 
-main.about-main .about-surface-card.page-section--surface {
-	background-color: var(--color-surface);
-	border-radius: var(--radius);
-	border: var(--border-width) solid var(--color-border);
-	padding-block: clamp(1.25rem, 3vw, 1.75rem);
-	padding-inline: clamp(1.25rem, 3vw, 1.75rem);
+/* Approach and AI Tools — grey containers with consistent styling */
+main.about-main #approach,
+main.about-main #ai-tools {
+	padding-block: clamp(1.75rem, 3.5vw, 2.25rem);
+	padding-inline: clamp(1.5rem, 3vw, 2rem);
+	border-top: 3px solid #97B1F1;
 }
 
-/* Career highlights — timeline (in column), then full-bleed fan below */
-main.about-main #career-highlights .about-career-lede {
-	max-inline-size: 52ch;
+main.about-main #approach .page-section-body,
+main.about-main #ai-tools .page-section-body {
+	max-inline-size: 100%;
+}
+
+main.about-main #approach .page-section-body p,
+main.about-main #ai-tools .page-section-body p {
+	font-size: clamp(0.95rem, 1.3vw, 1.05rem);
+	line-height: 1.65;
+	margin: 0;
+	color: var(--color-text);
+}
+
+main.about-main #career-highlights {
+	margin: 0;
+	padding-inline: 0;
+	text-align: left;
+}
+
+main.about-main #career-highlights .page-section-header,
+main.about-main #career-highlights .page-section-body {
+	text-align: left;
+	align-items: stretch;
+}
+
+main.about-main .page-section-lede {
+	font-family: var(--font);
+	font-size: var(--type-body-lede);
+	line-height: 1.62;
+	margin: 0;
+	max-inline-size: var(--prose-max-ch);
+	color: var(--color-text);
+	text-align: left;
 }
 
 main.about-main .about-career-timeline {
 	list-style: none;
 	margin: 0;
 	padding: 0;
-	position: relative;
-	padding-inline-start: 1.35rem;
-	max-inline-size: 36ch;
-}
-
-main.about-main .about-career-timeline::before {
-	content: "";
-	position: absolute;
-	inset-inline-start: 0.32rem;
-	inset-block: 0.35rem 0.25rem;
-	inline-size: 1px;
-	background: var(--color-border);
+	max-inline-size: none;
+	inline-size: 100%;
 }
 
 main.about-main .about-career-timeline li {
-	position: relative;
-	padding-inline-start: 1.15rem;
+	padding-inline-start: 0;
 	padding-block-end: clamp(1.25rem, 3vw, 1.75rem);
 	margin: 0;
 }
 
 main.about-main .about-career-timeline li:last-child {
 	padding-block-end: 0;
-}
-
-main.about-main .about-career-timeline li::before {
-	content: "";
-	position: absolute;
-	inset-inline-start: -0.02rem;
-	inset-block-start: 0.35rem;
-	inline-size: 0.45rem;
-	block-size: 0.45rem;
-	border-radius: 50%;
-	background: var(--color-background);
-	border: 2px solid var(--color-text);
-	box-sizing: border-box;
-	z-index: 1;
 }
 
 main.about-main .about-career-time {
@@ -319,7 +434,7 @@ main.about-main .gallery-card-unit:focus-within .gallery-card {
 main.about-main .about-sections-grid {
 	display: flex;
 	flex-direction: column;
-	gap: var(--page-section-gap, var(--section-rhythm));
+	gap: clamp(2.5rem, 5vw, 4rem);
 	margin-inline: 0;
 	max-inline-size: none;
 }
@@ -341,9 +456,11 @@ main.about-main .about-sections-grid > #experience.page-section--surface {
 	background-color: var(--color-surface);
 	border-radius: var(--radius);
 	border: var(--border-width) solid var(--color-border);
-	padding-block: clamp(1.5rem, 3vw, 2rem);
-	padding-inline: clamp(1.25rem, 3vw, 2rem);
+	border-left: 3px solid #97B1F1;
+	padding-block: clamp(2.25rem, 4vw, 3rem);
+	padding-inline: clamp(1.75rem, 3.5vw, 2.5rem);
 	gap: clamp(1rem, 2.5vw, 1.35rem);
+	margin-block-start: clamp(2rem, 4vw, 3.5rem);
 }
 
 main.about-main #experience .page-section-header {
@@ -371,7 +488,7 @@ main.about-main #experience article {
 	border: none;
 	padding-inline-start: 1.65rem;
 	padding-inline-end: 0;
-	padding-block: clamp(1.75rem, 3vw, 2.25rem);
+	padding-block: clamp(2.25rem, 4vw, 3rem);
 	border-bottom: var(--border-width) solid var(--color-border);
 	margin: 0;
 }
@@ -421,14 +538,14 @@ main.about-main #experience .about-job-company {
 }
 
 main.about-main #experience .subtitle {
-	font-size: 0.8rem;
+	font-size: 0.7rem;
 	font-family: var(--font-mono);
 	font-weight: 400;
 	color: var(--color-subtle);
-	opacity: 0.95;
+	opacity: 0.6;
 	margin: 0;
-	margin-block-end: clamp(1rem, 2vw, 1.35rem);
-	letter-spacing: 0.04em;
+	margin-block-end: clamp(1.35rem, 2.5vw, 1.75rem);
+	letter-spacing: 0.08em;
 	text-transform: uppercase;
 }
 
@@ -436,7 +553,7 @@ main.about-main #experience ul {
 	list-style: none;
 	display: flex;
 	flex-direction: column;
-	gap: clamp(0.85rem, 2vw, 1.1rem);
+	gap: clamp(1.15rem, 2.5vw, 1.65rem);
 	padding: 0;
 	margin: 0;
 }
@@ -456,54 +573,55 @@ main.about-main #experience li::before {
 	content: "";
 	position: absolute;
 	inset-inline-start: 0.15em;
-	inset-block-start: 0.65em;
-	inline-size: 0.28em;
-	block-size: 0.28em;
+	inset-block-start: 0.7em;
+	inline-size: 0.35em;
+	block-size: 0.35em;
 	border-radius: 50%;
 	background: var(--color-subtle);
-	opacity: 0.65;
+	opacity: 0.4;
 }
 
 /* Contact — CTA */
 main.about-main #contact.page-section--cta {
+	padding-block: clamp(2.25rem, 4vw, 3rem);
+	padding-inline: clamp(1.75rem, 3.5vw, 2.5rem);
 	margin-block-end: clamp(2rem, 5vw, 3.5rem);
+}
+
+main.about-main #contact .page-section-header {
+	margin-block-end: clamp(1.35rem, 2.5vw, 2rem);
+}
+
+main.about-main #contact .page-section-title {
+	font-size: clamp(1.5rem, 3.5vw, 2rem);
+	margin-block-end: 0;
 }
 
 main.about-main #contact .page-section-lede {
 	max-inline-size: 40ch;
+	margin: 0;
 }
 
 main.about-main .about-contact-bar {
 	display: flex;
 	flex-wrap: wrap;
 	align-items: baseline;
-	gap: clamp(1rem, 3vw, 1.75rem);
+	gap: clamp(1.5rem, 3vw, 2.25rem);
+	margin-block-start: clamp(1.35rem, 2.5vw, 2rem);
 	margin: 0;
 	padding: 0;
 }
 
 main.about-main .about-contact-email {
 	font-family: var(--font);
-	font-size: clamp(1.1rem, 2vw, 1.25rem);
+	font-size: clamp(1.15rem, 2.2vw, 1.35rem);
 	text-decoration: none;
 	color: var(--color-links);
 	transition: color 0.2s ease;
 }
 
-main.about-main .about-contact-resume {
-	font-family: var(--font-mono);
-	font-size: var(--type-mono-size);
-	text-transform: uppercase;
-	letter-spacing: 0.06em;
-	text-decoration: none;
-	color: var(--color-links);
-	transition: color 0.2s ease;
-}
-
-main.about-main .about-contact-email:hover,
-main.about-main .about-contact-resume:hover {
+main.about-main .about-contact-email:hover {
 	color: var(--cursor-bg);
-	opacity: 1;
 }
 
 /* Legacy helpers (unused on current markup; safe to keep for older links) */

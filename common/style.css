@@ -66,8 +66,8 @@
 	--color-surface: #0f1420;
 	--color-subtle: #888896;
 	--color-links: #999999;
-	--cursor-bg: #e9008c;
-	--cursor-bg-hover: #e9008c;
+	--cursor-bg: #6b7f4d;
+	--cursor-bg-hover: #6b7f4d;
 	--cursor-arrow-color: #ffffff;
 }
 
@@ -78,8 +78,8 @@
 	--color-surface: #f6f6f6;
 	--color-subtle: #888888;
 	--color-links: #555555;
-	--cursor-bg: #e9008c;
-	--cursor-bg-hover: #e9008c;
+	--cursor-bg: #6b7f4d;
+	--cursor-bg-hover: #6b7f4d;
 	--cursor-arrow-color: #ffffff;
 }
 
@@ -203,6 +203,7 @@ main.page-shell {
 	margin-inline: auto;
 	max-inline-size: 1200px;
 	padding-inline: var(--space-md);
+	padding-block: clamp(2.5rem, 5vw, 4rem);
 	box-sizing: border-box;
 }
 
@@ -256,7 +257,7 @@ header {
 			font-family: var(--font-mono);
 			text-transform: uppercase;
 			text-decoration: none;
-			color: #ff1493;
+			color: #6b7f4d;
 			display: flex;
 			align-items: center;
 		}
@@ -288,13 +289,25 @@ header {
 				align-items: center;
 
 				a {
-					transition: opacity 0.2s ease;
+					transition: opacity 0.2s ease, color 0.2s ease;
 					font-family: var(--font-mono);
 					font-size: var(--type-mono-size);
 					letter-spacing: 0.02em;
 					text-transform: uppercase;
 					text-decoration: none;
 					color: var(--color-links);
+
+					@media (hover: hover) and (pointer: fine) {
+						&:hover {
+							color: #6b7f4d;
+						}
+					}
+
+					&:focus-visible {
+						outline: 1px solid #6b7f4d;
+						outline-offset: 4px;
+						border-radius: 2px;
+					}
 				}
 			}
 		}
@@ -392,8 +405,8 @@ header {
 	}
 
 	hgroup {
-		padding-block-start: clamp(1.5rem, 2vh, 2rem);
-		padding-block-end: clamp(1rem, 2vh, 1.5rem);
+		padding-block-start: clamp(3.5rem, 8vh, 5.5rem);
+		padding-block-end: clamp(2.5rem, 5vh, 4rem);
 		padding-inline: var(--space-md);
 		display: flex;
 		flex-direction: column;
@@ -451,10 +464,12 @@ header {
 footer {
 	margin-block-start: var(--space-md);
 	padding: var(--space-md);
+	padding-block-start: clamp(2rem, 5vw, 3rem);
 	display: flex;
 	flex-direction: column;
 	margin-inline: auto;
 	max-inline-size: 1200px;
+	position: relative;
 
 	h3 {
 		font-size: clamp(2rem, 6vw, 4rem);
@@ -491,12 +506,26 @@ footer {
 			a {
 				color: var(--color-links);
 				text-decoration: none;
+				transition: color 0.2s ease;
+
+				@media (hover: hover) and (pointer: fine) {
+					&:hover {
+						color: #6b7f4d;
+					}
+				}
 			}
 		}
 
 		a {
 			color: var(--color-links);
 			text-decoration: none;
+			transition: color 0.2s ease;
+
+			@media (hover: hover) and (pointer: fine) {
+				&:hover {
+					color: #6b7f4d;
+				}
+			}
 		}
 	}
 }
@@ -509,13 +538,27 @@ footer {
 	padding-inline: 0.8rem;
 	background-color: #ffffff;
 	color: var(--color-text);
-	border: 1.5px solid #ff1493;
+	border: 1.5px solid #6b7f4d;
 	border-radius: 9999px;
 	font-family: var(--font);
 	font-size: 0.85rem;
 	font-weight: 500;
 	letter-spacing: 0.01em;
 	white-space: nowrap;
+	transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+[data-theme="dark"] .tag {
+	background-color: #000000;
+	color: #ffffff;
+	border-color: #6b7f4d;
+}
+
+@media (hover: hover) and (pointer: fine) {
+	.tag:hover {
+		background-color: #6b7f4d;
+		color: #ffffff;
+	}
 }
 
 /* ─── Responsive Adjustments ─── */
@@ -586,8 +629,8 @@ html.custom-cursor-active.custom-cursor-native body * {
 	margin: 0;
 	padding: 0;
 	border: none;
-	background-color: #e9008c;
-	background-color: var(--cursor-bg, #e9008c);
+	background-color: #6b7f4d;
+	background-color: var(--cursor-bg, #6b7f4d);
 	border-radius: 50%;
 	box-sizing: border-box;
 	will-change: transform, inline-size, block-size, opacity;
@@ -610,8 +653,8 @@ html.custom-cursor-active.custom-cursor-native body * {
 	&.active {
 		inline-size: var(--cursor-size-hover);
 		block-size: var(--cursor-size-hover);
-		background-color: #e9008c;
-		background-color: var(--cursor-bg-hover, #e9008c);
+		background-color: #6b7f4d;
+		background-color: var(--cursor-bg-hover, #6b7f4d);
 
 		.cursor-arrow {
 			opacity: 1;

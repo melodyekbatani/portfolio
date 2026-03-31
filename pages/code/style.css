@@ -38,12 +38,14 @@ main.code-main ul.projects li {
 	cursor: pointer;
 	position: relative;
 	transform: scale(1);
-	transition: transform 0.38s cubic-bezier(0.23, 1, 0.32, 1);
+	transition: transform 0.38s cubic-bezier(0.23, 1, 0.32, 1), border-color 0.3s ease, box-shadow 0.3s ease;
 }
 
 @media (hover: hover) and (pointer: fine) {
 	main.code-main ul.projects li:hover {
 		transform: scale(1.02);
+		border-color: #6b7f4d;
+		box-shadow: 0 0 0 1px #6b7f4d;
 	}
 }
 
@@ -86,6 +88,45 @@ main.code-main ul.projects li p {
 	padding-block: var(--space-sm);
 	font-size: 1.1rem;
 	max-inline-size: 100%;
+}
+
+main.code-main ul.projects li .tags {
+	display: flex;
+	gap: var(--space-sm);
+	flex-wrap: wrap;
+	padding-block: var(--space-sm);
+	padding-inline-start: 0.8rem;
+	list-style: none;
+	margin: 0;
+	padding-inline-end: 0.8rem;
+}
+
+main.code-main ul.projects li .tag {
+	display: inline-flex;
+	align-items: center;
+	padding-block: 0.4rem;
+	padding-inline: 0.8rem;
+	background-color: #ffffff;
+	color: var(--color-text);
+	border: 1.5px solid #6b7f4d;
+	border-radius: 9999px;
+	font-family: var(--font);
+	font-size: 0.85rem;
+	font-weight: 500;
+	letter-spacing: 0.01em;
+	white-space: nowrap;
+	transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+[data-theme="dark"] main.code-main ul.projects li .tag {
+	background-color: #000000;
+	color: #ffffff;
+	border-color: #6b7f4d;
+}
+
+main.code-main ul.projects li .tag:hover {
+	background-color: #6b7f4d;
+	color: #ffffff;
 }
 
 main.code-main ul.projects li figure img {
