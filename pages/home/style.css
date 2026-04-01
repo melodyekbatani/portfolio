@@ -1,6 +1,32 @@
 /* ─── Main Content Grid ─── */
 /* Mobile-first: single column, wider breakpoints in the @media block below. */
 
+/* Home hero title — keep the headline to 2 lines */
+header .home-hero-title {
+	display: -webkit-box;
+	-webkit-box-orient: vertical;
+	-webkit-line-clamp: 2;
+	overflow: hidden;
+	max-inline-size: 22ch;
+	text-wrap: balance;
+}
+
+/* Home hero greeting (subtitle) in H1 typography */
+header hgroup .home-hero-greeting {
+	font-family: var(--font);
+	font-size: clamp(1.5rem, 2.7vw, 2.25rem);
+	line-height: 1.2;
+	font-weight: 600;
+	letter-spacing: -0.02em;
+	margin: 0;
+	padding: 0;
+	margin-block-end: 0.6rem;
+	max-inline-size: 24ch;
+	text-transform: none;
+	color: var(--cursor-bg);
+	text-wrap: balance;
+}
+
 /* Shell: margin, max-width, padding-inline — common/style.css .page-shell */
 
 main.page-shell {
