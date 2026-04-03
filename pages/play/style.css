@@ -65,14 +65,11 @@ body.play-page .play-canvas-surface {
 	overflow: visible;
 }
 
-/* Playground grid - large canvas for pan/zoom exploration */
+/* Playground grid - fills viewport so all items are always visible */
 body.play-page .playground-grid {
-	--play-canvas-w: 9000px;
-	--play-canvas-h: 6500px;
-
 	position: absolute;
-	width: var(--play-canvas-w);
-	height: var(--play-canvas-h);
+	width: 100%;
+	height: 100%;
 	top: 0;
 	left: 0;
 }
