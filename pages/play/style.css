@@ -29,6 +29,12 @@ body.play-page header {
 	margin-block-end: var(--space-sm);
 }
 
+/* Neutralise the extra margin-block-start the common nav applies — not needed without a hero */
+body.play-page header nav {
+	margin-block-start: 0;
+	margin-block-end: 0;
+}
+
 /*
  * Canvas panning can move the document slightly; theme.js may add .scrolled.
  * Keep the bar identical to the default sticky nav everywhere else.
