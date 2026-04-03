@@ -67,9 +67,9 @@ main.about-main .about-hero-copy {
 
 main.about-main .about-hero-greeting {
 	font-family: var(--font);
-	font-size: clamp(1.5rem, 2.7vw, 2.25rem);
+	font-size: var(--type-lede-display);
 	line-height: 1.2;
-	font-weight: 600;
+	font-weight: var(--font-weight-semibold);
 	letter-spacing: -0.02em;
 	margin: 0;
 	margin-block-end: 0.35rem;
@@ -79,16 +79,16 @@ main.about-main .about-hero-greeting {
 
 main.about-main .about-hero-name {
 	color: var(--cursor-bg);
-	font-weight: 600;
+	font-weight: var(--font-weight-semibold);
 }
 
 main.about-main .about-hero-copy strong {
-	font-weight: 600;
+	font-weight: var(--font-weight-semibold);
 }
 
 main.about-main .about-hero-headline {
 	font-family: var(--font);
-	font-size: clamp(1.5rem, 2.7vw, 2.25rem);
+	font-size: var(--type-lede-display);
 	line-height: 1.2;
 	letter-spacing: -0.02em;
 	margin: 0;
@@ -138,7 +138,7 @@ main.about-main .about-section-header h2 {
 	font-size: var(--type-section-title);
 	line-height: var(--line-title);
 	letter-spacing: -0.02em;
-	font-weight: 700;
+	font-weight: var(--font-weight-bold);
 }
 
 main.about-main .about-section-header h2 {
@@ -154,7 +154,7 @@ main.about-main .about-section p {
 
 main.about-main .about-section-header p {
 	color: var(--color-subtle);
-	font-size: 0.92rem;
+	font-size: var(--type-caption);
 }
 
 main.about-main .about-career-list {
@@ -179,14 +179,14 @@ main.about-main .about-career-list li:last-child {
 
 main.about-main .about-career-list time {
 	font-family: var(--font-mono);
-	font-size: 0.7rem;
+	font-size: var(--type-meta);
 	letter-spacing: 0.08em;
 	text-transform: uppercase;
 	color: var(--color-subtle);
 }
 
 main.about-main .about-career-list p {
-	font-size: clamp(0.98rem, 1.3vw, 1.08rem);
+	font-size: var(--type-body-lede);
 }
 
 main.about-main .about-career-list p span {
@@ -205,7 +205,7 @@ main.about-main .about-highlights-title {
 	font-size: var(--type-section-title);
 	line-height: var(--line-title);
 	letter-spacing: -0.02em;
-	font-weight: 700;
+	font-weight: var(--font-weight-bold);
 }
 
 main.about-main .about-highlights {
@@ -245,7 +245,7 @@ main.about-main .about-highlight-caption {
 	display: block;
 	margin: 0;
 	font-family: var(--font-mono);
-	font-size: 0.72rem;
+	font-size: var(--type-meta);
 	letter-spacing: 0.08em;
 	text-transform: uppercase;
 	color: var(--cursor-bg);
@@ -289,14 +289,14 @@ main.about-main .about-experience-item {
 
 main.about-main .about-experience-item h3 {
 	margin: 0 0 0.25rem 0;
-	font-size: clamp(1rem, 1.7vw, 1.15rem);
-	line-height: 1.3;
+	font-size: var(--type-body-emphasis);
+	line-height: var(--line-heading-md);
 }
 
 main.about-main .about-experience-item .meta {
 	margin: 0 0 0.55rem 0;
 	font-family: var(--font-mono);
-	font-size: 0.68rem;
+	font-size: var(--type-meta);
 	letter-spacing: 0.08em;
 	text-transform: uppercase;
 	color: var(--color-subtle);
@@ -327,7 +327,7 @@ main.about-main .about-fun li {
 
 	main.about-main .about-hero-copy h1 {
 		max-inline-size: min(30ch, 100%);
-		font-size: clamp(1.7rem, 2.3vw, 2.4rem);
+		font-size: var(--type-lede-desktop);
 	}
 
 	main.about-main .about-highlights {

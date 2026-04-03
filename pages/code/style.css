@@ -14,10 +14,6 @@ header h1 {
 	text-wrap: balance;
 }
 
-header hgroup .subtitle {
-	font-size: 0.75rem;
-}
-
 /* Shell: main.page-shell in common — max 1200px + padding-inline */
 
 /* Intro — same vertical rhythm as home #projects (section h2 padding-block) */
@@ -28,7 +24,7 @@ main.code-main .code-intro .page-section-header {
 
 main.code-main .code-intro .page-section-title {
 	font-size: var(--type-section-title);
-	font-weight: 600;
+	font-weight: var(--font-weight-semibold);
 	letter-spacing: -0.02em;
 	line-height: var(--line-title);
 }
@@ -77,9 +73,9 @@ main.code-main ul.projects li p {
 }
 
 main.code-main ul.projects li h2 {
-	font-size: clamp(1.75rem, 3.5vw, 2.5rem);
-	font-weight: 500;
-	line-height: 1.3;
+	font-size: var(--type-heading-lg);
+	font-weight: var(--font-weight-medium);
+	line-height: var(--line-heading-lg);
 	letter-spacing: -0.01em;
 	margin: 0;
 	font-family: var(--font);
@@ -96,7 +92,8 @@ main.code-main ul.projects li a {
 main.code-main ul.projects li p {
 	margin: 0;
 	padding-block: var(--space-sm);
-	font-size: 1.1rem;
+	font-size: var(--type-body-secondary);
+	line-height: var(--line-body);
 	max-inline-size: 100%;
 }
 
@@ -121,8 +118,8 @@ main.code-main ul.projects li .tag {
 	border: 1.5px solid #97B1F1;
 	border-radius: 9999px;
 	font-family: var(--font);
-	font-size: 0.85rem;
-	font-weight: 500;
+	font-size: var(--type-tag);
+	font-weight: var(--weight-tag);
 	letter-spacing: 0.01em;
 	white-space: nowrap;
 	transition: background-color 0.2s ease, color 0.2s ease;

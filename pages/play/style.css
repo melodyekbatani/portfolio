@@ -1,4 +1,8 @@
-/* ─── Play: infinite-feel canvas + dotted grid ─── */
+html.play-page,
+html.play-page body {
+	height: 100%;
+	overflow: hidden;
+}
 
 body.play-page {
 	--play-dot-size: 20px;
@@ -8,6 +12,18 @@ body.play-page {
 	background-image: radial-gradient(circle at 1px 1px, var(--play-dot) 1px, transparent 0);
 	background-size: var(--play-dot-size) var(--play-dot-size);
 	background-attachment: fixed;
+	display: flex;
+	flex-direction: column;
+	height: 100vh;
+	overflow: hidden;
+}
+
+body.play-page header {
+	height: 100vh;
+	display: flex;
+	flex-direction: column;
+	flex-shrink: 0;
+	margin-block: 0;
 }
 
 body.play-page header hgroup {
@@ -15,10 +31,11 @@ body.play-page header hgroup {
 	flex-direction: column;
 	justify-content: center;
 	align-items: center;
-	min-block-size: 100vh;
+	height: 100vh;
 	text-align: center;
 	max-inline-size: 90vw;
 	padding-block: clamp(3rem, 10vh, 6rem);
+	flex-shrink: 0;
 }
 
 /* Full-bleed stage; scroll in both axes when surface is larger than viewport */
@@ -27,153 +44,130 @@ body.play-page main.play-canvas {
 	inline-size: 100vw;
 	max-inline-size: none;
 	padding: 0;
-	overflow-x: auto;
-	overflow-y: visible;
+	overflow: hidden;
 	-webkit-overflow-scrolling: touch;
 	scrollbar-gutter: stable;
+	position: relative;
+	cursor: grab;
+	user-select: none;
+	-webkit-user-select: none;
+	width: 100vw;
+	height: 100vh;
+	display: flex;
+	align-items: center;
+	justify-content: center;
 }
 
 body.play-page .play-canvas-surface {
-	min-inline-size: max(100%, 135vw);
-	min-block-size: max(100vh, 220vh);
+	width: 100%;
+	height: 100%;
 	box-sizing: border-box;
-	padding-block: clamp(2rem, 5vw, 4rem);
-	padding-inline: clamp(1.25rem, 4vw, 3rem);
-	padding-block-end: clamp(6rem, 18vh, 12rem);
+	padding: 0;
 
 	background-color: transparent;
-}
-
-/* Keep experiment cards readable — max width for grid only */
-body.play-page .play-canvas-surface > section,
-body.play-page .play-canvas-surface > ul.projects {
-	max-inline-size: min(1200px, 100%);
-	margin-inline: auto;
-}
-
-body.play-page main.play-canvas section:first-of-type h2 {
-	padding-block: var(--space-md);
-	text-align: center;
-	font-family: var(--font);
-	font-size: 1rem;
-}
-
-body.play-page main.play-canvas ul.projects {
-	display: grid;
-	grid-template-columns: 1fr;
-	gap: clamp(0.5rem, 2vw, 1rem);
-	margin: 0;
-	padding: 0;
-	list-style: none;
-}
-
-body.play-page main.play-canvas ul.projects li {
-	display: flex;
-	flex-direction: column;
-	background-color: var(--color-surface);
-	border-radius: var(--radius);
-	border: var(--border-width) solid var(--color-border);
-	cursor: pointer;
+	transform-origin: 0 0;
+	will-change: transform;
 	position: relative;
+	overflow: visible;
 }
 
-body.play-page main.play-canvas ul.projects li figure {
-	margin: 0;
-	padding: 0;
+/* Playground grid - large canvas for pan/zoom exploration */
+body.play-page .playground-grid {
+	--play-canvas-w: 9000px;
+	--play-canvas-h: 6500px;
+
+	position: absolute;
+	width: var(--play-canvas-w);
+	height: var(--play-canvas-h);
+	top: 0;
+	left: 0;
 }
 
-body.play-page main.play-canvas ul.projects li h2,
-body.play-page main.play-canvas ul.projects li p,
-body.play-page main.play-canvas ul.projects li a {
-	padding-inline: 0.8rem;
+/* Playground items */
+body.play-page .playground-item {
+	position: absolute;
+	cursor: pointer;
+	transition: filter 0.2s ease;
+	user-select: none;
 }
 
-body.play-page main.play-canvas ul.projects li h2 {
-	font-size: var(--type-subheading-lg);
-	font-weight: 600;
-	margin: 0;
-	font-family: var(--font);
-	letter-spacing: 0.02em;
-	padding-block-start: clamp(1rem, 4vw, 2rem);
+body.play-page .playground-item:hover {
+	filter: brightness(1.1);
 }
 
-body.play-page main.play-canvas ul.projects li a {
-	padding-block-end: clamp(1rem, 4vw, 2rem);
-	text-decoration: none;
-	display: block;
-}
-
-body.play-page main.play-canvas ul.projects li p {
-	margin: 0;
-	padding-block: var(--space-sm);
-	font-size: 1.1rem;
-	max-inline-size: 100%;
-}
-
-body.play-page main.play-canvas ul.projects li figure {
-	display: flex;
-	gap: var(--space-sm);
-	overflow: hidden;
-	margin: 0;
-	padding: var(--space-sm);
-	border-radius: var(--radius);
-	align-items: center;
-	justify-content: center;
-	min-block-size: 18rem;
-}
-
-body.play-page main.play-canvas ul.projects li figure img {
-	flex: 1;
-	object-fit: contain;
-	max-inline-size: 100%;
-	max-block-size: 22rem;
-	inline-size: auto;
-	block-size: auto;
-}
-
-body.play-page main.play-canvas .image-placeholder {
+body.play-page .playground-item-media {
 	width: 100%;
-	height: 300px;
-	background-color: var(--color-surface);
-	border: 2px dashed var(--color-border);
-	border-radius: var(--radius);
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	color: var(--color-text);
-	font-size: 0.9rem;
-	opacity: 0.6;
+	height: 100%;
+	object-fit: cover;
+	border-radius: 8px;
+	display: block;
+	box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
 }
 
-header h1 {
+/* Caption styles */
+body.play-page .playground-caption {
+	position: absolute;
+	bottom: 100%;
+	left: 50%;
+	transform: translateX(-50%);
+	background-color: transparent;
+	color: var(--cursor-bg, #97b1f1);
+	font-family: var(--font-mono);
+	font-size: var(--type-label);
+	font-weight: var(--font-weight-medium);
+	letter-spacing: 0.1em;
+	text-transform: uppercase;
+	white-space: nowrap;
+	opacity: 0;
+	pointer-events: none;
+	transition: opacity 0.2s ease;
+	margin-bottom: 8px;
+	z-index: 10;
+}
+
+body.play-page .playground-item:hover .playground-caption {
+	opacity: 1;
+}
+
+body.play-page header h1 {
 	max-inline-size: 100%;
 	text-align: center;
 }
 
-header hgroup p {
+body.play-page header hgroup p {
 	text-align: center;
 }
 
-header hgroup .subtitle {
-	font-size: 1rem;
+body.play-page header hgroup .subtitle {
 	text-align: center;
 }
 
-/* ─── Tablet & Responsive ─── */
+/* Canvas interaction instructions */
+body.play-page .canvas-instructions {
+	font-size: var(--type-caption);
+	opacity: 0.7;
+	position: absolute;
+	bottom: var(--space-md);
+	left: 50%;
+	transform: translateX(-50%);
+	background-color: var(--color-surface);
+	border: 1px solid var(--color-border);
+	border-radius: var(--radius);
+	padding: var(--space-sm) var(--space-md);
+	z-index: 1000;
+	pointer-events: none;
+}
 
-@media (width > 35.95rem) {
-	body.play-page main.play-canvas ul.projects {
-		grid-template-columns: 1fr 1fr;
-	}
-
-	body.play-page main.play-canvas ul.projects li {
-		padding: var(--space-md);
-	}
-
-	body.play-page main.play-canvas ul.projects li figure {
-		padding: var(--space-md);
-		margin-block-end: var(--space-sm);
-	}
+body.play-page .canvas-instructions kbd {
+	background-color: transparent;
+	border: 1px solid var(--color-border);
+	border-radius: 4px;
+	padding: 2px 6px;
+	font-family: var(--font-mono);
+	font-size: 0.8rem;
+	white-space: nowrap;
+	display: inline-block;
+	margin: 0 4px;
 }
 
 /* ─── Custom Cursor Blob ─── */

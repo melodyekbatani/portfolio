@@ -6,8 +6,8 @@
         <meta property="description" content="Experimental projects and playful explorations by Melody Ekbatani.">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link href="../../common/reset.css" rel="stylesheet">
-        <link href="../../common/style.css?v=11" rel="stylesheet">
-        <link href="style.css?v=1" rel="stylesheet">
+        <link href="../../common/style.css?v=14" rel="stylesheet">
+        <link href="style.css?v=4" rel="stylesheet">
 
         <!-- Geist font - brand font -->
         <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -24,6 +24,9 @@
                 <ul class="menu">
                     <li class="item1">
                         <a href="../home/index.html#projects">Work</a>
+                    </li>
+                    <li class="item2">
+                        <a href="index.html">Play</a>
                     </li>
                     <li class="item3">
                         <a href="../code/code.html">Code</a>
@@ -49,35 +52,21 @@
 
         <main class="play-canvas" aria-label="Play experiments canvas">
             <div class="play-canvas-surface">
-                <section class="coming-soon-card">
-                    <h2>New experiments coming&nbsp;soon</h2>
-                    <p>I'm currently working on a new set of playful, in-progress explorations. Check back soon to see what I'm experimenting with next.</p>
-                </section>
+                <div class="playground-grid" id="playgroundGrid">
+                    <!-- Items will be generated here -->
+                </div>
+                <div class="canvas-instructions">
+                    <p>
+                        <kbd>Ctrl + Scroll</kbd> to zoom • <kbd>Shift + Drag</kbd> to pan • Hover to see captions
+                    </p>
+                </div>
             </div>
         </main>
 
-        <footer>
-            <h3>Melody Ekbatani</h3>
-            <p>Designing through clarity, storytelling, and moments of delight</p>
-            <nav class="footer-menu-container">
-                <ul class="footer-menu">
-                    <li class="item1">
-                        <a href="https://drive.google.com/file/d/1eqL9vpAWU0jnXxsERxlHpBRtxqiBFxkq/view?usp=sharing">Resume</a>
-                    </li>
-                    <li class="item2">
-                        <a href="https://www.linkedin.com/in/melody-ekbatani/">Linkedin</a>
-                    </li>
-                    <li class="item3">
-                        <a href="https://github.com/melodyekbatani">Github</a>
-                    </li>
-                </ul>
-                <a href="mailto:melodyekbatani@gmail.com">melodyekbatani@gmail.com</a>
-            </nav>
-        </footer>
         <span id="custom-cursor" aria-hidden="true"></span>
 
         <script src="../../common/theme.js?v=8"></script>
         <script src="../../common/cursor.js?v=8"></script>
-        <script src="script.js"></script>
+        <script src="script.js?v=2"></script>
     </body>
 </html>

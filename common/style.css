@@ -11,28 +11,89 @@
 	--color-subtle: light-dark(#666666, #888888);
 	--color-links: light-dark(#555555, #999999);
 
-	/* Typography */
+	/*
+	 * Typography hierarchy (use these tokens sitewide):
+	 * --type-hero / --type-display-xl — page & marketing heroes, big stats
+	 * --type-heading-lg / --type-heading-md — cards, case-study titles
+	 * --type-section-title / --type-cta-title — section labels, callouts
+	 * --type-body / --type-body-secondary / --type-body-tight — prose & UI copy
+	 * --type-label / --type-caption / --type-nav — eyebrows, captions, nav
+	 */
+	/* Typography — single hierarchy (hero → display → headings → body → UI) */
 	--font: 'Geist', sans-serif;
 	--font-mono: 'Geist Mono', monospace;
+
+	--font-weight-regular: 400;
+	--font-weight-medium: 500;
+	--font-weight-semibold: 600;
+	--font-weight-bold: 700;
+
+	/* Page hero (header h1, marketing titles) */
+	--type-hero: clamp(2rem, 6vw, 3.5rem);
+	--line-hero: 1.1;
+	--letter-hero: -0.015em;
+
+	/* Case study / editorial heroes (larger than page hero) */
 	--type-hero-title: clamp(2.5rem, 8vw, 5rem);
 	--type-hero-subtitle: clamp(1rem, 2.4vw, 1.5rem);
 	--type-hero-line-height: 1.1;
-	--type-mono-size: 0.9rem;
+
 	--type-subheading-lg: clamp(1.5rem, 4vw, 2rem);
 	--type-subheading-md: clamp(1.25rem, 3.5vw, 1.75rem);
 
-	/* Unified scale — section titles, body, rhythm (use across pages) */
+	/* Display & stats */
 	--type-display: clamp(1.875rem, 4vw + 0.85rem, 2.875rem);
+	--type-display-xl: clamp(2.5rem, 6vw, 4rem);
+	--type-display-hero-alt: clamp(2rem, 6vw, 4.5rem);
+	--line-display: 1.12;
+	--line-display-xl: 0.95;
+
+	/* Card titles, project names, case-study H2 */
+	--type-heading-lg: clamp(1.75rem, 3.5vw, 2.5rem);
+	--line-heading-lg: 1.28;
+
+	/* In-card subheads */
+	--type-heading-md: clamp(1.25rem, 2.5vw, 1.75rem);
+	--type-heading-md-wide: clamp(1.25rem, 3.2vw, 2rem);
+	--line-heading-md: 1.3;
+
+	/* Supporting lines in case studies */
+	--type-body-support: clamp(0.95rem, 1.5vw, 1.15rem);
+	--type-body-emphasis: clamp(1rem, 1.7vw, 1.15rem);
+	--type-caption-tight: clamp(0.8rem, 1.15vw, 0.98rem);
+
+	/* About / editorial lede */
+	--type-lede-display: clamp(1.5rem, 2.7vw, 2.25rem);
+	--type-lede-desktop: clamp(1.7rem, 2.3vw, 2.4rem);
+
+	/* Section labels, intros */
 	--type-section-title: clamp(1.125rem, 1.35vw + 0.85rem, 1.5rem);
 	--type-cta-title: clamp(1.35rem, 2.2vw + 0.75rem, 2rem);
+
+	/* Body */
 	--type-body: clamp(1rem, 1.2vw + 0.85rem, 1.125rem);
 	--type-body-lede: clamp(0.98rem, 1.15vw + 0.82rem, 1.08rem);
+	--type-body-secondary: clamp(1.05rem, 1.08vw + 0.92rem, 1.125rem);
+	--type-body-tight: clamp(0.9rem, 1.45vw, 1.05rem);
+	--type-body-root: clamp(1rem, 0.28vw + 0.94rem, 1.25rem);
+
+	/* Nav, footer links, mono UI */
+	--type-nav: 0.875rem;
+	--type-mono-size: var(--type-nav);
+	--type-footer-mono: var(--type-nav);
+
+	/* Eyebrows, captions, tags */
 	--type-label: 0.75rem;
 	--type-meta: 0.72rem;
-	--line-display: 1.12;
+	--type-caption: 0.8125rem;
+	--type-tag: 0.875rem;
+	--weight-tag: 500;
+
 	--line-title: 1.28;
 	--line-body: 1.55;
 	--line-relaxed: 1.62;
+	--line-site: 1.35;
+	--letter-site: 0.02em;
 	--prose-max-ch: 62ch;
 	--section-rhythm: clamp(2.5rem, 5vw, 4rem);
 	--section-rhythm-tight: clamp(2rem, 4vw, 3rem);
@@ -102,9 +163,9 @@ body {
 	background-color: var(--color-background);
 	color: var(--color-text);
 	font-family: var(--font);
-	font-size: 1.25rem;
-	line-height: 1.35;
-	letter-spacing: 0.02em;
+	font-size: var(--type-body-root);
+	line-height: var(--line-site);
+	letter-spacing: var(--letter-site);
 
 	a {
 		text-decoration: underline;
@@ -117,8 +178,8 @@ body {
 	}
 
 	p {
-		line-height: 1.35;
-		letter-spacing: 0.02em;
+		line-height: var(--line-site);
+		letter-spacing: var(--letter-site);
 	}
 
 	h2,
@@ -145,7 +206,7 @@ body {
 .page-section-title {
 	font-family: var(--font);
 	font-size: var(--type-section-title);
-	font-weight: 600;
+	font-weight: var(--font-weight-semibold);
 	letter-spacing: -0.02em;
 	line-height: var(--line-title);
 	margin: 0;
@@ -220,7 +281,8 @@ main.page-shell {
 /* ─── Header & Navigation ─── */
 
 header {
-	margin-block-start: 0;
+	margin-block-start: clamp(1rem, 2.5vw, 2.25rem);
+	margin-block-end: clamp(1.75rem, 4.5vw, 3.5rem);
 	margin-inline: auto;
 	max-inline-size: 1200px;
 
@@ -260,6 +322,7 @@ header {
 			color: #97B1F1;
 			display: flex;
 			align-items: center;
+			flex-shrink: 0;
 		}
 
 		#menu-toggle {
@@ -281,8 +344,14 @@ header {
 		.menu {
 			display: flex;
 			flex-direction: row;
+			flex-wrap: wrap;
+			justify-content: flex-end;
+			align-items: center;
 			gap: var(--space-md);
+			row-gap: var(--space-sm);
 			list-style: none;
+			flex: 1 1 auto;
+			min-width: 0;
 
 			li {
 				display: flex;
@@ -405,8 +474,8 @@ header {
 	}
 
 	hgroup {
-		padding-block-start: clamp(0.5rem, 1vh, 0.5rem);
-		padding-block-end: clamp(2.5rem, 5vh, 4rem);
+		padding-block-start: clamp(1.25rem, 3vh, 2.25rem);
+		padding-block-end: clamp(3.25rem, 7vh, 5.5rem);
 		padding-inline: var(--space-md);
 		display: flex;
 		flex-direction: column;
@@ -417,9 +486,10 @@ header {
 		.subtitle {
 			margin-inline-start: 0;
 			font-family: var(--font-mono);
-			font-size: 0.75rem;
-			font-weight: 400;
-			letter-spacing: 0.05em;
+			font-size: var(--type-label);
+			font-weight: var(--font-weight-regular);
+			letter-spacing: 0.06em;
+			text-transform: uppercase;
 			margin-block-end: 0;
 			padding: 0;
 			color: var(--color-subtle);
@@ -431,10 +501,10 @@ header {
 
 		h1 {
 			font-family: var(--font);
-			font-size: clamp(2rem, 6vw, 3.5rem);
-			line-height: 1.1;
-			font-weight: 700;
-			letter-spacing: -0.015em;
+			font-size: var(--type-hero);
+			line-height: var(--line-hero);
+			font-weight: var(--font-weight-bold);
+			letter-spacing: var(--letter-hero);
 			margin: 0;
 			padding: 0;
 			margin-block-end: clamp(1.25rem, 2.5vw, 2rem);
@@ -451,8 +521,8 @@ header {
 			padding-block-start: 0;
 			padding-block-end: 0;
 			font-family: var(--font);
-			font-size: clamp(0.9375rem, 2.1vw, 1.1875rem);
-			line-height: 1.6;
+			font-size: var(--type-body);
+			line-height: var(--line-relaxed);
 			max-inline-size: 80ch;
 			color: var(--color-text);
 		}
@@ -472,15 +542,16 @@ footer {
 	position: relative;
 
 	h3 {
-		font-size: clamp(2rem, 6vw, 4rem);
-		line-height: 0.95;
-		font-weight: 700;
+		font-size: var(--type-display-xl);
+		line-height: var(--line-display-xl);
+		font-weight: var(--font-weight-bold);
 		margin-block-end: var(--space-sm);
 	}
 
 	> p {
-		font-size: clamp(0.875rem, 2vw, 1.125rem);
+		font-size: var(--type-body);
 		margin-block-end: var(--space-md);
+		line-height: var(--line-body);
 	}
 
 	.footer-menu-container {
@@ -492,7 +563,7 @@ footer {
 		.footer-menu,
 		a {
 			font-family: var(--font-mono);
-			font-size: 0.87rem;
+			font-size: var(--type-footer-mono);
 			letter-spacing: 0.02em;
 			text-transform: uppercase;
 		}
@@ -541,8 +612,8 @@ footer {
 	border: 1.5px solid #97B1F1;
 	border-radius: 9999px;
 	font-family: var(--font);
-	font-size: 0.85rem;
-	font-weight: 500;
+	font-size: var(--type-tag);
+	font-weight: var(--weight-tag);
 	letter-spacing: 0.01em;
 	white-space: nowrap;
 	transition: background-color 0.2s ease, color 0.2s ease;
@@ -582,11 +653,11 @@ footer {
 
 	footer {
 		h3 {
-			font-size: clamp(2rem, 6vw, 4rem);
+			font-size: var(--type-display-xl);
 		}
 
 		> p {
-			font-size: clamp(0.875rem, 2vw, 1.125rem);
+			font-size: var(--type-body);
 			padding-block-end: var(--space-md);
 		}
 

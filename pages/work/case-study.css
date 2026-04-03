@@ -92,13 +92,13 @@ main.aeri-page {
 		margin-block-start: clamp(0.85rem, 2vw, 1.1rem);
 		line-height: 1.55;
 		color: var(--color-text);
-		font-size: clamp(0.9rem, 1.45vw, 1.05rem);
+		font-size: var(--type-body-tight);
 	}
 
 	.aeri-problem-kicker,
 	.aeri-solution-kicker {
 		font-family: var(--font-mono);
-		font-size: 0.8rem;
+		font-size: var(--type-caption);
 		font-weight: 400;
 		line-height: 1.3;
 		letter-spacing: 0.02em;
@@ -111,7 +111,7 @@ main.aeri-page {
 	.aeri-problem h2,
 	.aeri-solution h2 {
 		font-family: var(--font);
-		font-size: clamp(1.75rem, 3.5vw, 2.5rem);
+		font-size: var(--type-heading-lg);
 		font-weight: 500;
 		line-height: 1.3;
 		letter-spacing: -0.01em;
@@ -143,7 +143,7 @@ main.aeri-page {
 
 	.aeri-approach-kicker {
 		font-family: var(--font-mono);
-		font-size: 0.8rem;
+		font-size: var(--type-caption);
 		font-weight: 400;
 		line-height: 1.3;
 		letter-spacing: 0.02em;
@@ -155,7 +155,7 @@ main.aeri-page {
 
 	.aeri-approach h2 {
 		font-family: var(--font);
-		font-size: clamp(1.75rem, 3.5vw, 2.5rem);
+		font-size: var(--type-heading-lg);
 		font-weight: 500;
 		line-height: 1.3;
 		letter-spacing: -0.01em;
@@ -177,7 +177,7 @@ main.aeri-page {
 	.aeri-problem-caption {
 		margin: 0;
 		padding: clamp(0.85rem, 2vw, 1.15rem) clamp(1.5rem, 4vw, 2.75rem) clamp(1.35rem, 4vw, 2.5rem);
-		font-size: clamp(0.8rem, 1.15vw, 0.98rem);
+		font-size: var(--type-caption-tight);
 		line-height: 1.35;
 		color: var(--color-subtle);
 		text-align: start;
@@ -194,7 +194,7 @@ main.aeri-page {
 	}
 
 	p {
-		font-size: clamp(0.9rem, 1.5vw, 1.1rem);
+		font-size: var(--type-body-tight);
 		color: var(--color-text);
 	}
 
@@ -217,14 +217,14 @@ main.aeri-page {
 
 		.aeri-kicker {
 			font-family: var(--font-mono);
-			font-size: 0.75rem;
+			font-size: var(--type-label);
 			letter-spacing: 0.02em;
 			opacity: 0.8;
 			color: var(--color-subtle);
 		}
 
 		h2 {
-			font-size: clamp(2rem, 6vw, 4.5rem);
+			font-size: var(--type-display-hero-alt);
 			line-height: 0.95;
 			margin-block: var(--space-sm);
 		}
@@ -298,12 +298,12 @@ main.aeri-page {
 
 		p {
 			color: #f6f8fc;
-			font-size: clamp(1.25rem, 3.2vw, 2rem);
+			font-size: var(--type-heading-md-wide);
 		}
 
 		.aeri-band-kicker {
 			font-family: var(--font-mono);
-			font-size: 0.8rem;
+			font-size: var(--type-caption);
 			font-weight: 400;
 			line-height: 1.3;
 			letter-spacing: 0.02em;
@@ -318,7 +318,7 @@ main.aeri-page {
 			max-inline-size: 70%;
 			line-height: 1.3;
 			font-weight: 500;
-			font-size: clamp(2.5rem, 6vw, 4rem);
+			font-size: var(--type-display-xl);
 			letter-spacing: -0.01em;
 			color: #f6f8fc;
 			font-family: var(--font);
@@ -348,12 +348,12 @@ main.aeri-page {
 
 		p {
 			color: #f6f8fc;
-			font-size: clamp(1.25rem, 3.2vw, 2rem);
+			font-size: var(--type-heading-md-wide);
 		}
 
 		.aeri-pitch-kicker {
 			font-family: var(--font-mono);
-			font-size: 0.8rem;
+			font-size: var(--type-caption);
 			font-weight: 400;
 			line-height: 1.3;
 			letter-spacing: 0.02em;
@@ -368,7 +368,7 @@ main.aeri-page {
 			max-inline-size: 70%;
 			line-height: 1.3;
 			font-weight: 500;
-			font-size: clamp(2.5rem, 6vw, 4rem);
+			font-size: var(--type-display-xl);
 			letter-spacing: -0.01em;
 			color: #f6f8fc;
 			font-family: var(--font);
@@ -403,7 +403,7 @@ main.aeri-page {
 
 		.aeri-impacts-kicker {
 			font-family: var(--font-mono);
-			font-size: 0.8rem;
+			font-size: var(--type-caption);
 			font-weight: 400;
 			line-height: 1.3;
 			letter-spacing: 0.02em;
@@ -418,14 +418,14 @@ main.aeri-page {
 			max-inline-size: 70%;
 			line-height: 1.3;
 			font-weight: 500;
-			font-size: clamp(2.5rem, 6vw, 4rem);
+			font-size: var(--type-display-xl);
 			letter-spacing: -0.01em;
 			color: #f6f8fc;
 			font-family: var(--font);
 		}
 
 		.aeri-impacts-subtitle {
-			font-size: clamp(0.95rem, 1.5vw, 1.15rem);
+			font-size: var(--type-body-support);
 			color: #b0b8c8;
 			margin-block-start: clamp(1rem, 2.5vw, 1.5rem);
 		}
@@ -444,7 +444,7 @@ main.aeri-page {
 
 	.aeri-market-research-kicker {
 		font-family: var(--font-mono);
-		font-size: 0.8rem;
+		font-size: var(--type-caption);
 		font-weight: 400;
 		line-height: 1.3;
 		letter-spacing: 0.02em;
@@ -456,7 +456,7 @@ main.aeri-page {
 
 	.aeri-market-research h2 {
 		font-family: var(--font);
-		font-size: clamp(1.75rem, 3.5vw, 2.5rem);
+		font-size: var(--type-heading-lg);
 		font-weight: 500;
 		line-height: 1.3;
 		letter-spacing: -0.01em;
@@ -470,7 +470,7 @@ main.aeri-page {
 		margin-block-start: clamp(0.85rem, 2vw, 1.1rem);
 		line-height: 1.55;
 		color: var(--color-text);
-		font-size: clamp(0.9rem, 1.45vw, 1.05rem);
+		font-size: var(--type-body-tight);
 	}
 
 	.aeri-competitor-research {
@@ -482,7 +482,7 @@ main.aeri-page {
 
 	.aeri-competitor-research-kicker {
 		font-family: var(--font-mono);
-		font-size: 0.8rem;
+		font-size: var(--type-caption);
 		font-weight: 400;
 		line-height: 1.3;
 		letter-spacing: 0.02em;
@@ -494,7 +494,7 @@ main.aeri-page {
 
 	.aeri-competitor-research h2 {
 		font-family: var(--font);
-		font-size: clamp(1.75rem, 3.5vw, 2.5rem);
+		font-size: var(--type-heading-lg);
 		font-weight: 500;
 		line-height: 1.3;
 		letter-spacing: -0.01em;
@@ -508,7 +508,7 @@ main.aeri-page {
 		margin-block-start: clamp(0.85rem, 2vw, 1.1rem);
 		line-height: 1.55;
 		color: var(--color-text);
-		font-size: clamp(0.9rem, 1.45vw, 1.05rem);
+		font-size: var(--type-body-tight);
 	}
 
 	.aeri-competitor-research-row {
@@ -540,7 +540,7 @@ main.aeri-page {
 
 	.aeri-context-kicker {
 		font-family: var(--font-mono);
-		font-size: 0.8rem;
+		font-size: var(--type-caption);
 		font-weight: 400;
 		line-height: 1.3;
 		letter-spacing: 0.02em;
@@ -552,7 +552,7 @@ main.aeri-page {
 
 	.aeri-context h2 {
 		font-family: var(--font);
-		font-size: clamp(1.75rem, 3.5vw, 2.5rem);
+		font-size: var(--type-heading-lg);
 		font-weight: 500;
 		line-height: 1.3;
 		letter-spacing: -0.01em;
@@ -567,7 +567,7 @@ main.aeri-page {
 		p {
 			margin-block: 0;
 			line-height: 1.55;
-			font-size: 1rem;
+			font-size: var(--type-body);
 		}
 
 		p + p {
@@ -599,7 +599,7 @@ main.aeri-page {
 
 		.aeri-insights-kicker {
 			font-family: var(--font-mono);
-			font-size: 0.8rem;
+			font-size: var(--type-caption);
 			font-weight: 400;
 			line-height: 1.3;
 			letter-spacing: 0.02em;
@@ -614,7 +614,7 @@ main.aeri-page {
 			max-inline-size: 70%;
 			line-height: 1.3;
 			font-weight: 500;
-			font-size: clamp(2.5rem, 6vw, 4rem);
+			font-size: var(--type-display-xl);
 			letter-spacing: -0.01em;
 			color: #f6f8fc;
 			font-family: var(--font);
@@ -799,7 +799,7 @@ main.aeri-overview-main {
 
 		/* Section headings for overview and design challenge */
 		h2 {
-			font-size: 0.8rem;
+			font-size: var(--type-caption);
 			font-weight: 400;
 			line-height: 1.3;
 			color: var(--color-subtle);
@@ -814,7 +814,7 @@ main.aeri-overview-main {
 
 		/* Metadata category labels */
 		h3 {
-			font-size: 0.8rem;
+			font-size: var(--type-caption);
 			font-weight: 400;
 			line-height: 1.3;
 			color: var(--color-subtle);
@@ -828,7 +828,7 @@ main.aeri-overview-main {
 		}
 
 		p {
-			font-size: clamp(0.8rem, 1.1vw, 0.95rem);
+			font-size: var(--type-caption-tight);
 			line-height: 1.5;
 			margin: 0;
 			margin-block-start: 0.25rem;
@@ -1082,7 +1082,7 @@ main.aeri-overview-main.aeri-page {
 	.aeri-iterations,
 	.aeri-video-block {
 		h2 {
-			font-size: clamp(1.75rem, 3.5vw, 2.5rem);
+			font-size: var(--type-heading-lg);
 			font-weight: 500;
 			line-height: 1.3;
 			letter-spacing: -0.01em;
@@ -1097,7 +1097,7 @@ main.aeri-overview-main.aeri-page {
 	}
 
 	.aeri-research-lede {
-		font-size: clamp(0.95rem, 1.4vw, 1.05rem);
+		font-size: var(--type-body-tight);
 		color: var(--color-subtle);
 		margin-block: 0 var(--space-md);
 	}
@@ -1146,7 +1146,7 @@ main.aeri-overview-main.aeri-page {
 
 	.aeri-features-kicker {
 		font-family: var(--font-mono);
-		font-size: 0.8rem;
+		font-size: var(--type-caption);
 		font-weight: 400;
 		line-height: 1.3;
 		letter-spacing: 0.02em;
@@ -1158,7 +1158,7 @@ main.aeri-overview-main.aeri-page {
 
 	.aeri-features h2 {
 		font-family: var(--font);
-		font-size: clamp(1.75rem, 3.5vw, 2.5rem);
+		font-size: var(--type-heading-lg);
 		font-weight: 500;
 		line-height: 1.3;
 		letter-spacing: -0.01em;
@@ -1192,7 +1192,7 @@ main.aeri-overview-main.aeri-page {
 		}
 
 		h3 {
-			font-size: clamp(1.25rem, 2.5vw, 1.75rem);
+			font-size: var(--type-heading-md);
 			font-weight: 500;
 			line-height: 1.3;
 			letter-spacing: -0.01em;
@@ -1210,7 +1210,7 @@ main.aeri-overview-main.aeri-page {
 		gap: var(--space-xs);
 
 		li {
-			font-size: 1rem;
+			font-size: var(--type-body);
 			line-height: 1.5;
 			margin: 0;
 			position: relative;
@@ -1226,7 +1226,7 @@ main.aeri-overview-main.aeri-page {
 
 	.aeri-iterations-kicker {
 		font-family: var(--font-mono);
-		font-size: 0.8rem;
+		font-size: var(--type-caption);
 		font-weight: 400;
 		line-height: 1.3;
 		letter-spacing: 0.02em;
@@ -1238,7 +1238,7 @@ main.aeri-overview-main.aeri-page {
 
 	.aeri-iterations h2 {
 		font-family: var(--font);
-		font-size: clamp(1.75rem, 3.5vw, 2.5rem);
+		font-size: var(--type-heading-lg);
 		font-weight: 500;
 		line-height: 1.3;
 		letter-spacing: -0.01em;
@@ -1279,7 +1279,7 @@ main.aeri-overview-main.aeri-page {
 		}
 
 		h3 {
-			font-size: clamp(1.25rem, 2.5vw, 1.75rem);
+			font-size: var(--type-heading-md);
 			font-weight: 500;
 			line-height: 1.3;
 			letter-spacing: -0.01em;
@@ -1297,7 +1297,7 @@ main.aeri-overview-main.aeri-page {
 		gap: var(--space-xs);
 
 		li {
-			font-size: 1rem;
+			font-size: var(--type-body);
 			line-height: 1.5;
 			margin: 0;
 			position: relative;
@@ -1382,7 +1382,7 @@ main.aeri-overview-main.aeri-page {
 
 	.aeri-reflection-kicker {
 		font-family: var(--font-mono);
-		font-size: 0.8rem;
+		font-size: var(--type-caption);
 		font-weight: 400;
 		line-height: 1.3;
 		letter-spacing: 0.02em;
@@ -1394,7 +1394,7 @@ main.aeri-overview-main.aeri-page {
 
 	.aeri-reflection h2 {
 		font-family: var(--font);
-		font-size: clamp(1.75rem, 3.5vw, 2.5rem);
+		font-size: var(--type-heading-lg);
 		font-weight: 500;
 		line-height: 1.3;
 		letter-spacing: -0.01em;
@@ -1411,7 +1411,7 @@ main.aeri-overview-main.aeri-page {
 
 	.aeri-takeaway {
 		h3 {
-			font-size: clamp(1.1rem, 2vw, 1.5rem);
+			font-size: var(--type-cta-title);
 			font-weight: 600;
 			line-height: 1.3;
 			letter-spacing: -0.01em;
@@ -1424,7 +1424,7 @@ main.aeri-overview-main.aeri-page {
 			margin: 0;
 			line-height: 1.55;
 			color: var(--color-text);
-			font-size: clamp(0.9rem, 1.45vw, 1.05rem);
+			font-size: var(--type-body-tight);
 		}
 	}
 
@@ -1437,7 +1437,7 @@ main.aeri-overview-main.aeri-page {
 
 	.aeri-next-steps-kicker {
 		font-family: var(--font-mono);
-		font-size: 0.8rem;
+		font-size: var(--type-caption);
 		font-weight: 400;
 		line-height: 1.3;
 		letter-spacing: 0.02em;
@@ -1449,7 +1449,7 @@ main.aeri-overview-main.aeri-page {
 
 	.aeri-next-steps h2 {
 		font-family: var(--font);
-		font-size: clamp(1.75rem, 3.5vw, 2.5rem);
+		font-size: var(--type-heading-lg);
 		font-weight: 500;
 		line-height: 1.3;
 		letter-spacing: -0.01em;
@@ -1473,7 +1473,7 @@ main.aeri-overview-main.aeri-page {
 			padding-left: 1.5rem;
 			line-height: 1.55;
 			color: var(--color-text);
-			font-size: clamp(0.9rem, 1.45vw, 1.05rem);
+			font-size: var(--type-body-tight);
 		}
 
 		li::before {
@@ -1576,7 +1576,7 @@ body.aeri-case .aeri-toc {
 
 body.aeri-case .aeri-toc-heading {
 	font-family: var(--font-mono);
-	font-size: 0.72rem;
+	font-size: var(--type-meta);
 	font-weight: 500;
 	letter-spacing: 0.08em;
 	text-transform: uppercase;
@@ -1612,7 +1612,7 @@ body.aeri-case .aeri-toc-list li {
 
 body.aeri-case .aeri-toc a {
 	font-family: var(--font-mono);
-	font-size: 0.72rem;
+	font-size: var(--type-meta);
 	font-weight: 500;
 	line-height: 1.25;
 	letter-spacing: 0.04em;
@@ -1701,7 +1701,7 @@ body.aeri-case .aeri-toc a:focus-visible {
 
 .aeri-left-nav-heading {
 	font-family: var(--font-mono);
-	font-size: 0.75rem;
+	font-size: var(--type-label);
 	font-weight: 500;
 	letter-spacing: 0.04em;
 	text-transform: uppercase;
@@ -1724,7 +1724,7 @@ body.aeri-case .aeri-toc a:focus-visible {
 
 .aeri-left-nav a {
 	font-family: var(--font-mono);
-	font-size: 0.8rem;
+	font-size: var(--type-caption);
 	font-weight: 400;
 	line-height: 1.4;
 	letter-spacing: 0.01em;
