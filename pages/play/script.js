@@ -1,6 +1,13 @@
 /* Play page — media from ../../Play/, pan/zoom canvas */
 
-const PLAY_BASE = '../../Play/';
+/** Resolve against current page URL so paths work on any host or subpath. */
+const PLAY_BASE = (() => {
+	try {
+		return new URL('../../Play/', window.location.href).href;
+	} catch {
+		return '../../Play/';
+	}
+})();
 
 /** All image and video files in the Play folder (paths relative to PLAY_BASE). */
 const PLAY_FILES = [

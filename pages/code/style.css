@@ -1,5 +1,10 @@
 /* ─── Code page — matches home project grid + shared type scale ─── */
 
+/* Extra air above the nav + hero (creative coding page only) */
+body.page-code header {
+	margin-block-start: clamp(2.25rem, 5.5vw, 4.5rem);
+}
+
 header h1 {
 	max-inline-size: 100%;
 }

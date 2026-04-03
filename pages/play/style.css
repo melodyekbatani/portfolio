@@ -18,11 +18,15 @@ body.play-page {
 	overflow: hidden;
 }
 
+/*
+ * Header must NOT use 100vh here: body is a column flex; a full-viewport header
+ * leaves the main canvas with 0 height, so images never appear.
+ */
 body.play-page header {
-	height: 100vh;
+	flex: 0 0 auto;
+	height: auto;
 	display: flex;
 	flex-direction: column;
-	flex-shrink: 0;
 	margin-block: 0;
 }
 
@@ -31,15 +35,17 @@ body.play-page header hgroup {
 	flex-direction: column;
 	justify-content: center;
 	align-items: center;
-	height: 100vh;
+	height: auto;
 	text-align: center;
 	max-inline-size: 90vw;
-	padding-block: clamp(3rem, 10vh, 6rem);
+	padding-block: clamp(1.5rem, 4vh, 2.75rem);
 	flex-shrink: 0;
 }
 
-/* Full-bleed stage; scroll in both axes when surface is larger than viewport */
+/* Canvas fills all space below the hero */
 body.play-page main.play-canvas {
+	flex: 1 1 auto;
+	min-height: 0;
 	margin-inline: calc(50% - 50vw);
 	inline-size: 100vw;
 	max-inline-size: none;
@@ -52,7 +58,7 @@ body.play-page main.play-canvas {
 	user-select: none;
 	-webkit-user-select: none;
 	width: 100vw;
-	height: 100vh;
+	height: auto;
 	display: flex;
 	align-items: center;
 	justify-content: center;
@@ -164,7 +170,7 @@ body.play-page .canvas-instructions kbd {
 	border-radius: 4px;
 	padding: 2px 6px;
 	font-family: var(--font-mono);
-	font-size: 0.8rem;
+	font-size: var(--type-caption);
 	white-space: nowrap;
 	display: inline-block;
 	margin: 0 4px;

@@ -190,7 +190,7 @@ main.about-main .about-career-list p {
 }
 
 main.about-main .about-career-list p span {
-	font-weight: 600;
+	font-weight: var(--font-weight-semibold);
 }
 
 main.about-main .about-highlights-section {

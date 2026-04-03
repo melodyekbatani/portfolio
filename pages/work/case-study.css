@@ -687,8 +687,6 @@ main.aeri-page {
 	}
 }
 
-}
-
 body.aeri-case {
 	/* One rhythm for all vertical gaps between case-study sections (main column + shell above TOC) */
 	--aeri-section-gap: var(--page-section-gap);
@@ -1527,6 +1525,8 @@ main.aeri-overview-main.aeri-page {
 			grid-template-columns: repeat(3, minmax(0, 1fr));
 		}
 	}
+}
+
 }
 
 /* ─── Aeri — project nav: fixed bar, mirrors header `nav` (common/style.css) ─── */
