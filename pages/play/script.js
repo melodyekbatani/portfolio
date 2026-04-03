@@ -58,13 +58,15 @@ function initPlayground() {
 	const grid = document.getElementById('playgroundGrid');
 	if (!grid) return;
 
-	const gridW = grid.offsetWidth;
-	const gridH = grid.offsetHeight;
+	const gridW = grid.clientWidth || window.innerWidth;
+	const gridH = grid.clientHeight || (window.innerHeight - 80);
+
+	const pad = 32;
 
 	PLAY_FILES.forEach((filename) => {
-		const size = Math.round(randomBetween(160, 300));
-		const x = Math.random() * Math.max(1, gridW - size);
-		const y = Math.random() * Math.max(1, gridH - size);
+		const size = Math.round(randomBetween(120, 200));
+		const x = pad + Math.random() * Math.max(1, gridW - size - pad * 2);
+		const y = pad + Math.random() * Math.max(1, gridH - size - pad * 2);
 		const rotation = randomBetween(-32, 32);
 
 		const itemEl = document.createElement('div');
@@ -131,12 +133,8 @@ function updateSurfaceTransform() {
 }
 
 function centerViewportOnCanvas() {
-	if (!canvas || !grid) return;
-	const rect = canvas.getBoundingClientRect();
-	const gw = grid.offsetWidth;
-	const gh = grid.offsetHeight;
-	panX = rect.width / 2 - (gw / 2) * zoomLevel;
-	panY = rect.height / 2 - (gh / 2) * zoomLevel;
+	panX = 0;
+	panY = 0;
 	updateSurfaceTransform();
 }
 
