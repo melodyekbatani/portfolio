@@ -1,5 +1,4 @@
-html.play-page,
-html.play-page body {
+html:has(body.play-page) {
 	height: 100%;
 	overflow: hidden;
 }
@@ -9,7 +8,9 @@ body.play-page {
 	--play-dot: color-mix(in srgb, var(--color-text) 16%, transparent);
 
 	margin: 0;
-	padding: 0;
+	/* Same inset as common/style.css `body` so the nav matches About/Work/etc. */
+	padding-inline: var(--space-sm);
+	padding-block: var(--space-sm);
 
 	background-color: var(--color-background);
 	background-image: radial-gradient(circle at 1px 1px, var(--play-dot) 1px, transparent 0);
@@ -19,108 +20,6 @@ body.play-page {
 	flex-direction: column;
 	height: 100vh;
 	overflow: hidden;
-}
-
-/* Nav only (no hgroup): top spacing matches other pages; tighter bottom gap before canvas (no hero) */
-body.play-page header {
-	flex: 0 0 auto;
-	margin-block-start: clamp(1rem, 2.5vw, 2.25rem);
-	margin-block-end: clamp(1.75rem, 4.5vw, 3.5rem);
-	margin-inline: auto;
-	max-inline-size: 1200px;
-	position: relative;
-	z-index: 1001;
-	padding-inline: var(--space-sm);
-}
-
-body.play-page header nav {
-	display: flex;
-	justify-content: space-between;
-	align-items: center;
-	gap: clamp(1.5rem, 4vw, 3rem);
-	padding-block: 0.5rem;
-	padding-inline: clamp(1.1rem, 3vw, 1.65rem);
-	background-color: var(--nav-bar-bg, var(--color-surface));
-	font-family: var(--font);
-	border-radius: var(--nav-pill-radius, 999px);
-	border: 1px solid var(--nav-bar-border, var(--color-border));
-	box-shadow: 0 1px 0 color-mix(in srgb, var(--color-text) 4%, transparent);
-	position: relative;
-	transform: scale(1);
-	opacity: 1;
-	z-index: 1000;
-	transition: inline-size 0.45s ease, padding 0.45s ease, border-radius 0.45s ease, transform 0.35s ease, opacity 0.35s ease;
-	margin-block-start: var(--space-md);
-	margin-block-end: var(--space-md);
-	margin-inline: auto;
-	width: min(calc(100% - (var(--space-sm) * 2)), 1200px);
-}
-
-body.play-page header nav a {
-	text-decoration: none;
-}
-
-body.play-page header nav .logo {
-	font-weight: 600;
-	z-index: 1001;
-	font-family: var(--font-mono);
-	font-size: var(--type-mono-size, 0.75rem);
-	letter-spacing: 0.08em;
-	text-transform: uppercase;
-	text-decoration: none;
-	color: var(--cursor-bg, #97b1f1);
-	display: flex;
-	align-items: center;
-	flex-shrink: 0;
-}
-
-body.play-page header nav #menu-toggle {
-	display: none;
-	background: none;
-	border: none;
-	color: var(--nav-link-color, var(--color-text));
-	cursor: pointer;
-	padding: 0;
-	font-size: 1.5rem;
-	z-index: 1001;
-	transition: opacity 0.2s ease;
-}
-
-body.play-page header nav .menu {
-	display: flex;
-	list-style: none;
-	gap: clamp(0.75rem, 2vw, 1.5rem);
-	margin: 0;
-	padding: 0;
-	align-items: center;
-}
-
-body.play-page header nav .menu li a {
-	color: var(--nav-link-color, var(--color-text));
-	font-size: var(--type-body-sm, 0.875rem);
-	text-decoration: none;
-	transition: opacity 0.2s ease;
-}
-
-body.play-page header nav .menu li a:hover {
-	opacity: 0.6;
-}
-
-body.play-page header nav #theme-switch {
-	background: none;
-	border: none;
-	color: var(--nav-link-color, var(--color-text));
-	cursor: pointer;
-	padding: 0;
-	font-size: 1rem;
-	z-index: 1001;
-	transition: opacity 0.2s ease;
-	display: flex;
-	align-items: center;
-}
-
-body.play-page header nav #theme-switch:hover {
-	opacity: 0.6;
 }
 
 /* Canvas fills space below the nav */
