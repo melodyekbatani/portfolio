@@ -24,8 +24,14 @@ body.play-page {
 }
 
 /* Nav only (no hgroup): top spacing matches other pages; tighter bottom gap before canvas (no hero) */
+/*
+ * In a flex-column body, margin-inline:auto collapses the header to its content width.
+ * Setting an explicit inline-size restores the same max-width centering as block pages.
+ */
 body.play-page header {
 	flex: 0 0 auto;
+	inline-size: min(100%, 1200px);
+	margin-inline: auto;
 	margin-block-end: var(--space-sm);
 }
 
