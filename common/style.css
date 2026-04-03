@@ -108,6 +108,7 @@
 	--space-lg: 8rem;
 	--max-width: 56rem;
 	--radius: 1rem;
+	--nav-pill-radius: 100px;
 	--border-width: 0.05rem;
 
 	/* Custom cursor (see nested #custom-cursor rules) */
@@ -127,9 +128,13 @@
 	--color-surface: #0f1420;
 	--color-subtle: #888896;
 	--color-links: #999999;
-	--cursor-bg: #97B1F1;
-	--cursor-bg-hover: #97B1F1;
+	--cursor-bg: #97b1f1;
+	--cursor-bg-hover: #97b1f1;
 	--cursor-arrow-color: #ffffff;
+	/* Pill nav bar (matches dark reference) */
+	--nav-bar-bg: #12141d;
+	--nav-bar-border: color-mix(in srgb, #97b1f1 16%, #2d2d3d);
+	--nav-link-color: #d4d4dc;
 }
 
 [data-theme="light"] {
@@ -139,9 +144,12 @@
 	--color-surface: #f6f6f6;
 	--color-subtle: #888888;
 	--color-links: #555555;
-	--cursor-bg: #97B1F1;
-	--cursor-bg-hover: #97B1F1;
+	--cursor-bg: #97b1f1;
+	--cursor-bg-hover: #97b1f1;
 	--cursor-arrow-color: #ffffff;
+	--nav-bar-bg: #ffffff;
+	--nav-bar-border: #e5e5ea;
+	--nav-link-color: #555555;
 }
 
 /* ─── Reset & Global Styles ─── */
@@ -290,12 +298,14 @@ header {
 		display: flex;
 		justify-content: space-between;
 		align-items: center;
-		padding-block: var(--space-sm);
-		padding-inline: var(--space-md);
-		background-color: var(--color-surface);
+		gap: clamp(1.5rem, 4vw, 3rem);
+		padding-block: 0.5rem;
+		padding-inline: clamp(1.1rem, 3vw, 1.65rem);
+		background-color: var(--nav-bar-bg, var(--color-surface));
 		font-family: var(--font);
-		border-radius: var(--radius);
-		border: var(--border-width) solid var(--color-border);
+		border-radius: var(--nav-pill-radius);
+		border: 1px solid var(--nav-bar-border, var(--color-border));
+		box-shadow: 0 1px 0 color-mix(in srgb, var(--color-text) 4%, transparent);
 		position: sticky;
 		top: var(--space-md);
 		left: 0;
@@ -314,12 +324,14 @@ header {
 		}
 
 		.logo {
-			font-weight: 500;
+			font-weight: 600;
 			z-index: 1001;
 			font-family: var(--font-mono);
+			font-size: var(--type-mono-size);
+			letter-spacing: 0.08em;
 			text-transform: uppercase;
 			text-decoration: none;
-			color: #97B1F1;
+			color: var(--cursor-bg, #97b1f1);
 			display: flex;
 			align-items: center;
 			flex-shrink: 0;
@@ -329,7 +341,7 @@ header {
 			display: none;
 			background: none;
 			border: none;
-			color: var(--color-text);
+			color: var(--nav-link-color, var(--color-text));
 			cursor: pointer;
 			padding: 0;
 			font-size: 1.5rem;
@@ -347,7 +359,7 @@ header {
 			flex-wrap: wrap;
 			justify-content: flex-end;
 			align-items: center;
-			gap: var(--space-md);
+			gap: clamp(0.85rem, 2vw, 1.35rem);
 			row-gap: var(--space-sm);
 			list-style: none;
 			flex: 1 1 auto;
@@ -361,14 +373,15 @@ header {
 					transition: opacity 0.2s ease, color 0.2s ease;
 					font-family: var(--font-mono);
 					font-size: var(--type-mono-size);
-					letter-spacing: 0.02em;
+					font-weight: 400;
+					letter-spacing: 0.06em;
 					text-transform: uppercase;
 					text-decoration: none;
-					color: var(--color-links);
+					color: var(--nav-link-color, var(--color-links));
 
 					@media (hover: hover) and (pointer: fine) {
 						&:hover {
-							color: #97B1F1;
+							color: var(--cursor-bg, #97b1f1);
 						}
 					}
 
@@ -384,7 +397,7 @@ header {
 		#theme-switch {
 			background: none;
 			border: none;
-			color: var(--color-text);
+			color: var(--nav-link-color, var(--color-text));
 			cursor: pointer;
 			padding: 0;
 			border-radius: var(--radius);
@@ -393,15 +406,16 @@ header {
 			display: inline-flex;
 			align-items: center;
 			justify-content: center;
-			transition: opacity 0.2s ease;
+			transition: opacity 0.2s ease, color 0.2s ease;
 			font-family: inherit;
 
 			svg {
-				fill: var(--color-text);
+				fill: currentColor;
 			}
 
 			&:hover {
 				opacity: 0.7;
+				color: var(--cursor-bg, #97b1f1);
 			}
 		}
 	}
@@ -414,12 +428,14 @@ header {
 		right: 0;
 		transform: scale(0.97);
 		opacity: 0.96;
-		padding-block: var(--space-sm);
-		padding-inline: var(--space-md);
+		padding-block: 0.45rem;
+		padding-inline: clamp(1rem, 2.5vw, 1.5rem);
 		margin-inline: auto;
 		margin-block: 0;
-		border-radius: var(--radius);
-		border: var(--border-width) solid var(--color-border);
+		border-radius: var(--nav-pill-radius);
+		border: 1px solid var(--nav-bar-border, var(--color-border));
+		background-color: var(--nav-bar-bg, var(--color-surface));
+		box-shadow: 0 1px 0 color-mix(in srgb, var(--color-text) 4%, transparent);
 		inline-size: min(calc(100% - (var(--space-md) * 2)), calc(var(--max-width) - 8rem));
 
 		.logo {
@@ -448,10 +464,10 @@ header {
 				right: 0;
 				flex-direction: column;
 				gap: 0;
-				background-color: var(--color-surface);
-				border: var(--border-width) solid var(--color-border);
+				background-color: var(--nav-bar-bg, var(--color-surface));
+				border: 1px solid var(--nav-bar-border, var(--color-border));
 				border-top: none;
-				border-radius: 0 0 var(--radius) var(--radius);
+				border-radius: 0 0 min(1.25rem, var(--nav-pill-radius)) min(1.25rem, var(--nav-pill-radius));
 				padding: var(--space-md);
 				margin-top: var(--space-sm);
 				display: none;

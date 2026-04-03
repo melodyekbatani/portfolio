@@ -8,6 +8,11 @@ body.play-page {
 	--play-dot-size: 20px;
 	--play-dot: color-mix(in srgb, var(--color-text) 16%, transparent);
 
+	/* Match global body inset so the nav bar lines up with other pages */
+	margin: 0;
+	padding-inline: var(--space-sm);
+	padding-block: var(--space-sm);
+
 	background-color: var(--color-background);
 	background-image: radial-gradient(circle at 1px 1px, var(--play-dot) 1px, transparent 0);
 	background-size: var(--play-dot-size) var(--play-dot-size);
@@ -18,34 +23,34 @@ body.play-page {
 	overflow: hidden;
 }
 
-/*
- * Header must NOT use 100vh here: body is a column flex; a full-viewport header
- * leaves the main canvas with 0 height, so images never appear.
- */
+/* Nav only (no hgroup): top spacing matches other pages; tighter bottom gap before canvas (no hero) */
 body.play-page header {
 	flex: 0 0 auto;
-	height: auto;
-	display: flex;
-	flex-direction: column;
-	margin-block: 0;
+	margin-block-end: var(--space-sm);
 }
 
-body.play-page header hgroup {
-	display: flex;
-	flex-direction: column;
-	justify-content: center;
-	align-items: center;
-	height: auto;
-	text-align: center;
-	max-inline-size: 90vw;
-	padding-block: clamp(1.5rem, 4vh, 2.75rem);
-	flex-shrink: 0;
+/*
+ * Canvas panning can move the document slightly; theme.js may add .scrolled.
+ * Keep the bar identical to the default sticky nav everywhere else.
+ */
+body.play-page header nav.scrolled {
+	position: sticky;
+	top: var(--space-md);
+	left: auto;
+	right: auto;
+	transform: none;
+	opacity: 1;
+	margin-block-start: var(--space-md);
+	margin-block-end: var(--space-md);
+	margin-inline: auto;
+	inline-size: min(calc(100% - (var(--space-sm) * 2)), 1200px);
 }
 
-/* Canvas fills all space below the hero */
+/* Canvas fills space below the nav */
 body.play-page main.play-canvas {
 	flex: 1 1 auto;
 	min-height: 0;
+	min-block-size: 100%;
 	margin-inline: calc(50% - 50vw);
 	inline-size: 100vw;
 	max-inline-size: none;
@@ -133,47 +138,6 @@ body.play-page .playground-caption {
 
 body.play-page .playground-item:hover .playground-caption {
 	opacity: 1;
-}
-
-body.play-page header h1 {
-	max-inline-size: 100%;
-	text-align: center;
-}
-
-body.play-page header hgroup p {
-	text-align: center;
-}
-
-body.play-page header hgroup .subtitle {
-	text-align: center;
-}
-
-/* Canvas interaction instructions */
-body.play-page .canvas-instructions {
-	font-size: var(--type-caption);
-	opacity: 0.7;
-	position: absolute;
-	bottom: var(--space-md);
-	left: 50%;
-	transform: translateX(-50%);
-	background-color: var(--color-surface);
-	border: 1px solid var(--color-border);
-	border-radius: var(--radius);
-	padding: var(--space-sm) var(--space-md);
-	z-index: 1000;
-	pointer-events: none;
-}
-
-body.play-page .canvas-instructions kbd {
-	background-color: transparent;
-	border: 1px solid var(--color-border);
-	border-radius: 4px;
-	padding: 2px 6px;
-	font-family: var(--font-mono);
-	font-size: var(--type-caption);
-	white-space: nowrap;
-	display: inline-block;
-	margin: 0 4px;
 }
 
 /* ─── Custom Cursor Blob ─── */
