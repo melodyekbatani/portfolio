@@ -77,12 +77,26 @@ if (themeSwitch) {
 	})
 }
 
-// Sticky nav scroll state
+// Sticky nav scroll state (default pill in common/style.css → compact “scrolled” bar below threshold)
 const headerNav = document.querySelector('header nav')
 const scrollThreshold = 50
+const playPage = document.body.classList.contains('play-page')
+
+const syncNavScrolled = () => {
+	if (!headerNav) return
+	// Play: always expanded nav (no scroll-compact bar).
+	if (playPage) {
+		headerNav.classList.remove('scrolled')
+		return
+	}
+	headerNav.classList.toggle('scrolled', window.scrollY > scrollThreshold)
+}
+
+syncNavScrolled()
 
 if (headerNav) {
-	window.addEventListener('scroll', () => {
-		headerNav.classList.toggle('scrolled', window.scrollY > scrollThreshold)
-	})
+	window.addEventListener('scroll', syncNavScrolled, { passive: true })
+	if (playPage) {
+		window.addEventListener('resize', syncNavScrolled, { passive: true })
+	}
 }

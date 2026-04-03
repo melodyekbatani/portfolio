@@ -162,10 +162,12 @@
 
 html {
 	scroll-behavior: smooth;
+	scrollbar-gutter: stable;
 }
 
 body {
 	inline-size: 100%;
+	/* Horizontal gutter sets the nav pill inset (header nav inline-size in nested rules below). */
 	padding-inline: var(--space-sm);
 	padding-block: var(--space-sm);
 	background-color: var(--color-background);
@@ -287,6 +289,7 @@ main.page-shell {
 }
 
 /* ─── Header & Navigation ─── */
+/* Site nav: single definition used on every page (Home, Work, Code, Play, About). */
 
 header {
 	margin-block-start: clamp(1rem, 2.5vw, 2.25rem);
@@ -298,6 +301,7 @@ header {
 		display: flex;
 		justify-content: space-between;
 		align-items: center;
+		flex-wrap: nowrap;
 		gap: clamp(1.5rem, 4vw, 3rem);
 		padding-block: 0.5rem;
 		padding-inline: clamp(1.1rem, 3vw, 1.65rem);
@@ -356,11 +360,11 @@ header {
 		.menu {
 			display: flex;
 			flex-direction: row;
-			flex-wrap: wrap;
+			/* One row keeps logo, links, and theme control vertically aligned on all pages. */
+			flex-wrap: nowrap;
 			justify-content: flex-end;
 			align-items: center;
 			gap: clamp(0.85rem, 2vw, 1.35rem);
-			row-gap: var(--space-sm);
 			list-style: none;
 			flex: 1 1 auto;
 			min-width: 0;
@@ -406,11 +410,14 @@ header {
 			display: inline-flex;
 			align-items: center;
 			justify-content: center;
+			line-height: 0;
+			flex-shrink: 0;
 			transition: opacity 0.2s ease, color 0.2s ease;
 			font-family: inherit;
 
 			svg {
 				fill: currentColor;
+				display: block;
 			}
 
 			&:hover {
@@ -420,7 +427,7 @@ header {
 		}
 	}
 
-	/* Scrolled state - makes nav smaller */
+	/* Scrolled state — compact fixed bar (Play page keeps default nav via theme.js). */
 	nav.scrolled {
 		position: fixed;
 		top: var(--space-md);
@@ -446,6 +453,26 @@ header {
 		.menu li a {
 			font-size: var(--type-mono-size);
 		}
+	}
+
+	/*
+	 * Play: non-scrolling page — always use the expanded default pill (never the compact scroll/shrunk bar).
+	 * `:is(nav, nav.scrolled)` keeps appearance identical even if `.scrolled` is toggled elsewhere.
+	 */
+	body.play-page & :is(nav, nav.scrolled) {
+		position: relative;
+		top: auto;
+		left: auto;
+		right: auto;
+		transform: none;
+		opacity: 1;
+		padding-block: 0.5rem;
+		padding-inline: clamp(1.1rem, 3vw, 1.65rem);
+		margin-inline: auto;
+		margin-block-start: var(--space-md);
+		margin-block-end: var(--space-md);
+		inline-size: min(calc(100% - (var(--space-sm) * 2)), 1200px);
+		box-shadow: 0 1px 0 color-mix(in srgb, var(--color-text) 4%, transparent);
 	}
 
 	/* Mobile menu */
