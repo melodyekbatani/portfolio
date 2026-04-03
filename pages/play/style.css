@@ -22,6 +22,15 @@ body.play-page {
 	overflow: hidden;
 }
 
+/*
+ * In a flex-column body, margin-inline:auto collapses the header to its content width.
+ * Setting an explicit inline-size restores the same max-width centering as block pages.
+ */
+body.play-page header {
+	inline-size: min(100%, 1200px);
+	margin-inline: auto;
+}
+
 /* Canvas fills space below the nav */
 body.play-page main.play-canvas {
 	flex: 1 1 auto;
